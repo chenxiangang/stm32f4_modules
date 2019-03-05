@@ -1,13 +1,7 @@
-/*
- * @Author: QianXu
- * @LastEditors: QianXu
- * @Description: NONE
- * @Date: 2019-03-04 23:35:00
- * @LastEditTime: 2019-03-05 13:21:36
- */
 #include "pwm.h"
-int CCR=250;  //比较值
-int deadtime=0; //死区
+
+int CCR=250;
+int deadtime=0;
 /**************************
 函数名：pwm_int
 功能：初始化互补pwm波
