@@ -40,7 +40,7 @@ void Encoder_TIM4_Init(void)
 	//时钟分割
 	TIM_TimeBaseInitStructure.TIM_ClockDivision=TIM_CKD_DIV1;
   //初始化时基
-	TIM_TimeBaseInit(TIM2,&TIM_TimeBaseInitStructure);
+	TIM_TimeBaseInit(TIM4,&TIM_TimeBaseInitStructure);
 	
 	//TIM4,双计数，编码器模式接口
 	 TIM_EncoderInterfaceConfig(TIM4,TIM_EncoderMode_TI12,TIM_ICPolarity_BothEdge,TIM_ICPolarity_BothEdge);

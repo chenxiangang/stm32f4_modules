@@ -1,7 +1,7 @@
 ﻿# module
 stm32F4的各种模块的驱动，还有一些通信协议等
 
-## 目前以包含的驱动或模块
+## 目前已包含的驱动或模块
 - [BTN7971](https://github.com/while0l1/stm32f4_modules/tree/master/%E6%A8%A1%E5%9D%97/BTN7971)
 - [DMA](https://github.com/while0l1/stm32f4_modules/tree/master/%E6%A8%A1%E5%9D%97/DMA)
 - [ENCODER](https://github.com/while0l1/stm32f4_modules/tree/master/%E6%A8%A1%E5%9D%97/ENCODER)

@@ -60,13 +60,7 @@ void TIM2_IRQHandler(void) //TIM2中断
     if (TIM_GetITStatus(TIM2, TIM_IT_Update) != RESET) //检查指定的TIM中断发生与否:TIM 中断源
     {
 			Angle_Cal();
-			if(pid2.SetPoint < 20 || pid2.SetPoint > -20)
-				pid2.SetPoint = -Angle * 0.5;
-			if(pid2.SetPoint >20  &&pid2.SetPoint <40  || pid2.SetPoint <-20 && pid2.SetPoint > -40)
-				pid2.SetPoint = -Angle * 0.6;
-			if(Angle > 40 || Angle < -40)
-				pid2.SetPoint = -Angle * 0.7;
-		
+
 			pwmduty = PIDCalc(&pid2,-roll);
 		
 		  if(pwmduty > 0)
