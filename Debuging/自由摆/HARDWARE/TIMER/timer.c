@@ -46,7 +46,7 @@ void TIM2_Int_Init(u16 arr, u16 psc)
     TIM_TimeBaseInit(TIM2, &TIM_TimeBaseStructure); //根据TIM_TimeBaseInitStruct中指定的参数初始化TIMx的时间基数单位
 
     TIM_ITConfig(TIM2, TIM_IT_Update, ENABLE);
-    NVIC_InitStructure.NVIC_IRQChannel = TIM2_IRQn; //TIM3中断
+    NVIC_InitStructure.NVIC_IRQChannel = TIM2_IRQn; //TIM2中断
     NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0; //先占优先级0级
     NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0; //从优先级3级
     NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE; //IRQ通道被使能
