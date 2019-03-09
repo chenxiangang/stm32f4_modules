@@ -2,10 +2,12 @@
 #include "delay.h"
 #include "sys.h"
 /******************************
-使用时首先调用SSI_Init()初始化
-然后调用get_SSI()可以获取到当前编码器的值
-也可以直接调用Angle_Cal()直接获取当前计算好的角度值
-（调用Angle_Cal()后，直接读取SSI_Angle就行，所以要引用外部变量）
+*描述：16384线绝对编码器
+*硬件版本：Dragon2016
+*修改时间：2017/1/9
+*描述：绝对值编码器初始化
+*来源：code by dragon
+*修改人：hao
 *******************************/
 
 //角度编码器相关
@@ -13,6 +15,7 @@ float CodeToA = 360.0 / 16384; //将编码转换为角度
 u16 bottom = 9550;
 u16 top = 1358;
 
+double Angle;
 u16 SSI_LOC = 0; //全局变量编码器位置
 
 void SSI_init() //IO模拟初始化
@@ -72,7 +75,6 @@ void get_SSI()
 
 void Angle_Cal()
 {
-    double Angle;
     int i;
     u32 SSI_LOC_Temp = 0;
     Angle = 0;

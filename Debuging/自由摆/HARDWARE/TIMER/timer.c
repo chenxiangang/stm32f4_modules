@@ -1,19 +1,19 @@
 /*------------------------
  用TIM2中断来执行控制操作
  需要初始化TIM2_Int_Init(arr,psc);
- 把控制内容放到中断函数TIM2_IRQHandler里面去
+ 把控制内容放到中断函数里面去
 ------------------------*/
 #include "timer.h"
 
 //-------------------添加需要的头文件---------------
-#include "JY901_uart.h"
-#include "SSI4096.h"
-#include "btn7971.h"
 #include "control.h"
-#include "delay.h"
 #include "led.h"
-#include "pid.h"
 #include "usart.h"
+#include "SSI4096.h"
+#include "delay.h"
+#include "JY901_uart.h"
+#include "btn7971.h"
+#include "pid.h"
 //-------------------------------------------------
 
 //------------------引用的外部变量-----------------
@@ -25,11 +25,12 @@ extern int last_speed;
 extern double pwmduty;
 extern u16 realpwmduty;
 extern double dutychange2;
-extern double rout;
+extern double    rout;
 extern u16 uccr1;
 extern u16 nccr1;
 extern PID sPID;
 //--------------------------------------------------
+
 
 void TIM2_Int_Init(u16 arr, u16 psc)
 {
@@ -58,21 +59,26 @@ void TIM2_IRQHandler(void) //TIM2中断
 {
     if (TIM_GetITStatus(TIM2, TIM_IT_Update) != RESET) //检查指定的TIM中断发生与否:TIM 中断源
     {
-        Angle_Cal();
-
-        //		if(pid2.SetPoint < 20 || pid2.SetPoint > -20)
-        //			pid2.SetPoint = -Angle * 0.6 - 5;
-        //		if(pid2.SetPoint >20  &&pid2.SetPoint <40  || pid2.SetPoint <-20 && pid2.SetPoint > -40)
-        //			pid2.SetPoint = -Angle * 0.7 - 5;
-        //		if(Angle > 40 || Angle < -40)
-        //			pid2.SetPoint = -Angle * 0.75 - 5;
-
-        pwmduty = PIDCalc(&pid2, -roll);
-
-        if (pwmduty > 0)
-            contrl_speed(pwmduty + 80, 1); //100为死区
-        else if (pwmduty < 0)
-            contrl_speed(pwmduty - 80, 1); //100为死区
+			printf("1");
+//			Angle_Cal();
+			
+			Angle_Cal();
+			
+//		if(pid2.SetPoint < 20 || pid2.SetPoint > -20)
+//			pid2.SetPoint = -Angle * 0.6 - 5;
+//		if(pid2.SetPoint >20  &&pid2.SetPoint <40  || pid2.SetPoint <-20 && pid2.SetPoint > -40)
+//			pid2.SetPoint = -Angle * 0.7 - 5;
+//		if(Angle > 40 || Angle < -40)
+//			pid2.SetPoint = -Angle * 0.75 - 5;
+		
+			pwmduty = PIDCalc(&pid2,-roll);
+		
+		  if(pwmduty > 0)
+				contrl_speed(pwmduty + 80,1);   //100为死区
+			else if (pwmduty < 0)
+				contrl_speed(pwmduty - 80,1);   //100为死区
+			
     }
     TIM_ClearITPendingBit(TIM2, TIM_IT_Update);
 }
+
