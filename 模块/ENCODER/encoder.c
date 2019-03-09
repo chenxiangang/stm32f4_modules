@@ -14,7 +14,7 @@ void Encoder_TIM4_Init(Encoder_Structure* Encoder_InitStructure)
 	NVIC_InitTypeDef NVIC_InitStructure;
 	//定时器输入结构体
   TIM_ICInitTypeDef TIM_ICInitStructure;
-	//开启TIM2时钟
+	//开启TIM4时钟
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM4,ENABLE); 
 	//GPIOD
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD,ENABLE);
@@ -40,7 +40,7 @@ void Encoder_TIM4_Init(Encoder_Structure* Encoder_InitStructure)
 	//时钟分割
 	TIM_TimeBaseInitStructure.TIM_ClockDivision=TIM_CKD_DIV1;
   //初始化时基
-	TIM_TimeBaseInit(TIM2,&TIM_TimeBaseInitStructure);
+	TIM_TimeBaseInit(TIM4,&TIM_TimeBaseInitStructure);
 	
 	//TIM4,双计数，编码器模式接口
 	 TIM_EncoderInterfaceConfig(TIM4,TIM_EncoderMode_TI12,TIM_ICPolarity_BothEdge,TIM_ICPolarity_BothEdge);

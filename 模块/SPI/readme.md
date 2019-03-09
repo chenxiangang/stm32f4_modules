@@ -3,7 +3,7 @@
  * @LastEditors: QianXu
  * @Description: NONE
  * @Date: 2019-03-06 20:43:27
- * @LastEditTime: 2019-03-06 21:13:58
+ * @LastEditTime: 2019-03-06 22:38:33
  -->
 
 ## HOW TO USE
@@ -39,4 +39,4 @@
 - CPOL=1，CPHA=1：此时空闲态时，SCLK处于高电平，数据发送是在第1个边沿，也就是SCLK由高电平到低电平的跳变，所以数据采集是在上升沿。
 
 
-![](spi.png)
+![](SPI.png)
