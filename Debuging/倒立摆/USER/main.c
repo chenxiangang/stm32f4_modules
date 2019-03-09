@@ -6,9 +6,9 @@
  * @LastEditTime: 2019-03-09 12:54:24
  */
 /*
-*°ÑËùÓÐ¶«Î÷¶¼·ÅTIM2ÖÐ¶ÏÀïÃæ£¬×¢ÒâÖÐ¶ÏÊ±¼ä²»ÄÜÌ«³¤£¬×îºÃ10msÒÔÄÚ
-*pid.cÀïÃæÓÐÈý¸öº¯Êý£¬·Ö±ðÊÇ²»Í¬Ëã·¨µÄ£¬ÓÃÁËÒ»¸ösinº¯ÊýÀ´½â¾ö´óPÐ¡PµÄÎÊÌâ
-*±àÂëÆ÷µ¹Á¢Ê±ºÍÏÂ´¹Ê±µÄ±àÂëÖµÔÚSSI4096.c¿ªÍ·ÄÇÀïÉèÖÃ¾ÍÐÐÁË
+*ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½TIM2ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½æ£¬×¢ï¿½ï¿½ï¿½Ð¶ï¿½Ê±ï¿½ä²»ï¿½ï¿½Ì«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½10msï¿½ï¿½ï¿½ï¿½
+*pid.cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½Ç²ï¿½Í¬ï¿½ã·¨ï¿½Ä£ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½sinï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½PÐ¡Pï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Â´ï¿½Ê±ï¿½Ä±ï¿½ï¿½ï¿½Öµï¿½ï¿½SSI4096.cï¿½ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¾ï¿½ï¿½ï¿½ï¿½ï¿½
 */
 //#include "FreeCars_uart.h"
 #include "control.h"
@@ -23,10 +23,10 @@
 #include "usart.h"
 #include "SSI4096.h"
 
-float Balance_KP = 7, Balance_KD = 20, Position_KP = 0.5, Position_KD = 50; // PIDÏµÊý
-int top_voltage = 1998, Position_Zero = 15000;								//µçÎ»Æ÷Ä¿±êÖµ  Î»ÖÃÄ¿±êÖµ
+float Balance_KP = 7, Balance_KD = 20, Position_KP = 0.5, Position_KD = 50; // PIDÏµï¿½ï¿½
+int top_voltage = 1998, Position_Zero = 15000;								//ï¿½ï¿½Î»ï¿½ï¿½Ä¿ï¿½ï¿½Öµ  Î»ï¿½ï¿½Ä¿ï¿½ï¿½Öµ
 
-int speed;
+int speed; 
 u16 pwmduty;
 u16 MaxPWM = 720;
 u16 Static_Pwmduty;
@@ -36,10 +36,10 @@ PID sPID;
 PID pPID;
 
 extern int Error;
-extern double cal_duty; //pid¼ÆËãµÃµ½µÄÖµ
+extern double cal_duty; //pidï¿½ï¿½ï¿½ï¿½Ãµï¿½ï¿½ï¿½Öµ
 extern double Angle;
 
-int ActionFlag = 2; //1±íÊ¾¿ÉÒÔ¿ªÊ¼½øÐÐ×ªÈ¦£¬2±íÊ¾¿ÉÒÔ¿ªÊ¼½øÐÐµ¹Á¢
+int ActionFlag = 2; //1ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½Ô¿ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½×ªÈ¦ï¿½ï¿½2ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½Ô¿ï¿½Ê¼ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½
 
 int main(void)
 {
@@ -51,38 +51,38 @@ int main(void)
 	sPID.SumError = 0;
 	sPID.LastError = 0;
 	sPID.LastError0 = 0;
-	sPID.SetPoint = 181.9; // ½Ç¶ÈÄ¿±êÖµ
+	sPID.SetPoint = 181.9; // ï¿½Ç¶ï¿½Ä¿ï¿½ï¿½Öµ
 
 	pPID.PrevError = 0;
 	pPID.SumError = 0;
 	pPID.LastError = 0;
 	pPID.LastError0 = 0;
-	pPID.SetPoint = 0; // ½Ç¶ÈËÙ¶ÈÖµ
+	pPID.SetPoint = 0; // ï¿½Ç¶ï¿½ï¿½Ù¶ï¿½Öµ
 
-	//Î»ÖÃÊ½½Ç¶Èpid²ÎÊý
+	//Î»ï¿½ï¿½Ê½ï¿½Ç¶ï¿½pidï¿½ï¿½ï¿½ï¿½
 	sPID.Proportion = 100;
 	sPID.Integral = 0.04;
 	sPID.Derivative = 170;
 
-	//Î»ÖÃÊ½Î»ÖÃpid²ÎÊý
+	//Î»ï¿½ï¿½Ê½Î»ï¿½ï¿½pidï¿½ï¿½ï¿½ï¿½
 	pPID.Proportion = 0.0;
 	pPID.Integral = 0.00;
 	pPID.Derivative = 0.0;
 
-	//ÔöÁ¿Ê½pid²ÎÊý
+	//ï¿½ï¿½ï¿½ï¿½Ê½pidï¿½ï¿½ï¿½ï¿½
 	//		sPID.Proportion = 100;
 	//		sPID.Integral = 0.0;
 	//		sPID.Derivative = 6;
 
-	delay_init(168);								//ÑÓÊ±º¯Êý³õÊ¼»¯
-	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2); //ÉèÖÃNVICÖÐ¶Ï·Ö×é2:2Î»ÇÀÕ¼ÓÅÏÈ¼¶£¬2Î»ÏìÓ¦ÓÅÏÈ¼¶
-	uart_init(115200);								//´®¿Ú³õÊ¼»¯Îª115200
-	LED_Init();										// LED¶Ë¿Ú³õÊ¼»¯
-	TIM3_PWM_Init(1799, 3);						//84MHz  84000000/(2000)/(4)	//²»·ÖÆµ¡£PWMÆµÂÊ=72000000/900/5=16Khz
+	delay_init(168);								//ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½
+	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2); //ï¿½ï¿½ï¿½ï¿½NVICï¿½Ð¶Ï·ï¿½ï¿½ï¿½2:2Î»ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½È¼ï¿½ï¿½ï¿½2Î»ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½È¼ï¿½
+	uart_init(115200);								//ï¿½ï¿½ï¿½Ú³ï¿½Ê¼ï¿½ï¿½Îª115200
+	LED_Init();										// LEDï¿½Ë¿Ú³ï¿½Ê¼ï¿½ï¿½
+	TIM3_PWM_Init(1799, 3);						//84MHz  84000000/(2000)/(4)	//ï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½PWMÆµï¿½ï¿½=72000000/900/5=16Khz
 	TIM2_Int_Init(20, 7199);					//84000000/(21)/8000
 	TIM4_Encoder_Init();
 	SSI_init();
-	ActionFlag = 0; //Æð°Ú±êÖ¾
+	ActionFlag = 0; //ï¿½ï¿½Ú±ï¿½Ö¾
 					//	motor_action(100);
 					//	while(Angle < 10 && Angle > 350);
 	while (1)
