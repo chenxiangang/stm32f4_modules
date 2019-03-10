@@ -1,7 +1,7 @@
 #ifndef __SYS_H
 #define __SYS_H
 
-#if 1
+#if 0
 
 #ifndef STM32F40_41xxx
 #define STM32F40_41xxx

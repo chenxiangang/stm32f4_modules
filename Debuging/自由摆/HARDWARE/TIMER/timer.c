@@ -13,6 +13,7 @@
 #include "delay.h"
 #include "pid.h"
 #include "usart.h"
+#include "encoder.h"
 //-------------------------------------------------
 
 //------------------引用的外部变量-----------------
@@ -27,6 +28,7 @@ extern double dutychange2;
 extern double rout;
 extern u16 uccr1;
 extern u16 nccr1;
+extern double MotoAngle; 
 //--------------------------------------------------
 
 void TIM2_Int_Init(u16 arr, u16 psc)
@@ -52,6 +54,7 @@ void TIM2_IRQHandler(void) //TIM2中断
     if (TIM_GetITStatus(TIM2, TIM_IT_Update) != RESET) //检查指定的TIM中断发生与否:TIM 中断源
     {
         swing();
+		MotoAngle = Read_Encoder();
     }
     TIM_ClearITPendingBit(TIM2, TIM_IT_Update);
 }

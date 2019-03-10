@@ -4,3 +4,6 @@
 ## 存在的问题
 - 在摆动一段时间后，电机的恢复到的初始位置出现偏差，虽然上位机显示的角度没有变:sob:  
   可能的原因:电机编码器测量的**最大脉冲不准确**，可以在[encoder.h](https://github.com/while0l1/stm32f4_modules/blob/master/Debuging/%E8%87%AA%E7%94%B1%E6%91%86/HARDWARE/ENCODER/encoder.h)里进行修改
+
+## 改动日志
+- 2019/3/10 改了encoder.c里的时基初始化错误，交换TIM2和TIM4的初始化顺序，目前读数正常
