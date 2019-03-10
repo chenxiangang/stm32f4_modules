@@ -1,3 +1,10 @@
+/*
+ * @Author: QianXu
+ * @LastEditors: QianXu
+ * @Description: NONE
+ * @Date: 2019-03-09 18:46:03
+ * @LastEditTime: 2019-03-10 22:33:37
+ */
 #include "sys.h"
 #include "sccb.h"
 #include "delay.h"
@@ -14,6 +21,7 @@
 //All rights reserved									  
 ////////////////////////////////////////////////////////////////////////////////// 
 
+//need change
 //初始化SCCB接口 
 void SCCB_Init(void)
 {				
