@@ -5,12 +5,11 @@
 //extern u16 Moto1_1, Encoder;                                   //占空比0-1
 //extern u16 Moto1_2, f, ff;                                     //占空比0-1
 //extern int top_voltage, Position_Zero, xian_fu; //编码器的脉冲计数
-extern int a;
 
 void UartCmd(uint8 cmdnum, uint8 cmddata)       ///
 {
   switch (cmddata) {
-  case (6): a++;
+  case (6):
     break; // F6
   case (7):
     break; // F7

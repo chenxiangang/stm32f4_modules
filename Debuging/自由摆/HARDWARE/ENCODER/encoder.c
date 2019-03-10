@@ -10,8 +10,6 @@ void Encoder_TIM4_Init(void)
     TIM_TimeBaseInitTypeDef TIM_TimeBaseInitStructure;
     //GPIO结构体
     GPIO_InitTypeDef GPIO_InitStructure;
-    //中断结构体
-    NVIC_InitTypeDef NVIC_InitStructure;
     //定时器输入结构体
     TIM_ICInitTypeDef TIM_ICInitStructure;
     //开启TIM2时钟

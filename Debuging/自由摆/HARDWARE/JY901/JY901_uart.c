@@ -34,7 +34,6 @@ void usart3_init(unsigned int bound)
 {
     GPIO_InitTypeDef GPIO_InitStructure;
     USART_InitTypeDef USART_InitStructure;
-    NVIC_InitTypeDef NVIC_InitStructure;
 
     RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD, ENABLE); //使能GPIOA时钟
     RCC_APB1PeriphClockCmd(RCC_APB1Periph_USART3, ENABLE); //使能USART2时钟

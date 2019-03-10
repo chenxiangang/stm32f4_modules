@@ -3,37 +3,59 @@
 <pre>
 <h1>礦ision Build Log</h1>
 <h2>Tool Versions:</h2>
-IDE-Version: μVision V5.15
-Copyright (C) 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information:  ,  , LIC=GE72Z-J6ARF-GNTA5-GDHTZ-T25WP-ZULZL
+IDE-Version: μVision V5.26.2.0
+Copyright (C) 2018 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: li zhihao, whut, LIC=2TTHL-0T021-YCXJ1-CUL8Q-FY8SQ-36V0E
  
 Tool Versions:
-Toolchain:       MDK-ARM Professional  Version: 5.15.0
-Toolchain Path:  D:\keil5\ARM\ARMCC\Bin
-C Compiler:      Armcc.exe V5.05 update 2 (build 169)
-Assembler:       Armasm.exe V5.05 update 2 (build 169)
-Linker/Locator:  ArmLink.exe V5.05 update 2 (build 169)
-Library Manager: ArmAr.exe V5.05 update 2 (build 169)
-Hex Converter:   FromElf.exe V5.05 update 2 (build 169)
-CPU DLL:         SARMCM3.DLL V5.15.0
-Dialog DLL:      DCM.DLL V1.13.2.0
-Target DLL:      Segger\JL2CM3.dll V2.99.15.0
-Dialog DLL:      TCM.DLL V1.14.5.0
+Toolchain:       MDK-ARM Professional  Version: 5.26.2.0
+Toolchain Path:  D:\sofeware\arm_keil\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 6 (build 750)
+Assembler:       Armasm.exe V5.06 update 6 (build 750)
+Linker/Locator:  ArmLink.exe V5.06 update 6 (build 750)
+Library Manager: ArmAr.exe V5.06 update 6 (build 750)
+Hex Converter:   FromElf.exe V5.06 update 6 (build 750)
+CPU DLL:         SARMCM3.DLL V5.26.2.0
+Dialog DLL:      DCM.DLL V1.17.2.0
+Target DLL:      Segger\JL2CM3.dll V2.99.31.0
+Dialog DLL:      TCM.DLL V1.36.1.0
  
 <h2>Project:</h2>
-C:\Users\lenovo\Desktop\自由摆+电机编码器\USER\LED.uvprojx
-Project File Date:  03/06/2019
+D:\个人资料\NUEDC\各模块驱动\stm32f4_modules\Debuging\自由摆\USER\LED.uvprojx
+Project File Date:  03/10/2019
 
 <h2>Output:</h2>
-*** Using Compiler 'V5.05 update 2 (build 169)', folder: 'D:\keil5\ARM\ARMCC\Bin'
+*** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\sofeware\arm_keil\ARM\ARMCC\Bin'
 Build target 'LED'
-"..\OBJ\LED.axf" - 0 Error(s), 0 Warning(s).
+compiling timer.c...
+compiling encoder.c...
+compiling JY901_uart.c...
+..\HARDWARE\JY901\JY901_uart.c(99): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+              acc.x = (float)CharToShort(&ucRxBuffer[2]) / 32768 * 16 * 9.8;
+..\HARDWARE\JY901\JY901_uart.c(100): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+              acc.y = (float)CharToShort(&ucRxBuffer[4]) / 32768 * 16 * 9.8;
+..\HARDWARE\JY901\JY901_uart.c(101): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+              acc.z = (float)CharToShort(&ucRxBuffer[6]) / 32768 * 16 * 9.8;
+..\HARDWARE\JY901\JY901_uart.c: 3 warnings, 0 errors
+compiling usart.c...
+linking...
+Program Size: Code=11452 RO-data=424 RW-data=80 ZI-data=3360  
+FromELF: creating hex file...
+"..\OBJ\LED.axf" - 0 Error(s), 3 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32F4xx_DFP.1.0.8.pack
+                Keil.STM32F4xx_DFP.1.0.8
+                STMicroelectronics STM32F4 Series Device Support, Drivers and Examples
 
 <h2>Collection of Component include folders:</h2>
-  C:\Users\lenovo\Desktop\自由摆+电机编码器\USER\RTE
-  D:\keil5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
+  .\RTE\_LED
+  D:\sofeware\arm_keil\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include
 
 <h2>Collection of Component Files used:</h2>
+Build Time Elapsed:  00:00:10
 </pre>
 </body>
 </html>

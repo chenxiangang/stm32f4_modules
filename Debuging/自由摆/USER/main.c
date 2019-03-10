@@ -20,7 +20,7 @@ PID pid2;
 
 extern double SSI_Angle; //16384编码器测得的角度
 
-int Sys_Init(void) //初始化各模块和系统配置
+void Sys_Init(void) //初始化各模块和系统配置
 {
     My_NVIC_Init();
     delay_init(168); //初始化延时函数

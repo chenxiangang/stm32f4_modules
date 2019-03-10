@@ -33,7 +33,6 @@ extern PID sPID;
 void TIM2_Int_Init(u16 arr, u16 psc)
 {
     TIM_TimeBaseInitTypeDef TIM_TimeBaseStructure;
-    NVIC_InitTypeDef NVIC_InitStructure;
 
     RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE); // ±÷” πƒ‹
 
