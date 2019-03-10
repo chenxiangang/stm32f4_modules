@@ -66,12 +66,12 @@ int main(void)
         //        push(1, (int)SSI_Angle * 10);
         //        push(2, (int)Read_Encoder() * 10); //pwm输出
         //        uSendOnePage();
-        MotoAngle = Read_Encoder();
-        push(0, (int)SSI_Angle * 10);
-        push(1, (int)MotoAngle * 10);
-        push(2, (int)(SSI_Angle + MotoAngle) * 100);
-        uSendOnePage();
-        swing();
+        MotoAngle = Read_Encoder();  //这个读到的值收while函数运行时间的影响
+//        push(0, (int)SSI_Angle * 10);
+//        push(1, (int)MotoAngle * 10);
+//        push(2, (int)(SSI_Angle + MotoAngle) * 100);
+//        uSendOnePage();
+//        swing();
         printf("%f\r\n", MotoAngle);
         //printf("SSI_Angle:%f  MotoAngle:%f  Balance:%f\r\n",SSI_Angle,MotoAngle,SSI_Angle+MotoAngle);
     }
