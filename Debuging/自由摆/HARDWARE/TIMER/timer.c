@@ -18,7 +18,7 @@
 //------------------引用的外部变量-----------------
 extern double Angle;
 extern PID pid1;
-extern PID pid2;
+extern PID PID_Moto;
 extern int speed;
 extern int last_speed;
 extern double pwmduty;
@@ -27,7 +27,6 @@ extern double dutychange2;
 extern double rout;
 extern u16 uccr1;
 extern u16 nccr1;
-extern PID sPID;
 //--------------------------------------------------
 
 void TIM2_Int_Init(u16 arr, u16 psc)

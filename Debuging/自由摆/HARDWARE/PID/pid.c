@@ -1,37 +1,37 @@
 #include "pid.h"
-#include "math.h"
+#include "MyMath.h"
 
 //传入pid结构体和误差量，返回反馈量,即电机的pwm输出
 double PIDCalc(PID* pp, double PreVal) // PreError为当前误差值
 {
     double dutychange;
     double dError;
-	  double tempP;
+    double tempP;
 
     pp->PrevError = pp->SetPoint - PreVal;
-	
-		tempP = pp->Proportion;
-		
-//		if(pp->PrevError < 1 && pp->PrevError > -1)
-//			return 0;
-//		else if((pp->PrevError >=  1 && pp->PrevError <  4) || (pp->PrevError >  -4 && pp->PrevError <=  -1))
-//			tempP = tempP*0.11;
-//		
-//		else if((pp->PrevError >=  4 && pp->PrevError <  9) || (pp->PrevError >  -9 && pp->PrevError <=  -4))
-//			tempP = tempP*0.8;
-//		
-//		else if((pp->PrevError >=  9 && pp->PrevError <  14) || (pp->PrevError >  -14 && pp->PrevError <=  -9))
-//			tempP = tempP*1.5;
-//		
-//		else if((pp->PrevError >=  14 && pp->PrevError < 18) || (pp->PrevError > -18 && pp->PrevError <=  -14))
-//			tempP = tempP*2.6;
-//		
-//		else if((pp->PrevError >= 18 && pp->PrevError < 23) || (pp->PrevError > -23 && pp->PrevError <= -18))
-//			tempP = tempP*3.0;
-//		
-//		else if((pp->PrevError >= 23 && pp->PrevError < 35) || (pp->PrevError > -35 && pp->PrevError <= -23))
-//			tempP = tempP*3.4;
-//	
+
+    tempP = pp->Proportion;
+
+    //		if(pp->PrevError < 1 && pp->PrevError > -1)
+    //			return 0;
+    //		else if((pp->PrevError >=  1 && pp->PrevError <  4) || (pp->PrevError >  -4 && pp->PrevError <=  -1))
+    //			tempP = tempP*0.11;
+    //
+    //		else if((pp->PrevError >=  4 && pp->PrevError <  9) || (pp->PrevError >  -9 && pp->PrevError <=  -4))
+    //			tempP = tempP*0.8;
+    //
+    //		else if((pp->PrevError >=  9 && pp->PrevError <  14) || (pp->PrevError >  -14 && pp->PrevError <=  -9))
+    //			tempP = tempP*1.5;
+    //
+    //		else if((pp->PrevError >=  14 && pp->PrevError < 18) || (pp->PrevError > -18 && pp->PrevError <=  -14))
+    //			tempP = tempP*2.6;
+    //
+    //		else if((pp->PrevError >= 18 && pp->PrevError < 23) || (pp->PrevError > -23 && pp->PrevError <= -18))
+    //			tempP = tempP*3.0;
+    //
+    //		else if((pp->PrevError >= 23 && pp->PrevError < 35) || (pp->PrevError > -35 && pp->PrevError <= -23))
+    //			tempP = tempP*3.4;
+    //
 
     pp->SumError = pp->SumError + pp->PrevError; // 积分，历史偏差累加
     dError = pp->PrevError - pp->LastError; // 微分，偏差相减,哪个减哪个?
@@ -47,10 +47,10 @@ double PIDCalc(PID* pp, double PreVal) // PreError为当前误差值
 //    double dutychange;
 //    double dError;
 //	  double tempP;
-//    
+//
 //    pp->PrevError = PreVal - pp->SetPoint;
 
-//	  
+//
 //    pp->SumError = pp->SumError + pp->PrevError; // 积分，历史偏差累加
 //    dError = pp->PrevError - pp->LastError; // 微分，偏差相减,哪个减哪个?
 //    pp->LastError = pp->PrevError;
@@ -59,8 +59,6 @@ double PIDCalc(PID* pp, double PreVal) // PreError为当前误差值
 
 //    return (dutychange);
 //}
-
-
 
 //double PID_realize(PID* pp, double PreVal){
 //	double dutychange;
@@ -75,18 +73,17 @@ double PIDCalc(PID* pp, double PreVal) // PreError为当前误差值
 // return dutychange;
 //}
 
-////增量式pid
-//float PID_realize_v3(PID* pp, double PreVal){
-//	float incrementSpeed;
-//	float tempP;
-//	pp->PrevError=pp->SetPoint - PreVal;
-//	if(pp->PrevError < 3.5 && pp->PrevError > -3.5)
-//		pp->PrevError = 0;
-//	tempP = pp->Proportion * (sin(1.0*abs(pp->PrevError)/6.28)+0.4);
-//	incrementSpeed=tempP*(pp->PrevError-pp->LastError)+pp->Integral*pp->PrevError+pp->Derivative*(pp->PrevError-2*pp->LastError+pp->LastError0);//只和前后三次的误差值有关，也方便计算
-//	pp->LastError0 = pp->LastError;
-//	pp->LastError = pp->PrevError;
-//	return  incrementSpeed;
-//}
-
-
+//增量式pid
+float PID_realize_v3(PID* pp, double PreVal)
+{
+    float incrementSpeed;
+    float tempP;
+    pp->PrevError = pp->SetPoint - PreVal;
+    if (pp->PrevError < 3.5 && pp->PrevError > -3.5)
+        pp->PrevError = 0;
+    tempP = pp->Proportion * (sin(1.0 * my_abs(pp->PrevError) / 6.28) + 0.4);
+    incrementSpeed = tempP * (pp->PrevError - pp->LastError) + pp->Integral * pp->PrevError + pp->Derivative * (pp->PrevError - 2 * pp->LastError + pp->LastError0); //只和前后三次的误差值有关，也方便计算
+    pp->LastError0 = pp->LastError;
+    pp->LastError = pp->PrevError;
+    return incrementSpeed;
+}

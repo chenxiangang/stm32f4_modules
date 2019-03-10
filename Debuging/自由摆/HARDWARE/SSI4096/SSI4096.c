@@ -15,7 +15,7 @@ float CodeToA = 360.0 / 16384; //将编码转换为角度
 u16 bottom = 9550;
 u16 top = 1358;
 
-double Angle;
+double SSI_Angle;
 u16 SSI_LOC = 0; //全局变量编码器位置
 
 void SSI_init() //IO模拟初始化
@@ -77,13 +77,13 @@ void Angle_Cal()
 {
     int i;
     u32 SSI_LOC_Temp = 0;
-    Angle = 0;
+    SSI_Angle = 0;
     for (i = 0; i < 10; i++) {
         get_SSI();
         SSI_LOC_Temp += SSI_LOC;
     }
     SSI_LOC = SSI_LOC_Temp / 10;
-    Angle = 1.0 * SSI_LOC * CodeToA;
-    Angle -= 1.0 * bottom * CodeToA;
-    Angle = -Angle;
+    SSI_Angle = 1.0 * SSI_LOC * CodeToA;
+    SSI_Angle -= 1.0 * bottom * CodeToA;
+    SSI_Angle = -SSI_Angle;
 }

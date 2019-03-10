@@ -2,6 +2,11 @@
 
 /*************************************** 中断初始化 *************************************/
 
+
+#define UART3_ON  0
+#define TIM4_ON   1
+#define USART1_ON 1
+#define TIM2_ON   1 
 /**
   * @brief  中断初始化函数.
   * @param  None
@@ -15,34 +20,41 @@ void My_NVIC_Init(void)
     NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
 
     /***************************interrupt 1*************************/
+#if TIM2_ON
     //定时器2 from timer.c
     NVIC_InitStructure.NVIC_IRQChannel = TIM2_IRQn;
     NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
-    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;
     NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
     NVIC_Init(&NVIC_InitStructure);
+#endif
 
+#if USART1_ON
     //串口1配置 from usart.c
     NVIC_InitStructure.NVIC_IRQChannel = USART1_IRQn; //串口1中断通道
     NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 3; //抢占优先级3
     NVIC_InitStructure.NVIC_IRQChannelSubPriority = 3; //子优先级3
     NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE; //IRQ通道使能
-    NVIC_Init(&NVIC_InitStructure); //根据指定的参数初始化VIC寄存器、
+    NVIC_Init(&NVIC_InitStructure); //根据指定的参数初始化VIC寄存器
+#endif
 
-    //串口3配置 from JY901_uart.c
+//串口3配置 from JY901_uart.c
+#if UART3_ON
     NVIC_InitStructure.NVIC_IRQChannel = USART3_IRQn; //串口3中断通道
     NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 3; //抢占优先级3
     NVIC_InitStructure.NVIC_IRQChannelSubPriority = 3; //子优先级3
     NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE; //IRQ通道使能
     NVIC_Init(&NVIC_InitStructure); //根据指定的参数初始化VIC寄存器
+#endif
 
-    //定时器4 from encoder.c
+//定时器4 from encoder.c		
+#if TIM4_ON
     NVIC_InitStructure.NVIC_IRQChannel = TIM4_IRQn;
-    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0x01;
-    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0x03;
+    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
+    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
     NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
     NVIC_Init(&NVIC_InitStructure);
-
+#endif
     /*************************** DCMI Interrupt ****************/
     Enable_Interrupts();
 }
