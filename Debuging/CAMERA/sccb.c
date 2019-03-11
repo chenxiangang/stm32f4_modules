@@ -3,7 +3,7 @@
  * @LastEditors: QianXu
  * @Description: NONE
  * @Date: 2019-03-09 18:46:03
- * @LastEditTime: 2019-03-10 22:33:37
+ * @LastEditTime: 2019-03-11 18:02:02
  */
 #include "sys.h"
 #include "sccb.h"
@@ -22,21 +22,23 @@
 ////////////////////////////////////////////////////////////////////////////////// 
 
 //need change
+//应该改完
+//省赛模板居然没有SCCB_Init 直接用IIC 不过也行
 //初始化SCCB接口 
 void SCCB_Init(void)
 {				
   GPIO_InitTypeDef  GPIO_InitStructure;
 
-  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD, ENABLE);//使能GPIOD时钟
+  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);//使能GPIOD时钟
   //GPIOF9,F10初始化设置
-  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6|GPIO_Pin_7;//PD6,7 推挽输出
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8|GPIO_Pin_7;//PA7,8 推挽输出
   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;  //PD6,7 推挽输出
   GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;//推挽输出
-  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;//100MHz
+  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;//100MHz
   GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;//上拉
-  GPIO_Init(GPIOD, &GPIO_InitStructure);//初始化
+  GPIO_Init(GPIOA, &GPIO_InitStructure);//初始化
  
-	GPIO_SetBits(GPIOD,GPIO_Pin_6|GPIO_Pin_7);
+	GPIO_SetBits(GPIOD,GPIO_Pin_8|GPIO_Pin_7);
 	SCCB_SDA_OUT();	   
 }			 
 
@@ -123,18 +125,21 @@ u8 SCCB_RD_Byte(void)
 } 							    
 //写寄存器
 //返回值:0,成功;1,失败.
-u8 SCCB_WR_Reg(u8 reg,u8 data)
+u8 SCCB_WR_Reg(u8 reg, u8 data)
 {
-	u8 res=0;
-	SCCB_Start(); 					//启动SCCB传输
-	if(SCCB_WR_Byte(SCCB_ID))res=1;	//写器件ID	  
+	u8 res = 0;
+	SCCB_Start(); //启动SCCB传输
+	if (SCCB_WR_Byte(SCCB_ID))
+		res = 1; //写器件ID
 	delay_us(100);
-  	if(SCCB_WR_Byte(reg))res=1;		//写寄存器地址	  
+	if (SCCB_WR_Byte(reg))
+		res = 1; //写寄存器地址
 	delay_us(100);
-  	if(SCCB_WR_Byte(data))res=1; 	//写数据	 
-  	SCCB_Stop();	  
-  	return	res;
-}		  					    
+	if (SCCB_WR_Byte(data))
+		res = 1; //写数据
+	SCCB_Stop();
+	return res;
+}
 //读寄存器
 //返回值:读到的寄存器值
 u8 SCCB_RD_Reg(u8 reg)

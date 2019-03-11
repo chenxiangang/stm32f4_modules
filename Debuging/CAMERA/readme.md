@@ -3,10 +3,14 @@
  * @LastEditors: QianXu
  * @Description: NONE
  * @Date: 2019-03-10 21:52:44
- * @LastEditTime: 2019-03-10 22:50:11
+ * @LastEditTime: 2019-03-11 18:04:57
  -->
 ## HOW TO USE
+SCCB是一种简化版的IIC
 
+## debugging
+- 目前对于DCMI的中断处理还没有，但是中断已经打开了。
+- SCCB引脚改完没测试
 
 ## 接法
 - PA4    DCMI_HSYNC
@@ -21,8 +25,12 @@
 - PB8    DCMI_D6
 - PB9    DCMI_D7
 
+- SCL    PA8
+- SDA    PA7
 ## SCCB
-> 当写数据到从机被定义为写传输（write transmission），当从机中读数据被定义为读传输 (read transmission)，每一个传输都要有开始和结束来释放总线(start + sotp)
+我个人感觉和IIC一样，而且感觉基本上只需要写   
+以下摘自[网络](http://www.cnblogs.com/aslmer/p/5965229.html)
+> 当写数据到从机被定义为写传输（write transmission），当从机中读数据被定义为读传输 (read transmission)，每一个传输都要有开始和结束来释放总线(start + stop)
 
 > 完整的数据传输包括两个或三个阶段，每一个阶段包含9位数据，其中高8位为所要传输的数据，最低位根据器件所处情况有不同的取值：
 
@@ -44,9 +52,19 @@
 > 总结为: start + ID地址（42）+ 寄存器地址 + 数据 + stop
 <!--
 *写的ID地址不是很懂
-*有待更新
 -->
+### SCCB 读操作
+> 根据SCCB接口的读操作时序有两个阶段传输组成
 
+> 2个阶段写传输 + 2个阶段读传输，每一相都是9位，具体如下
+
+>ID地址（8位ID地址+1位读写控制+don't care）+ 主机要向从机写入即将要读的寄存器地址（8位寄存器地址+don't care）
+
+>ID地址（8位ID地址+1位读写控制+don't care） +从机向主机发送被指定寄存器里面的数据的数据（8位数据+NA）
+
+>即读操作为：
+
+>start1+ ID地址（42）+ 寄存器地址 +stop1+start 2 +ID地址（43）+ 数据 + stop2
 
 
 ## DMA数据流

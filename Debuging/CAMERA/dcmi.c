@@ -3,7 +3,7 @@
  * @LastEditors: QianXu
  * @Description: NONE
  * @Date: 2019-03-09 17:34:31
- * @LastEditTime: 2019-03-10 22:15:16
+ * @LastEditTime: 2019-03-11 17:50:41
  */
 #include "sys.h"
 #include "dcmi.h"
@@ -17,6 +17,9 @@ u8 ov_frame = 0; //帧率
 DCMI_InitTypeDef DCMI_InitStructure;
 
 //DCMI中断服务函数
+//中断中完成处理
+//这个中断目前还没有处理函数
+//记得测试一下这个中断大概要多少时间
 void DCMI_IRQHandler(void)
 {
 	/* if (DCMI_GetITStatus(DCMI_IT_FRAME) == SET) //捕获到一帧图像
@@ -28,7 +31,6 @@ void DCMI_IRQHandler(void)
 	} */
 	//对于中断的处理等看懂了省赛模板再处理
 }
-//未修改
 //DCMI使用DMA2 通道1的数据流1或者通道1的数据流7
 //这里直接使用DMA2通道1的数据流1
 //DCMI DMA配置
@@ -56,7 +58,7 @@ void DCMI_DMA_Init(u32 DMA_Memory0BaseAddr, u16 DMA_BufferSize, u32 DMA_MemoryDa
 	DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralInc_Disable;		//外设非增量模式
 	DMA_InitStructure.DMA_MemoryInc = DMA_MemoryInc;						//存储器增量模式
 	DMA_InitStructure.DMA_PeripheralDataSize = DMA_PeripheralDataSize_Word; //外设数据长度:32位
-	DMA_InitStructure.DMA_MemoryDataSize = DMA_MemoryDataSize;				//存储器数据长度
+	DMA_InitStructure.DMA_MemoryDataSize = DMA_MemoryDataSize;				//存储器数据长度，省赛模板是半字
 	DMA_InitStructure.DMA_Mode = DMA_Mode_Circular;							// 使用循环模式
 	DMA_InitStructure.DMA_Priority = DMA_Priority_High;						//高优先级
 	DMA_InitStructure.DMA_FIFOMode = DMA_FIFOMode_Disable;					//省赛模板里不使用FIFO模式不是很理解	//FIFO模式
@@ -64,8 +66,10 @@ void DCMI_DMA_Init(u32 DMA_Memory0BaseAddr, u16 DMA_BufferSize, u32 DMA_MemoryDa
 	DMA_InitStructure.DMA_MemoryBurst = DMA_MemoryBurst_Single;				//外设突发单次传输
 	DMA_InitStructure.DMA_PeripheralBurst = DMA_PeripheralBurst_Single;		//存储器突发单次传输
 	DMA_Init(DMA2_Stream1, &DMA_InitStructure);								//初始化DMA Stream
-																			/*****************************
-	 * FIFO模式每次数据凑成一个字（16字节后发送）
+
+	//注意这里少了一个DMA_CMD函数
+	/*****************************
+	 * FIFO模式每次数据凑成一个字（16字节）后发送
 	******************************/
 }
 //DCMI初始化
