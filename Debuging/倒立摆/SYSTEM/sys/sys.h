@@ -3,7 +3,7 @@
  * @LastEditors: QianXu
  * @Description: NONE
  * @Date: 2019-03-09 11:23:45
- * @LastEditTime: 2019-03-09 11:27:59
+ * @LastEditTime: 2019-03-12 16:28:29
  */
 #ifndef __SYS_H
 #define __SYS_H	 
@@ -41,6 +41,7 @@
 #include "stm32f4xx_rtc.h"
 #include "stm32f4xx_tim.h"
 #include "stm32f4xx_usart.h"
+#include "stm32f4xx_can.h"
 
 #else
 
