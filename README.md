@@ -16,6 +16,7 @@ stm32F4的各种模块的驱动，还有一些通信协议等
 - [MPU6050](https://github.com/while0l1/stm32f4_modules/tree/master/%E6%A8%A1%E5%9D%97/mpu6050)
 - [MPU9250](https://github.com/while0l1/stm32f4_modules/tree/master/%E6%A8%A1%E5%9D%97/mpu9250)
 - [SPI](https://github.com/while0l1/stm32f4_modules/tree/master/%E6%A8%A1%E5%9D%97/SPI)
+- [CAN](https://github.com/while0l1/stm32f4_modules/tree/master/%E6%A8%A1%E5%9D%97/CAN)
 
 ## 下载单个文件夹可以用[DownGit](http://downgit.zhoudaxiaa.com/#/home)
 
