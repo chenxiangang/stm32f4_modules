@@ -3,7 +3,7 @@
  * @LastEditors: QianXu
  * @Description: NONE
  * @Date: 2019-03-11 20:17:30
- * @LastEditTime: 2019-03-13 16:19:46
+ * @LastEditTime: 2019-03-13 17:42:34
  */
 
 #include "CAN.h"
@@ -16,6 +16,9 @@
 //tbs1:时间段1的时间单元   范围:CAN_BS1_1tq ~CAN_BS1_16tq
 //brp 波特率分频器1~1024；tq=(brp)*tpclk1
 //波特率=Fpclk1/((tbs1+1+tbs2+1+1)*brp);
+//mode:CAN_Mode_Normal,正常模式;CAN_Mode_LoopBack,回环模式;
+//Fpclk1初始化42M，如果设置My_CAn_Init(CAN_SJW_1tq,CAN_BS2_6tq,CAN_BS1_7tq,6,CAN_Mode_LoopBack);
+//波特率42M/((6+7+1)*6)=500kbps
 void My_CAN_Init(u8 tsjw, u8 tbs2, u8 tbs1, u16 brp, u8 mode)
 {
     GPIO_InitTypeDef GPIO_InitStructure;           //GPIO结构体
