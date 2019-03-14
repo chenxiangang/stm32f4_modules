@@ -3,7 +3,7 @@
  * @LastEditors: QianXu
  * @Description: NONE
  * @Date: 2019-03-13 16:50:30
- * @LastEditTime: 2019-03-13 17:24:31
+ * @LastEditTime: 2019-03-14 15:56:02
  */
 #include "stm32f4xx.h"
 #include "usart.h"
@@ -16,14 +16,14 @@
 int main(void)
 {
 	u8 send_buffer[buffer_len] = {1, 100};
-	u8 receive_buffer[buffer_len];
+	u8 receive_buffer[buffer_len]={0};
 	u8 key;
 	u8 temp_len;
 	uart_init(115200);
 	delay_init(168);
 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
 	KEY_Init();
-	My_CAN_Init(CAN_SJW_1tq, CAN_BS2_6tq, CAN_BS1_7tq, 6, CAN_Mode_LoopBack); //CAN回环模式，波特率500kbps
+	My_CAN_Init(CAN_SJW_1tq, CAN_BS2_6tq, CAN_BS1_7tq, 6,CAN_Mode_LoopBack); //CAN回环模式，波特率500kbps
 	while (1)
 	{
 		key = KEY_Scan(0);
