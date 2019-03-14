@@ -3,7 +3,7 @@
  * @LastEditors: QianXu
  * @Description: NONE
  * @Date: 2019-03-11 20:17:30
- * @LastEditTime: 2019-03-13 17:42:34
+ * @LastEditTime: 2019-03-14 16:30:54
  */
 
 #include "CAN.h"
@@ -132,4 +132,37 @@ u8 CAN1_Receive_Msg(u8 *buf)
     for (i = 0; i < RxMessage.DLC; i++)
         buf[i] = RxMessage.Data[i];
     return RxMessage.DLC;
+}
+
+//发送PWM信号
+//返回0 成功
+//   其他 失败
+//mode 模式
+//1 转速
+//2 角度
+//msg 16位的信息
+u8 CAN_SEND_CONTORL(u8 mode, u16 msg)
+{
+    u8 buffer[3];       //3位是因为只需要3位，按要求改
+    buffer[0] = mode;         //模式
+    buffer[1] = msg >> 8;     //高8位
+    buffer[2] = msg & 0x00FF; //低8位
+    return (CAN1_Send_Msg(buffer, 3));
+}
+
+//接收16位
+//msg 16位的数据
+//返回 0 没读到
+//    其他 模式
+u8 CAN_Receive_16(u16 *msg)
+{
+    u8 mode;
+    u8 buffer[8];
+    mode = CAN1_Receive_Msg(buffer);
+    if (mode) //读到了
+    {
+        mode = buffer[0];                    //模式赋值
+        *msg = (buffer[1] << 8) | buffer[2]; //合成
+    }
+    return mode;
 }
