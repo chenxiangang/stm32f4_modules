@@ -3,7 +3,7 @@
  * @LastEditors: QianXu
  * @Description: NONE
  * @Date: 2019-03-11 20:17:30
- * @LastEditTime: 2019-03-14 16:30:54
+ * @LastEditTime: 2019-03-14 16:56:20
  */
 
 #include "CAN.h"
@@ -138,8 +138,8 @@ u8 CAN1_Receive_Msg(u8 *buf)
 //返回0 成功
 //   其他 失败
 //mode 模式
-//1 转速
-//2 角度
+//0 转速
+//1 角度
 //msg 16位的信息
 u8 CAN_SEND_CONTORL(u8 mode, u16 msg)
 {
@@ -153,16 +153,16 @@ u8 CAN_SEND_CONTORL(u8 mode, u16 msg)
 //接收16位
 //msg 16位的数据
 //返回 0 没读到
-//    其他 模式
-u8 CAN_Receive_16(u16 *msg)
+//    其他 读到
+u8 CAN_Receive_16(u8* mode,u16 *msg)
 {
-    u8 mode;
+    u8 len;
     u8 buffer[8];
-    mode = CAN1_Receive_Msg(buffer);
-    if (mode) //读到了
+    len = CAN1_Receive_Msg(buffer);
+    if (len) //读到了
     {
-        mode = buffer[0];                    //模式赋值
+        *mode = buffer[0];                    //模式赋值
         *msg = (buffer[1] << 8) | buffer[2]; //合成
     }
-    return mode;
+    return len;
 }
