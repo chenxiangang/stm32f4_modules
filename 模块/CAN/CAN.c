@@ -3,7 +3,7 @@
  * @LastEditors: QianXu
  * @Description: NONE
  * @Date: 2019-03-11 20:17:30
- * @LastEditTime: 2019-03-14 16:56:20
+ * @LastEditTime: 2019-03-14 16:57:35
  */
 
 #include "CAN.h"
@@ -143,7 +143,7 @@ u8 CAN1_Receive_Msg(u8 *buf)
 //msg 16位的信息
 u8 CAN_SEND_CONTORL(u8 mode, u16 msg)
 {
-    u8 buffer[3];       //3位是因为只需要3位，按要求改
+    u8 buffer[3];             //3位是因为只需要3位，按要求改
     buffer[0] = mode;         //模式
     buffer[1] = msg >> 8;     //高8位
     buffer[2] = msg & 0x00FF; //低8位
@@ -154,14 +154,14 @@ u8 CAN_SEND_CONTORL(u8 mode, u16 msg)
 //msg 16位的数据
 //返回 0 没读到
 //    其他 读到
-u8 CAN_Receive_16(u8* mode,u16 *msg)
+u8 CAN_Receive_16(u8 *mode, u16 *msg)
 {
     u8 len;
     u8 buffer[8];
     len = CAN1_Receive_Msg(buffer);
     if (len) //读到了
     {
-        *mode = buffer[0];                    //模式赋值
+        *mode = buffer[0];                   //模式赋值
         *msg = (buffer[1] << 8) | buffer[2]; //合成
     }
     return len;
