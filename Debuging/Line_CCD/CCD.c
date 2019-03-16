@@ -81,14 +81,14 @@ void read_CCD_ND(void)
     int i; //循环变量
 
     //开始转换信号
-    CCD_SI = 0;
     CCD_CLK = 1;
+    CCD_SI = 0;
     delay_us(10); //我也不知道多少
     CCD_SI = 1;
     CCD_CLK = 0;
     delay_us(10);
-    CCD_SI = 0;
     CCD_CLK = 1;
+    CCD_SI = 0;
     delay_us(10);
 
     //取值
@@ -208,14 +208,15 @@ void DMA_Read_CCD()
 {
     int i = 0;
     //开始转换信号
-    CCD_SI = 0;
+     //开始转换信号
     CCD_CLK = 1;
+    CCD_SI = 0;
     delay_us(10); //我也不知道多少
     CCD_SI = 1;
     CCD_CLK = 0;
     delay_us(10);
-    CCD_SI = 0;
     CCD_CLK = 1;
+    CCD_SI = 0;
     delay_us(10);
 
     for (i = 0; i < 128; i++)
