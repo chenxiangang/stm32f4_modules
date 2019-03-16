@@ -22,6 +22,7 @@ int main(void)
   int t_mode = 1;     //通信方式 PWM 0  还是 CAN 1 初始CAN
   int out_mode;       //控制转速还是方向
   u16 out_msg;        //输出信息
+  int PWM_STA;        //PWM的接收标志
   uart_init(115200);
   delay_init(168);
   //NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);                         //设置NVIC中断分组2:2位抢占优先级，2位响应优先级
@@ -41,8 +42,11 @@ int main(void)
     }
     else
     {
-
-      //TO DO
+      PWM_STA = PWM_Get_msg(&out_mode, &out_msg); //接收信号
+      if (PWM_STA)                                //读到了
+      {
+        //TO DO
+      }
     }
   }
 }

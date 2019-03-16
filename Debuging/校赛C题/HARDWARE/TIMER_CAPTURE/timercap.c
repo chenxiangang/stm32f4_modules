@@ -117,7 +117,25 @@ u32 Time_Counter()
 }
 
 //类似CAN通信一样读数据
-u8 PWM_Get_msg(u8 *mode,u16 *msg)
+//100us~1705us 5us一段 表示转速
+//15000us~33005us 5us一段 表示圈数
+//内部的模式赋值记得改
+//返回    0 无效值
+//        其他 有效值
+u8 PWM_Get_msg(u8 *mode, u16 *msg)
 {
-    //TO DO
+    u32 count = Time_Counter();
+    if (count >= 500 && count < 1705) //转速模式
+    {
+        *mode = 0;                //转速模式 记得改
+        *msg = (count - 500) / 5; //0~240
+    }
+    else if (count >= 15000 && count < 33005) //角度模式
+    {
+        *mode = 1;                  //角度模式 记得改
+        *msg = (count - 15000) / 5; //0~3600
+    }
+    else
+        return 0;
+    return 1;
 }
