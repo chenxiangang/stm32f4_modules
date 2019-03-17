@@ -1,0 +1,48 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: μVision V5.14.2
+Copyright (C) 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Cortex-M4, 3, LIC=S5ISB-2LFD1-BXKUY-I01M0-5SI42-8JYL9
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Professional  Version: 5.14.0.0
+Toolchain Path:  F:\keil5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.05 update 1 (build 106)
+Assembler:       Armasm.exe V5.05 update 1 (build 106)
+Linker/Locator:  ArmLink.exe V5.05 update 1 (build 106)
+Library Manager: ArmAr.exe V5.05 update 1 (build 106)
+Hex Converter:   FromElf.exe V5.05 update 1 (build 106)
+CPU DLL:         SARMCM3.DLL V5.14.0.0
+Dialog DLL:      DCM.DLL V1.13.1.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V2.0.14.0_KEIL
+Dialog DLL:      TCM.DLL V1.14.4.0
+ 
+<h2>Project:</h2>
+F:\钱旭\武汉理工大学\电赛\stm32f4_modules\Debuging\校赛C题上位机\USER\LCD.uvprojx
+Project File Date:  03/17/2019
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.05 update 1 (build 106)', folder: 'F:\keil5\ARM\ARMCC\Bin'
+Build target 'LCD'
+compiling main.c...
+main.c(30): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "const char *restrict"
+                sscanf(USART_RX_BUF, "%c %d %d", t_mode, m_mode, msg); //提取数值
+main.c(60): warning:  #223-D: function "CAN_SEND_CONTORL" declared implicitly
+                                CAN_SEND_CONTORL(motor_mode, msg); //发送CAN信息
+main.c: 2 warnings, 0 errors
+linking...
+Program Size: Code=33166 RO-data=6846 RW-data=56 ZI-data=1848  
+FromELF: creating hex file...
+"..\OBJ\LCD.axf" - 0 Error(s), 2 Warning(s).
+
+<h2>Collection of Component include folders:</h2>
+  F:\钱旭\武汉理工大学\电赛\stm32f4_modules\Debuging\校赛C题上位机\USER\RTE
+  F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
+
+<h2>Collection of Component Files used:</h2>
+</pre>
+</body>
+</html>
