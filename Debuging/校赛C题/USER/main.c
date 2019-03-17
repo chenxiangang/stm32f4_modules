@@ -30,7 +30,7 @@ int main(void)
 {
   int buffer_len = 0; //CAN读取的长度
   int t_mode = 1;     //通信方式 PWM 0  还是 CAN 1 初始CAN
-  int out_mode;       //控制转速还是方向
+  u8 out_mode;       //控制转速还是方向
   u16 out_msg;        //输出信息
   int PWM_STA;        //PWM的接收标志
   pid1.SumError = 0;  //pid参数初始化

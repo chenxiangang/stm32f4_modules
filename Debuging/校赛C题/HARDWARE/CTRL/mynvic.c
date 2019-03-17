@@ -59,9 +59,10 @@ void My_NVIC_Init(void)
 //CAN1 from CAN.c
 #if CAN1_ON
   NVIC_InitStructure.NVIC_IRQChannel = CAN1_RX0_IRQn;       //接收中断
-  NVIC_InitStructure.NVIC_IRQChannelCmd = 1;                //主优先级1
+  NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;   				//使能 
   NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0; //次优先级0
-  NVIC_InitStructure.NVIC_IRQChannelSubPriority = ENABLE;   //使能
+  NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;        //主优先级1
+	NVIC_Init(&NVIC_InitStructure);
 #endif
   /*************************** DCMI Interrupt ****************/
   Enable_Interrupts();

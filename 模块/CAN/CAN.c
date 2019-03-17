@@ -78,9 +78,9 @@ void My_CAN_Init(u8 tsjw, u8 tbs2, u8 tbs1, u16 brp, u8 mode)
 #ifndef _MYNVIC_H_
     //中断优先级配置
     NVIC_InitStructure.NVIC_IRQChannel = CAN1_RX0_IRQn;       //接收中断
-    NVIC_InitStructure.NVIC_IRQChannelCmd = 1;                //主优先级1
-    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0; //次优先级0
-    NVIC_InitStructure.NVIC_IRQChannelSubPriority = ENABLE;   //使能
+    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;           //使能
+    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0; //主优先级0
+    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;        //次优先级1
 #endif
 }
 //中断服务函数

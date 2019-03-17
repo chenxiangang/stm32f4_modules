@@ -12,9 +12,9 @@ void TIM2_CH4_Cap_Init(u16 psc, u32 arr)
     GPIO_InitTypeDef GPIO_InitStructure;           //GPIO结构体
     TIM_TimeBaseInitTypeDef TIM_TimeBaseStructure; //时基结构体
     TIM_ICInitTypeDef TIM_ICInitStructure;         //时钟输入结构体
-#ifndef _MYNVIC_H_
-    NVIC_InitTypeDef NVIC_InitStructure; //中断结构体
-#endif
+//#ifndef _MYNVIC_H_
+//    NVIC_InitTypeDef NVIC_InitStructure; //中断结构体
+//#endif
 
     RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB, ENABLE); //开启GPIOA时钟
     RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);  //开启TIM5
@@ -46,12 +46,12 @@ void TIM2_CH4_Cap_Init(u16 psc, u32 arr)
 
     TIM_ITConfig(TIM2, TIM_IT_Update | TIM_IT_CC1, ENABLE); //允许中断更新，
 
-#ifndef _MYNVIC_H_
-    NVIC_InitStructure.NVIC_IRQChannel = TIM2_IRQn;
-    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
-    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 2;
-#endif
+//#ifndef _MYNVIC_H_
+//    NVIC_InitStructure.NVIC_IRQChannel = TIM2_IRQn;
+//    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+//    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
+//    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 2;
+//#endif
 
     TIM_Cmd(TIM2, ENABLE); //使能
 }

@@ -369,7 +369,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F40_41xxx,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\CORE;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\USER;..\FWLIB\inc</IncludePath>
+              <IncludePath>..\CORE;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\USER;..\FWLIB\inc;..\HARDWARE\BTN7971;..\HARDWARE\CAN;..\HARDWARE\CONTROL;..\HARDWARE\CTRL;..\HARDWARE\ENCODER;..\HARDWARE\KEY;..\HARDWARE\LED;..\HARDWARE\OLED;..\HARDWARE\PID;..\HARDWARE\TIMER_CAPTURE</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -426,6 +426,61 @@
               <FileName>system_stm32f4xx.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\system_stm32f4xx.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>HARDWARE</GroupName>
+          <Files>
+            <File>
+              <FileName>btn7971.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\BTN7971\btn7971.c</FilePath>
+            </File>
+            <File>
+              <FileName>CAN.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\CAN\CAN.c</FilePath>
+            </File>
+            <File>
+              <FileName>control.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\CONTROL\control.c</FilePath>
+            </File>
+            <File>
+              <FileName>mynvic.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\CTRL\mynvic.c</FilePath>
+            </File>
+            <File>
+              <FileName>encoder.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\ENCODER\encoder.c</FilePath>
+            </File>
+            <File>
+              <FileName>key.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\KEY\key.c</FilePath>
+            </File>
+            <File>
+              <FileName>led.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\LED\led.c</FilePath>
+            </File>
+            <File>
+              <FileName>oled.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\OLED\oled.c</FilePath>
+            </File>
+            <File>
+              <FileName>pid.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\PID\pid.c</FilePath>
+            </File>
+            <File>
+              <FileName>timercap.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\TIMER_CAPTURE\timercap.c</FilePath>
             </File>
           </Files>
         </Group>
