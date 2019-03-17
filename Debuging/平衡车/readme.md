@@ -11,15 +11,9 @@
 - 电池
 - F4VET6
 
-```mermaid
-graph LR;
-    freecars-->FreeCars_isr.c;
-    freecars-->FreeCars_isr.h;
-	freecars-->FreeCars_uart.c;
-	freecars-->FreeCars_uart.h;
-	HARDWARE-->CTRL;
-	HARDWARE-->jy901;
-	HARDWARE-->ENCODER;
-	HARDWARE-->TIMER;
-	HARDWARE-->OLED;
-```
+需要用到的硬件资源  
+- UART1 波特率115200，用作FreeCars调试，完成后改为蓝牙远程控制
+- UART3 波特率115200，用作jy901陀螺仪的输入串口
+- TIM2  读电机编码器
+- TIM3  开启中断，大概2ms进入一次，定时执行控制任务：读取传感器数据；进行pid控制
+- TIM4  读电机编码器
