@@ -7,6 +7,7 @@
 #define USART1_ON 0
 #define TIM2_ON 1
 #define CAN1_ON 1
+#define TIM3_ON 1
 /**
   * @brief  中断初始化函数.
   * @param  None
@@ -59,10 +60,18 @@ void My_NVIC_Init(void)
 //CAN1 from CAN.c
 #if CAN1_ON
   NVIC_InitStructure.NVIC_IRQChannel = CAN1_RX0_IRQn;       //接收中断
-  NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;   				//使能 
+  NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;           //使能
   NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0; //次优先级0
   NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;        //主优先级1
-	NVIC_Init(&NVIC_InitStructure);
+  NVIC_Init(&NVIC_InitStructure);
+#endif
+
+#if TIM3_ON
+  NVIC_InitStructure.NVIC_IRQChannel = TIM3_IRQn;              //TIM3中断
+  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0x01; //主优先级
+  NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0x03;        //次优先级
+  NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+  NVIC_Init(&NVIC_InitStructure);
 #endif
   /*************************** DCMI Interrupt ****************/
   Enable_Interrupts();
