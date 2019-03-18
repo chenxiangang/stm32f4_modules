@@ -3,7 +3,7 @@
  * @LastEditors: QianXu
  * @Description: NONE
  * @Date: 2019-03-17 15:35:29
- * @LastEditTime: 2019-03-18 18:47:08
+ * @LastEditTime: 2019-03-18 18:52:07
  */
 #include "sys.h"
 #include "delay.h"
@@ -78,6 +78,7 @@ int main(void)
 			if ('C' == tans_mode || 'c' == tans_mode)				   //CAN模式
 			{
 				CAN_SEND_CONTORL(motor_mode, msg); //发送CAN信息
+				TIM_SetCompare4(TIM2, 0);  //置0
 			}
 			else if ('P' == tans_mode || 'p' == tans_mode) //PWM模式
 			{
