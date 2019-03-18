@@ -25,9 +25,9 @@ void My_CAN_Init(u8 tsjw, u8 tbs2, u8 tbs1, u16 brp, u8 mode)
     GPIO_InitTypeDef GPIO_InitStructure;           //GPIO结构体
     CAN_InitTypeDef CAN_InitStructure;             //CAN初始化结构体
     CAN_FilterInitTypeDef CAN_FilterInitStructure; //CAN滤波器初始化结构体，滤波器是找ID用的
-#ifndef _MYNVIC_H_
-    NVIC_InitTypeDef NVIC_InitStructure; //NVIC初始化结构体
-#endif
+//#ifndef _MYNVIC_H_
+//    NVIC_InitTypeDef NVIC_InitStructure; //NVIC初始化结构体
+//#endif
 
     //开启相关的时钟
     RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE); //GPIOA
@@ -76,13 +76,13 @@ void My_CAN_Init(u8 tsjw, u8 tbs2, u8 tbs1, u16 brp, u8 mode)
 
     CAN_ITConfig(CAN1, CAN_IT_FMP0, ENABLE); //挂号中断使能允许
 
-#ifndef _MYNVIC_H_
-    //中断优先级配置
-    NVIC_InitStructure.NVIC_IRQChannel = CAN1_RX0_IRQn;       //接收中断
-    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;           //使能
-    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0; //主优先级0
-    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;        //次优先级1
-#endif
+//#ifndef _MYNVIC_H_
+//    //中断优先级配置
+//    NVIC_InitStructure.NVIC_IRQChannel = CAN1_RX0_IRQn;       //接收中断
+//    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;           //使能
+//    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0; //主优先级0
+//    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;        //次优先级1
+//#endif
 }
 //中断服务函数
 void CAN1_RX0_IRQHandler(void)

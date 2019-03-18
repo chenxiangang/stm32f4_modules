@@ -3,7 +3,7 @@
  * @LastEditors: QianXu
  * @Description: NONE
  * @Date: 2019-03-17 15:35:29
- * @LastEditTime: 2019-03-17 21:32:33
+ * @LastEditTime: 2019-03-18 18:47:08
  */
 #include "sys.h"
 #include "delay.h"
@@ -13,7 +13,7 @@
 #include "lcd.h"
 #include "CAN.h"
 #include "key.h"
-
+#include "PWM.h"
 /**
  * @description: 从串口中读取设置参数
  * @param {char} t_mode 发送方式
@@ -27,11 +27,31 @@ int get_number(char *t_mode, int *m_mode, int *msg)
 {
 	if (USART_RX_STA & 0x8000) //接收完成
 	{
-		sscanf(USART_RX_BUF, "%c %d %d", t_mode, m_mode, msg); //提取数值
+		sscanf(USART_RX_BUF, "%c %d %d", t_mode, m_mode, msg); //提取数值  
 		USART_RX_STA = 0x0000;								   //清零
 		return 1;
 	}
 	return 0;
+}
+/**
+ * @description: 获取串口得到的数据转CCR值
+ * @param {type}
+ * motor_mode 模式
+ * msg 带转换信息 
+ * @return: CCR
+ */
+int trans_CCR(int motor_mode, int msg)
+{
+	int CCR;
+	if (motor_mode) //转角度
+	{
+		CCR = msg * 5 + 2 + 500;
+	}
+	else //转速
+	{
+		CCR = msg * 5 + 2 + 15000;
+	}
+	return CCR;
 }
 
 int main(void)
@@ -44,11 +64,11 @@ int main(void)
 	uart_init(115200);														//初始化串口波特率为115200
 	My_CAN_Init(CAN_SJW_1tq, CAN_BS2_6tq, CAN_BS1_7tq, 6, CAN_Mode_Normal); //CAN初始化  正常模式
 	LED_Init();																//初始化LED
-	LCD_Init();																//初始化LCD FSMC接口
+	//LCD_Init();																//初始化LCD FSMC接口
 	KEY_Init();																//按键初始化
-	POINT_COLOR = RED;														//画笔颜色：红色
-	LCD_ShowString(100, 0, 16*13, 8, 16, "CURRENT_MODE:");					//LCD显示
-	//sprintf((char*)lcd_id,"LCD ID:%04X",lcddev.id);//将LCD ID打印到lcd_id数组。
+	//POINT_COLOR = RED;														//画笔颜色：红色
+	//LCD_ShowString(100, 0, 16 * 13, 8, 16, "CURRENT_MODE:");				//LCD显示
+	TIM2_PWM_Init();
 	while (1)
 	{
 		LED0 = !LED0;								   //表示程序正在运行
@@ -61,7 +81,7 @@ int main(void)
 			}
 			else if ('P' == tans_mode || 'p' == tans_mode) //PWM模式
 			{
-				//TO DO
+				TIM_SetCompare4(TIM2, trans_CCR(motor_mode, msg)); //发送PWM信息
 			}
 		}
 		delay_ms(100);
