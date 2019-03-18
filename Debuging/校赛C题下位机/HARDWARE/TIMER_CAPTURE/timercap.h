@@ -3,11 +3,14 @@
  * @LastEditors: QianXu
  * @Description: NONE
  * @Date: 2019-03-13 19:57:06
- * @LastEditTime: 2019-03-13 23:51:13
+ * @LastEditTime: 2019-03-18 21:02:14
  */
 #ifndef _TIMERCAP_H
 #define _TIMERCAP_H
 #include "sys.h"
+extern int t_mode ; //通信方式 PWM 0  还是 CAN 1 初始CAN
+extern u8 out_mode;    //控制转速还是方向
+extern u16 out_msg;    //输出信息
 //输入捕获
 //[7] 1成功捕获高电平一次  0未捕获
 //[6] 1捕获到上升沿 0未捕获

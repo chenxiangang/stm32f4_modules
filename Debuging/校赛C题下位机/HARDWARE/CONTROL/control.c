@@ -4,6 +4,7 @@
 #include "encoder.h"
 #include "btn7971.h"
 #include "oled.h"
+#include "timercap.h"
 
 double encoder_angle;
 double pwmduty;
@@ -51,7 +52,7 @@ void SetAngle(double Setangle)
 void TIM3_Int_Init(u16 arr, u16 psc)
 {
 	TIM_TimeBaseInitTypeDef TIM_TimeBaseInitStructure;
-	NVIC_InitTypeDef NVIC_InitStructure;
+	//NVIC_InitTypeDef NVIC_InitStructure;
 
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3, ENABLE); ///开启定时器3时钟
 
@@ -72,7 +73,7 @@ void TIM3_Int_Init(u16 arr, u16 psc)
 	// NVIC_Init(&NVIC_InitStructure);
 }
 
-//?¨?±?÷3????·???????
+//TIM3中断处理
 void TIM3_IRQHandler(void)
 {
 	if (TIM_GetITStatus(TIM3, TIM_IT_Update) == SET) //中断

@@ -3,7 +3,7 @@
  * @LastEditors: QianXu
  * @Description: NONE
  * @Date: 2019-03-11 20:17:30
- * @LastEditTime: 2019-03-18 20:28:57
+ * @LastEditTime: 2019-03-18 20:56:28
  */
 
 #include "CAN.h"
@@ -91,7 +91,11 @@ void CAN1_RX0_IRQHandler(void)
     // CAN_Receive(CAN1, 0, &RxMessage);
     // for (i = 0; i < 8; i++)
     //     printf("rxbuf[%d]:%d\r\n", i, RxMessage.Data[i]);
-    CAN_Receive_16(&out_mode, &out_msg); //读值
+    if (t_mode) //CAN模式
+    {
+        CAN_Receive_16(&out_mode, &out_msg); //读值
+        printf("%d %d\r\n", out_mode, out_msg);
+    }
 }
 
 //can：发送一组数据（固定格式ID为0x12，标准帧，数据帧）

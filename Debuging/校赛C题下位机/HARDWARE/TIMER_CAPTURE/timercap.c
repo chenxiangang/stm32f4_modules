@@ -3,7 +3,7 @@
  * @LastEditors: QianXu
  * @Description: NONE
  * @Date: 2019-03-13 19:56:57
- * @LastEditTime: 2019-03-13 23:50:03
+ * @LastEditTime: 2019-03-18 21:03:24
  */
 #include "timercap.h"
 
@@ -12,9 +12,9 @@ void TIM2_CH4_Cap_Init(u16 psc, u32 arr)
     GPIO_InitTypeDef GPIO_InitStructure;           //GPIO结构体
     TIM_TimeBaseInitTypeDef TIM_TimeBaseStructure; //时基结构体
     TIM_ICInitTypeDef TIM_ICInitStructure;         //时钟输入结构体
-//#ifndef _MYNVIC_H_
-//    NVIC_InitTypeDef NVIC_InitStructure; //中断结构体
-//#endif
+                                                   //#ifndef _MYNVIC_H_
+                                                   //    NVIC_InitTypeDef NVIC_InitStructure; //中断结构体
+                                                   //#endif
 
     RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB, ENABLE); //开启GPIOA时钟
     RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);  //开启TIM5
@@ -46,12 +46,12 @@ void TIM2_CH4_Cap_Init(u16 psc, u32 arr)
 
     TIM_ITConfig(TIM2, TIM_IT_Update | TIM_IT_CC1, ENABLE); //允许中断更新，
 
-//#ifndef _MYNVIC_H_
-//    NVIC_InitStructure.NVIC_IRQChannel = TIM2_IRQn;
-//    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-//    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
-//    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 2;
-//#endif
+    //#ifndef _MYNVIC_H_
+    //    NVIC_InitStructure.NVIC_IRQChannel = TIM2_IRQn;
+    //    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+    //    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
+    //    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 2;
+    //#endif
 
     TIM_Cmd(TIM2, ENABLE); //使能
 }
@@ -98,6 +98,14 @@ void TIM2_IRQHandler(void)
             }
         }
     }
+    else //捕获成功
+    {
+        if (!t_mode) //PWM模式
+        {
+            PWM_Get_msg(&out_mode, &out_msg); //接收信号
+        }
+    }
+
     TIM_ClearITPendingBit(TIM5, TIM_IT_CC1 | TIM_IT_Update); //中断清除
 }
 

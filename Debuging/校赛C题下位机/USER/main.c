@@ -3,7 +3,7 @@
  * @LastEditors: QianXu
  * @Description: NONE
  * @Date: 2019-03-16 14:29:02
- * @LastEditTime: 2019-03-18 20:24:54
+ * @LastEditTime: 2019-03-18 20:58:29
  */
 #include "stm32f4xx.h"
 #include "usart.h"
@@ -32,9 +32,9 @@ extern double pwmduty;
 //目前案件转换
 int main(void)
 {
-  int buffer_len = 0; //CAN读取的长度
+  //int buffer_len = 0; //CAN读取的长度
 
-  int PWM_STA;       //PWM的接收标志
+  
   pid1.SumError = 0; //pid参数初始化
   pid1.PrevError = 0;
   pid1.LastError = 0;
@@ -51,7 +51,7 @@ int main(void)
   Encoder_TIM4_Init();                                                    //编码器初始化
   OLED_Init();                                                            //oled初始化
   LED_Init();                                                             //LED初始化
-  My_CAN_Init(CAN_SJW_1tq, CAN_BS2_6tq, CAN_BS1_7tq, 6, CAN_Mode_Normal); //CAN初始化  正常模式
+  My_CAN_Init(CAN_SJW_1tq, CAN_BS2_6tq, CAN_BS1_7tq, 6,CAN_Mode_LoopBack); //CAN初始化  CAN_Mode_Normal 正常模式
   TIM2_CH4_Cap_Init(top_psc, top_arr);                                    //输入捕获初始化  84MHz/84 1M开始计数
   KEY_Init();                                                             //按键初始化
   My_NVIC_Init();                                                         //中断配置  感觉里面优先级要注意一下
@@ -63,6 +63,7 @@ int main(void)
     {
       t_mode = !t_mode; //模式转换
       LED0 = !LED0;     //显示模式
+      TIM2CH4_CAPTURE_STA&=0x00;  //清零
     }
     // if (t_mode) //CAN模式
     // {
