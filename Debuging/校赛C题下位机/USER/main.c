@@ -3,7 +3,7 @@
  * @LastEditors: QianXu
  * @Description: NONE
  * @Date: 2019-03-16 14:29:02
- * @LastEditTime: 2019-03-17 14:13:50
+ * @LastEditTime: 2019-03-18 20:24:54
  */
 #include "stm32f4xx.h"
 #include "usart.h"
@@ -22,6 +22,10 @@
 #define top_psc (84 - 1)     //输入捕获预分频初值
 #define top_arr (0xFFFFFFFF) //输入捕获重装载初值
 
+int t_mode = 1; //通信方式 PWM 0  还是 CAN 1 初始CAN
+u8 out_mode;    //控制转速还是方向
+u16 out_msg;    //输出信息
+
 PID pid1;
 extern double pwmduty;
 //下位机程序
@@ -29,11 +33,9 @@ extern double pwmduty;
 int main(void)
 {
   int buffer_len = 0; //CAN读取的长度
-  int t_mode = 1;     //通信方式 PWM 0  还是 CAN 1 初始CAN
-  u8 out_mode;        //控制转速还是方向
-  u16 out_msg;        //输出信息
-  int PWM_STA;        //PWM的接收标志
-  pid1.SumError = 0;  //pid参数初始化
+
+  int PWM_STA;       //PWM的接收标志
+  pid1.SumError = 0; //pid参数初始化
   pid1.PrevError = 0;
   pid1.LastError = 0;
   pid1.LastError0 = 0;
@@ -62,36 +64,36 @@ int main(void)
       t_mode = !t_mode; //模式转换
       LED0 = !LED0;     //显示模式
     }
-    if (t_mode) //CAN模式
-    {
-      buffer_len = CAN_Receive_16(&out_mode, &out_msg); //读取信息
-      if (buffer_len)                                   //读到了
-      {
-        //TO DO 需要复位吗
-        if (out_mode) //转角度
-        {
-          //TO DO 控制信号处理
-        }
-        else //转圈数
-        {
-        }
-      }
-    }
-    else //PWM接收模式
-    {
-      PWM_STA = PWM_Get_msg(&out_mode, &out_msg); //接收信号
-      if (PWM_STA)                                //读到了
-      {
-        //TO DO 需要复位吗
-        if (out_mode) //转角度
-        {
-          //TO DO 控制信号处理
-        }
-        else //转圈数
-        {
-        }
-      }
-    }
-    //TO DO 保持原状
+    // if (t_mode) //CAN模式
+    // {
+    //   buffer_len = CAN_Receive_16(&out_mode, &out_msg); //读取信息
+    //   if (buffer_len)                                   //读到了
+    //   {
+    //     //TO DO 需要复位吗
+    //     if (out_mode) //转角度
+    //     {
+    //       //TO DO 控制信号处理
+    //     }
+    //     else //转圈数
+    //     {
+    //     }
+    //   }
+    // }
+    // else //PWM接收模式
+    // {
+    //   PWM_STA = PWM_Get_msg(&out_mode, &out_msg); //接收信号
+    //   if (PWM_STA)                                //读到了
+    //   {
+    //     //TO DO 需要复位吗
+    //     if (out_mode) //转角度
+    //     {
+    //       //TO DO 控制信号处理
+    //     }
+    //     else //转圈数
+    //     {
+    //     }
+    //   }
+    // }
+    // //TO DO 保持原状
   }
 }
