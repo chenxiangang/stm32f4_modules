@@ -3,7 +3,7 @@
  * @LastEditors: QianXu
  * @Description: NONE
  * @Date: 2019-03-17 15:35:29
- * @LastEditTime: 2019-03-18 18:52:07
+ * @LastEditTime: 2019-03-18 19:34:04
  */
 #include "sys.h"
 #include "delay.h"
@@ -27,7 +27,7 @@ int get_number(char *t_mode, int *m_mode, int *msg)
 {
 	if (USART_RX_STA & 0x8000) //接收完成
 	{
-		sscanf(USART_RX_BUF, "%c %d %d", t_mode, m_mode, msg); //提取数值  
+		sscanf(USART_RX_BUF, "%c %d %d", t_mode, m_mode, msg); //提取数值
 		USART_RX_STA = 0x0000;								   //清零
 		return 1;
 	}
@@ -65,10 +65,11 @@ int main(void)
 	My_CAN_Init(CAN_SJW_1tq, CAN_BS2_6tq, CAN_BS1_7tq, 6, CAN_Mode_Normal); //CAN初始化  正常模式
 	LED_Init();																//初始化LED
 	//LCD_Init();																//初始化LCD FSMC接口
-	KEY_Init();																//按键初始化
+	KEY_Init(); //按键初始化
 	//POINT_COLOR = RED;														//画笔颜色：红色
 	//LCD_ShowString(100, 0, 16 * 13, 8, 16, "CURRENT_MODE:");				//LCD显示
 	TIM2_PWM_Init();
+	My_NVIC_Init(); //开启中断
 	while (1)
 	{
 		LED0 = !LED0;								   //表示程序正在运行
@@ -78,7 +79,7 @@ int main(void)
 			if ('C' == tans_mode || 'c' == tans_mode)				   //CAN模式
 			{
 				CAN_SEND_CONTORL(motor_mode, msg); //发送CAN信息
-				TIM_SetCompare4(TIM2, 0);  //置0
+				TIM_SetCompare4(TIM2, 0);		   //置0
 			}
 			else if ('P' == tans_mode || 'p' == tans_mode) //PWM模式
 			{
