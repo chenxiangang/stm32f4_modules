@@ -7,6 +7,8 @@
  */
 #include "YL70.h"
 
+u8 YL70[4];
+
 /**
  * @description: 光电对管初始化  PD0~PD3
  * @param {type} void

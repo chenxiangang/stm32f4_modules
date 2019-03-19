@@ -8,6 +8,7 @@
 #include "include.h"
 #include "FreeCars_uart.h"
 #include "mynvic.h"
+#include "control.h"
 
 /*
 光电对管： PD0 PD1 PD2 PD3 
@@ -25,15 +26,15 @@ OLED:   CS  PD3
 
 FLAG_Typedef flag;
 
-u8 YL70[4];        //光电对管四个数据线的值，从左往右
-
 int main(void)
 { 
  
 	delay_init(168);		  //初始化延时函数
 	LED_Init();		        //初始化LED端口
 	YL_70_Init();         //初始化光电对管
+	TIM3_Init(100,7199);   //读取传感器数据，进行pid控制
 	Encoder_TIM4_Init();  //初始化电机编码器A
+	Encoder_TIM2_Init();
 	uart_init(115200);    //初始化串口1，用于发送数据到上位机
 	usart3_init(115200);  //用来读取陀螺仪的数据
 	My_NVIC_Init();
@@ -43,12 +44,6 @@ int main(void)
 	
 	while(1)
 	{
-		int i;
-	  YL_70_Read_All(YL70);
-		for(i=0; i<4; i++)
-		printf("%d ",YL70[i]);
-		printf("\r\n");
-		delay_ms(1000);
 	}
 }
 

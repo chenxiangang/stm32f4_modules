@@ -1,6 +1,0 @@
--c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\HARDWARE\LED -I ..\FWLIB\inc -I ..\HARDWARE\CONTROL -I ..\HARDWARE\ENCODER -I ..\HARDWARE\OLED -I ..\HARDWARE\PID -I ..\HARDWARE\TB6612 -I ..\HARDWARE\YL_70 -I ..\HARDWARE\JY901 -I ..\HARDWARE\Mymath -I ..\HARDWARE\LedBuz -I .\include -I ..\freecars -I ..\HARDWARE\MYNVIC
--I.\RTE\_BalanceCar
--ID:\sofeware\arm_keil\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include
--ID:\sofeware\arm_keil\ARM\CMSIS\Include
--D__UVISION_VERSION="526" -DSTM32F40_41xxx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER
--o ..\obj\tb6612.o --omf_browse ..\obj\tb6612.crf --depend ..\obj\tb6612.d "..\HARDWARE\TB6612\tb6612.c"

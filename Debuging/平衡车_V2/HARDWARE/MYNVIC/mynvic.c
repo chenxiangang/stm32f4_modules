@@ -2,12 +2,11 @@
 
 /*************************************** 中断初始化 *************************************/
 
-
 #define USART3_ON 0
 #define USART1_ON 1
-#define TIM2_ON   1
-#define TIM3_ON   1
-#define TIM4_ON   1
+#define TIM2_ON 1
+#define TIM3_ON 1
+#define TIM4_ON 1
 /**
   * @brief  中断初始化函数.
   * @param  None
@@ -41,32 +40,31 @@ void My_NVIC_Init(void)
 #endif
 
 #if TIM2_ON
-    //定时器2 from timer.c
+    //定时器2 左轮编码器
     NVIC_InitStructure.NVIC_IRQChannel = TIM2_IRQn;
     NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
-    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;
+    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 2;
     NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
     NVIC_Init(&NVIC_InitStructure);
 #endif
 
 #if TIM3_ON
-    //定时器2 from timer.c
+    //定时器3 控制中断
     NVIC_InitStructure.NVIC_IRQChannel = TIM3_IRQn;
-    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
-    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;
-    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-    NVIC_Init(&NVIC_InitStructure);
-#endif
-
-//定时器4 from encoder.c		
-#if TIM4_ON
-    NVIC_InitStructure.NVIC_IRQChannel = TIM4_IRQn;
     NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
     NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
     NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
     NVIC_Init(&NVIC_InitStructure);
 #endif
 
+//定时器4 from encoder.c 右轮编码器
+#if TIM4_ON
+    NVIC_InitStructure.NVIC_IRQChannel = TIM4_IRQn;
+    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
+    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;
+    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+    NVIC_Init(&NVIC_InitStructure);
+#endif
 
     /*************************** DCMI Interrupt ****************/
     Enable_Interrupts();
