@@ -11,7 +11,7 @@ void TB6612_init(void)
     GPIO_InitStructure.GPIO_OType = GPIO_OType_PP; //推挽输出
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz; //100MHz
     GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP; //上拉
-    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_2 | GPIO_Pin_3;
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4 | GPIO_Pin_5 | GPIO_Pin_2 | GPIO_Pin_3;
     GPIO_Init(GPIOA, &GPIO_InitStructure); //初始化
 }
 
@@ -61,7 +61,7 @@ void TB6612_Init()
     TIM_Cmd(TIM3, ENABLE); //开启时钟
 }
 
-void speedcontrl(int speed, int ch)
+void speedcontrol(int speed, int ch)
 {
     if (speed > 0 && ch == 1) {
         AIN1 = 1;
