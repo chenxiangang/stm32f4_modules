@@ -369,7 +369,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F40_41xxx,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\CORE;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\USER;..\HARDWARE\LED;..\HARDWARE\LCD;..\FWLIB\inc;..\HARDWARE\CAN;..\HARDWARE\KEY;..\HARDWARE\CTRL</IncludePath>
+              <IncludePath>..\CORE;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\USER;..\HARDWARE\LED;..\HARDWARE\LCD;..\FWLIB\inc;..\HARDWARE\CAN;..\HARDWARE\KEY;..\HARDWARE\CTRL;..\HARDWARE\PWM</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -456,6 +456,11 @@
               <FileName>mynvic.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\CTRL\mynvic.c</FilePath>
+            </File>
+            <File>
+              <FileName>pwm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\PWM\pwm.c</FilePath>
             </File>
           </Files>
         </Group>

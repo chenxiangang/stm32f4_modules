@@ -76,6 +76,6 @@ void OLED_ShowString(u8 x,u8 y,const u8 *p,u8 size);
 void OLED_ShowFontHZ(u8 x,u8 y,u8 pos,u8 size,u8 mode);
 void OLED_DrawBMP(u8 x0, u8 y0,u8 x1, u8 y1,u8 BMP[]);
 void OLED_ShowFloat(u8 x, u8 y, float val);
-void OLED_ShowMPU( float roll, float pitch, float yaw, float angel);
+void OLED_ShowMPU(int tmode, int omode, u16 set);
 
 #endif

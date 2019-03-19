@@ -3,18 +3,23 @@
  * @LastEditors: QianXu
  * @Description: NONE
  * @Date: 2019-03-13 19:56:57
- * @LastEditTime: 2019-03-13 23:50:03
+ * @LastEditTime: 2019-03-18 21:03:24
  */
 #include "timercap.h"
+#include "usart.h"
+#include "control.h"
+
+u16 temp_angle;
+u16 temp_mode;
 
 void TIM2_CH4_Cap_Init(u16 psc, u32 arr)
 {
     GPIO_InitTypeDef GPIO_InitStructure;           //GPIO结构体
     TIM_TimeBaseInitTypeDef TIM_TimeBaseStructure; //时基结构体
     TIM_ICInitTypeDef TIM_ICInitStructure;         //时钟输入结构体
-//#ifndef _MYNVIC_H_
-//    NVIC_InitTypeDef NVIC_InitStructure; //中断结构体
-//#endif
+                                                   //#ifndef _MYNVIC_H_
+                                                   //    NVIC_InitTypeDef NVIC_InitStructure; //中断结构体
+                                                   //#endif
 
     RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB, ENABLE); //开启GPIOA时钟
     RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);  //开启TIM5
@@ -23,7 +28,7 @@ void TIM2_CH4_Cap_Init(u16 psc, u32 arr)
     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_11;         //PB11
     GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;     //推挽输出
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;       //复用功能
-    GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_DOWN;     //下拉
+    GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;     //下拉
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz; //100MHz
     GPIO_Init(GPIOB, &GPIO_InitStructure);             //初始化GPIO
 
@@ -44,14 +49,14 @@ void TIM2_CH4_Cap_Init(u16 psc, u32 arr)
     TIM_ICInitStructure.TIM_ICSelection = TIM_ICSelection_DirectTI; //映射到TI
     TIM_ICInit(TIM2, &TIM_ICInitStructure);                         //捕获参数初始化
 
-    TIM_ITConfig(TIM2, TIM_IT_Update | TIM_IT_CC1, ENABLE); //允许中断更新，
+    TIM_ITConfig(TIM2, TIM_IT_Update | TIM_IT_CC4, ENABLE); //允许中断更新，
 
-//#ifndef _MYNVIC_H_
-//    NVIC_InitStructure.NVIC_IRQChannel = TIM2_IRQn;
-//    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-//    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
-//    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 2;
-//#endif
+    //#ifndef _MYNVIC_H_
+    //    NVIC_InitStructure.NVIC_IRQChannel = TIM2_IRQn;
+    //    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+    //    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
+    //    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 2;
+    //#endif
 
     TIM_Cmd(TIM2, ENABLE); //使能
 }
@@ -63,7 +68,7 @@ u32 TIM2CH4_CAPTURE_VAL;    //输入捕获值 TIM2/TIM5 32位
 //中断处理函数
 void TIM2_IRQHandler(void)
 {
-    if (TIM2CH4_CAPTURE_STA & 0x80 == 0) //未成功捕获
+    if ((TIM2CH4_CAPTURE_STA & 0x80 )== 0) //未成功捕获
     {
         if (TIM_GetITStatus(TIM2, TIM_IT_Update) != RESET) //溢出
         {
@@ -78,12 +83,12 @@ void TIM2_IRQHandler(void)
                     TIM2CH4_CAPTURE_STA++;
             }
         }
-        if (TIM_GetITStatus(TIM2, TIM_IT_CC1) != RESET) //捕获事件发生
+        if (TIM_GetITStatus(TIM2, TIM_IT_CC4) != RESET) //捕获事件发生
         {
             if (TIM2CH4_CAPTURE_STA & 0X40) //捕获到下降沿
             {
                 TIM2CH4_CAPTURE_STA |= 0X80;                        //标记捕获到一次完整高电平
-                TIM2CH4_CAPTURE_VAL = TIM_GetCapture1(TIM2);        //当前捕获值
+                TIM2CH4_CAPTURE_VAL = TIM_GetCapture4(TIM2);        //当前捕获值
                 TIM_OC4PolarityConfig(TIM2, TIM_ICPolarity_Rising); //CC1P=0 设置上升沿捕获 通道4
             }
             else //未开始，第一次捕获上升沿
@@ -98,7 +103,26 @@ void TIM2_IRQHandler(void)
             }
         }
     }
-    TIM_ClearITPendingBit(TIM5, TIM_IT_CC1 | TIM_IT_Update); //中断清除
+    else //捕获成功
+    {
+        if (!t_mode) //PWM模式
+        {
+						temp_angle = out_msg;
+					  temp_mode = out_mode;
+            PWM_Get_msg(&out_mode, &out_msg); //接收信号						
+					  //ClearAll();  //复位
+					if(temp_angle-out_msg > 5 || temp_angle -out_msg < -5 || out_mode != temp_mode)
+						ClearAll();  //复位
+					
+					
+            printf("return:PWM %d %d\r\n", out_mode, out_msg);
+					  TIM2CH4_CAPTURE_STA = 0;        //开启下次捕获
+					
+					
+        }
+    }
+
+    TIM_ClearITPendingBit(TIM2, TIM_IT_CC4 | TIM_IT_Update); //中断清除
 }
 
 //计高电平时间
@@ -111,7 +135,8 @@ u32 Time_Counter()
         counter = TIM2CH4_CAPTURE_STA & 0X3F;
         counter *= 0XFFFFFFFF;          //溢出时间总合 top_arr的值
         counter += TIM2CH4_CAPTURE_VAL; //等到总的高电平时间
-        TIM2CH4_CAPTURE_STA = 0;        //开启下次捕获
+				//printf("%u\r\n",counter);
+        //TIM2CH4_CAPTURE_STA = 0;        //开启下次捕获
     }
     return counter;
 }
