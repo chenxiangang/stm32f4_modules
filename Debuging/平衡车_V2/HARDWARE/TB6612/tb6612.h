@@ -14,6 +14,6 @@
 void TB6612_Init(void); //≥ı ºªØ
 void TIM3_PWM_Init(void);
 void TB6612_Init(void);
-void speedcontrol(int speed, int ch);
+void speedcontrol(double speed, int ch, float basepwm);
 
 #endif

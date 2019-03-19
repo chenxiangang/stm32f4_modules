@@ -61,23 +61,24 @@ void TB6612_Init()
     TIM_Cmd(TIM3, ENABLE); //开启时钟
 }
 
-void speedcontrol(int speed, int ch)
+//输入参数 速度，左轮/右轮 死区
+void speedcontrol(double speed, int ch, float basepwm)
 {
     if (speed > 0 && ch == 1) {
         AIN1 = 1;
         AIN2 = 0;
-        TIM_SetCompare1(TIM3, speed);
+        TIM_SetCompare1(TIM3, speed + basepwm);
     } else if (speed < 0 && ch == 1) {
         AIN1 = 0;
         AIN2 = 1;
-        TIM_SetCompare1(TIM3, speed);
+        TIM_SetCompare1(TIM3, speed + basepwm);
     } else if (speed > 0 && ch == 2) {
         BIN1 = 1;
         BIN2 = 0;
-        TIM_SetCompare2(TIM3, speed);
+        TIM_SetCompare2(TIM3, speed - basepwm);
     } else if (speed < 0 && ch == 2) {
         BIN1 = 0;
         BIN2 = 1;
-        TIM_SetCompare2(TIM3, speed);
+        TIM_SetCompare2(TIM3, speed - basepwm);
     }
 }

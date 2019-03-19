@@ -9,11 +9,12 @@
 #include "usart.h"
 
 double Left_Encoder_Angle = 0;
-int command = 0;
+double Right_Encoder_Angle = 0;
+int modeFlag = 0;
+double pwmduty = 0;
 
-#define remote_control 1
-#define keep_balance 2
-#define tracking 3
+float PreSpeed;
+float Encoder_Angle;
 
 void Tracking()
 {
@@ -24,15 +25,25 @@ void RemoteControl()
 {
 }
 
+//调节JYangle_PID,Speed_PID,Encoder_Angle_PID目标值均为0
 void KeepBalance()
 {
     //pitch,roll,yaw,speed(还要写一个函数)
+    JYAngle_PID.SetPoint = 0;
+    Speed_PID.SetPoint = 0;
+    Encoder_Angle_PID.SetPoint = 0;
+    PIDCalc(&JYAngle_PID, roll);
+    PIDCalc(&Speed_PID, PreSpeed);
+    PIDCalc(&Encoder_Angle_PID, Encoder_Angle);
+    pwmduty = JYAngle_PID.pwmduty + Speed_PID.pwmduty + Encoder_Angle_PID.pwmduty;
+    speedcontrol(pwmduty, LeftWheel, 110);
+    speedcontrol(pwmduty, RightWheel, 110);
 }
 
 void stop()
 {
-    speedcontrol(0, LeftWheel);
-    speedcontrol(0, RightWheel);
+    speedcontrol(0, LeftWheel, 0);
+    speedcontrol(0, RightWheel, 0);
 }
 
 void TIM5_Init(u16 arr, u16 psc)
@@ -54,10 +65,9 @@ void TIM5_Init(u16 arr, u16 psc)
 //定时器3中断服务程序
 void TIM5_IRQHandler(void) //TIM3中断
 {
-    int i;
     if (TIM_GetITStatus(TIM5, TIM_IT_Update) != RESET) //检查指定的TIM中断发生与否:TIM 中断源
     {
-        switch (command) {
+        switch (modeFlag) {
         case remote_control:
             RemoteControl();
             break;
