@@ -9,6 +9,31 @@
 #include "usart.h"
 
 double Left_Encoder_Angle = 0;
+int command = 0;
+
+#define remote_control 1
+#define keep_balance 2
+#define tracking 3
+
+void Tracking()
+{
+    YL_70_Read_All(YL70);
+}
+
+void RemoteControl()
+{
+}
+
+void KeepBalance()
+{
+    //pitch,roll,yaw,speed(还要写一个函数)
+}
+
+void stop()
+{
+    speedcontrol(0, LeftWheel);
+    speedcontrol(0, RightWheel);
+}
 
 void TIM5_Init(u16 arr, u16 psc)
 {
@@ -32,13 +57,20 @@ void TIM5_IRQHandler(void) //TIM3中断
     int i;
     if (TIM_GetITStatus(TIM5, TIM_IT_Update) != RESET) //检查指定的TIM中断发生与否:TIM 中断源
     {
-        //        YL_70_Read_All(YL70);
-        //        for (i = 0; i < 4; i++)
-        //            printf("%d ", YL70[i]);
-        //        printf("\r\n");
-        Left_Encoder_Angle = Read_Encoder(1);
-        printf("%f\r\n", Left_Encoder_Angle);
-
+        switch (command) {
+        case remote_control:
+            RemoteControl();
+            break;
+        case tracking:
+            Tracking();
+            break;
+        case keep_balance:
+            KeepBalance();
+            break;
+        default:
+            stop();
+            break;
+        }
         TIM_ClearITPendingBit(TIM5, TIM_IT_Update); //清除TIMx的中断待处理位:TIM 中断源
     }
 }

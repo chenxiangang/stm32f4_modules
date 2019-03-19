@@ -2,6 +2,9 @@
 #define __TB6612_H
 #include "sys.h"
 
+#define LeftWheel 1
+#define RightWheel 2
+
 //LED¶Ë¿Ú¶¨Òå
 #define AIN1 PAout(4) // AIN1
 #define AIN2 PAout(5) // AIN2
