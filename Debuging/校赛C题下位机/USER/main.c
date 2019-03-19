@@ -74,7 +74,8 @@ int main(void)
   while (1)
   {
     LED1 = !LED1;                                            //表示程序在运行
-    OLED_ShowMPU(Read_Encoder(), pwmduty, pid1.Integral, 0); //显示数值
+    //OLED_ShowMPU(Read_Encoder(), pwmduty, pid1.Integral, 0); //显示数值
+    OLED_ShowMPU(t_mode,out_mode,out_msg);
     if (KEY_Scan(0))                                         //不支持连续按 KEY0
     {
       t_mode = !t_mode;            //模式转换
