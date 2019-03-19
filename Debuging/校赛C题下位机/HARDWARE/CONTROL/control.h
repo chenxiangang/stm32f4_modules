@@ -10,6 +10,8 @@ extern u16 out_msg;    //输出信息
 void SetAngle(double Setangle);
 void motorback(void);
 void TIM3_Int_Init(u16 arr, u16 psc);
+void ClearAll(void);
+
 #endif
 
 

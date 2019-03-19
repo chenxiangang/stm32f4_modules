@@ -8,6 +8,7 @@
 
 #include "CAN.h"
 #include "usart.h"
+#include "control.h"
 //未完成
 //先用CAN1吧，正点原子的板子上有转接芯片
 //中断之后加
@@ -35,7 +36,7 @@ void My_CAN_Init(u8 tsjw, u8 tbs2, u8 tbs1, u16 brp, u8 mode)
     //GPIO初始化
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;             //复用
     GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;           //推挽输出
-    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_11 | GPIO_Pin_12; //PA11 RX     PA12 TX
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_11 | GPIO_Pin_12; //PA11接CAN的RX     PA12接CAN的TX
     GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;             //上拉
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;       //100MHz
     GPIO_Init(GPIOA, &GPIO_InitStructure);                   //初始化PA11 PA12
@@ -94,7 +95,8 @@ void CAN1_RX0_IRQHandler(void)
     if (t_mode) //CAN模式
     {
         CAN_Receive_16(&out_mode, &out_msg); //读值
-        printf("%d %d\r\n", out_mode, out_msg);
+			  ClearAll(); //清空
+        printf("return:CAN %d %d\r\n", out_mode, out_msg);
     }
 }
 

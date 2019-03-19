@@ -43,7 +43,7 @@ int get_number(char *t_mode, int *m_mode, int *msg)
 int trans_CCR(int motor_mode, int msg)
 {
 	int CCR;
-	if (motor_mode) //转角度
+	if (!motor_mode) //转速
 	{
 		CCR = msg * 5 + 2 + 500;
 	}
