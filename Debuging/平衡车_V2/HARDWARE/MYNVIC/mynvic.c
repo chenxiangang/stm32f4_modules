@@ -4,6 +4,7 @@
 
 #define USART3_ON 0
 #define USART1_ON 1
+#define TIM9_ON 1
 #define TIM2_ON 1
 #define TIM3_ON 1
 #define TIM4_ON 1
@@ -40,8 +41,17 @@ void My_NVIC_Init(void)
     NVIC_Init(&NVIC_InitStructure); //根据指定的参数初始化VIC寄存器
 #endif
 
-#if TIM2_ON
+#if TIM9_ON
     //定时器2 左轮编码器
+    NVIC_InitStructure.NVIC_IRQChannel = TIM1_BRK_TIM9_IRQn; //外部中断1
+    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 3; //抢占优先级3
+    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 3; //子优先级3
+    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE; //使能外部中断通道
+    NVIC_Init(&NVIC_InitStructure); //配置NVIC
+#endif
+
+#if TIM2_ON
+        //定时器2 左轮编码器
     NVIC_InitStructure.NVIC_IRQChannel = TIM2_IRQn;
     NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
     NVIC_InitStructure.NVIC_IRQChannelSubPriority = 2;

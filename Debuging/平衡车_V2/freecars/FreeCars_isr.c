@@ -122,10 +122,10 @@ void dealUartData(void) {
 }
 
 
-void USART1_IRQHandler(void) {
-  GPIO_ResetBits(GPIOC, GPIO_Pin_2);  //做什么用的？
-  if (USART_GetITStatus(USART1, USART_IT_RXNE) != RESET) {
-    SerialPortRx.Data = UartGetOneChar();
-    dealUartData();
-  }
-}
+//void USART1_IRQHandler(void) {
+//  GPIO_ResetBits(GPIOC, GPIO_Pin_2);  //做什么用的？
+//  if (USART_GetITStatus(USART1, USART_IT_RXNE) != RESET) {
+//    SerialPortRx.Data = UartGetOneChar();
+//    dealUartData();
+//  }
+//}

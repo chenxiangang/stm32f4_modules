@@ -7,6 +7,7 @@
 #include "sys.h"
 #include "tb6612.h"
 #include "usart.h"
+#include "usmart.h"
 
 double Left_Encoder_Angle = 0;
 double Right_Encoder_Angle = 0;
@@ -67,6 +68,7 @@ void TIM5_IRQHandler(void) //TIM3中断
 {
     if (TIM_GetITStatus(TIM5, TIM_IT_Update) != RESET) //检查指定的TIM中断发生与否:TIM 中断源
     {
+			printf("hello\r\n");
         switch (modeFlag) {
         case remote_control:
             RemoteControl();

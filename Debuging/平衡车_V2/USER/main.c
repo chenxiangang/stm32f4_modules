@@ -11,6 +11,7 @@
 #include "sys.h"
 #include "tb6612.h"
 #include "usart.h"
+#include "usmart.h"
 
 /*
 光电对管： PD0 PD1 PD2 PD3 
@@ -27,6 +28,13 @@ OLED:   CS  PD3
 */
 
 FLAG_Typedef flag;
+
+void changePID(PID *pp,u8 p,u8 i,u8 d)
+{
+	pp->Proportion = p;
+	pp->Integral = i;
+	pp->Derivative = d;
+}
 
 void PID_Init()
 {
@@ -62,15 +70,18 @@ int main(void)
     delay_init(168); //初始化延时函数
     LED_Init(); //初始化LED端口
     PID_Init(); //PID初始化
-    YL_70_Init(); //初始化光电对管
-    Encoder_TIM2_Init(); //初始化电机编码器B
-    Encoder_TIM4_Init(); //初始化电机编码器A
-    TIM5_Init(100, 7199); //读取传感器数据，进行pid控制
+		usmart_dev.init(84); 	//初始化USMART
+    //YL_70_Init(); //初始化光电对管
+    //Encoder_TIM2_Init(); //初始化电机编码器B
+    //Encoder_TIM4_Init(); //初始化电机编码器A
+    //TIM5_Init(100, 7199); //读取传感器数据，进行pid控制
     uart_init(115200); //初始化串口1，用于发送数据到上位机
-    usart3_init(115200); //用来读取陀螺仪的数据
+    //usart3_init(115200); //用来读取陀螺仪的数据
     My_NVIC_Init(); //配置中断优先级
-    TB6612_Init(); //电机驱动初始化
+    //TB6612_Init(); //电机驱动初始化
 
     while (1) {
+			printf("%f",JYAngle_PID.Proportion);
+			delay_ms(1000);
     }
 }
