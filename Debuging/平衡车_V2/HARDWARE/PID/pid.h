@@ -13,6 +13,7 @@ typedef struct PID {
     double SumError; // 总误差,用来做积分
     double LastError0;
     double pwmduty;
+	float allowError;
 } PID;
 
 extern PID JYAngle_PID;

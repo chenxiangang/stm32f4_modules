@@ -5,6 +5,10 @@
 #include "delay.h"		
 #include "sys.h"
 #include "pid.h"
+#include "control.h"
+#include "JY901_uart.h"
+#include "YL70.h"
+#include "encoder.h"
 												 
 extern void changePID(PID *pp,u8 p,u8 i,u8 d);
 //函数名列表初始化(用户自己添加)
@@ -17,7 +21,8 @@ struct _m_usmart_nametab usmart_nametab[]=
 #endif		   
 	(void*)delay_ms,"void delay_ms(u16 nms)",
  	(void*)delay_us,"void delay_us(u32 nus)",
-	(void*)changePID,"void changePID(PID *pp,u8 p,u8 i,u8 d)",		
+	(void*)changePID,"void changePID(PID *pp,u8 p,u8 i,u8 d)\r\n--change the pid parameter",
+	(void*)changeTask,"void changeTask(u8 taskid)\r\n--change the task:remote_control,tracking and keep_balance",
 };						  
 ///////////////////////////////////END///////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////

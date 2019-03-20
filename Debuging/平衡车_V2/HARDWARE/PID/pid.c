@@ -12,30 +12,34 @@ void PIDCalc(PID* pp, double PreVal) // PreError为当前误差值
     double dError;
     double tempP;
     pp->PrevError = pp->SetPoint - PreVal;
-    if (pp->PrevError < 1.0 && pp->PrevError > -1.0) {
+
+    //在设定的允许误差范围内不再进行调节
+    if (pp->PrevError < pp->allowError && pp->PrevError > -pp->allowError) {
         pp->PrevError = 0;
         pp->SumError = 0;
         pp->LastError = 0;
     }
-
+    //可以分段进行P的设置
     tempP = pp->Proportion;
 
-    if (pp->PrevError < 6 && pp->PrevError > -6)
+    //在一定范围内才开始积分
+    if (pp->PrevError < pp->allowError * 6 && pp->PrevError > -pp->allowError * 6)
         pp->SumError = pp->SumError + pp->PrevError; // 积分，历史偏差累加
     else
         pp->SumError = 0;
 
-    dError = pp->PrevError - pp->LastError; // 微分，偏差相减,哪个减哪个?
+    dError = pp->PrevError - pp->LastError; // 微分，偏差相减
     pp->LastError = pp->PrevError;
 
     dutychange = tempP * pp->PrevError + pp->Integral * pp->SumError + pp->Derivative * dError;
 
-    if (dutychange > 800)
-        dutychange = 800;
-    else if (dutychange < -800)
-        dutychange = -800;
-    else {
-    }
+    //限幅
+    // if (dutychange > 800)
+    //     dutychange = 800;
+    // else if (dutychange < -800)
+    //     dutychange = -800;
+    // else {
+    // }
     pp->pwmduty = dutychange;
 }
 

@@ -85,30 +85,30 @@ u8 usmart_sys_cmd_exe(u8* str)
         printf("\r\n");
 #if USMART_USE_HELP
         printf("------------------------USMART V3.1------------------------ \r\n");
-        printf("USMART有7个系统命令:\r\n");
-        printf("?:      获取帮助信息\r\n");
-        printf("help:   获取帮助信息\r\n");
-        printf("list:   可用的函数列表\r\n\n");
-        printf("id:     可用函数的ID列表\r\n\n");
-        printf("hex:    参数16进制显示,后跟空格+数字即执行进制转换\r\n\n");
-        printf("dec:    参数10进制显示,后跟空格+数字即执行进制转换\r\n\n");
-        printf("runtime:1,开启函数运行计时;0,关闭函数运行计时;\r\n\n");
-        printf("请按照程序编写格式输入函数名及参数并以回车键结束.\r\n");
-        printf("--------------------------ALIENTEK------------------------- \r\n");
+        printf("USMART has 7 commands:\r\n");
+        printf("?:      get help\r\n");
+        printf("help:   get help\r\n");
+        printf("list:   list the available method\r\n\n");
+        printf("id:     list the ID of available method\r\n\n");
+        printf("hex:    display the hex,add a blank + num ,then will execute the garrison conversion\r\n\n");
+        printf("dec:    display the dec,add a blank + num ,then will execute the garrison conversion\r\n\n");
+        printf("runtime:1,turn on the runtime;0,turn off the runtime;\r\n\n");
+        printf("send your command with an 'Enter'.\r\n");
+        printf("--------------ALIENTEK modified by while0l1----------------- \r\n");
 #else
-        printf("指令失效\r\n");
+        printf("command did not work\r\n");
 #endif
         break;
     case 2: //查询指令
         printf("\r\n");
-        printf("-------------------------函数清单--------------------------- \r\n");
+        printf("-------------------------method list--------------------------- \r\n");
         for (i = 0; i < usmart_dev.fnum; i++)
             printf("%s\r\n", usmart_dev.funs[i].name);
         printf("\r\n");
         break;
     case 3: //查询ID
         printf("\r\n");
-        printf("-------------------------函数 ID --------------------------- \r\n");
+        printf("-------------------------method ID --------------------------- \r\n");
         for (i = 0; i < usmart_dev.fnum; i++) {
             usmart_get_fname((u8*)usmart_dev.funs[i].name, sfname, &pnum, &rval); //得到本地函数名
             printf("%s id is:\r\n0X%08X\r\n", sfname, usmart_dev.funs[i].func); //显示ID
@@ -128,7 +128,7 @@ u8 usmart_sys_cmd_exe(u8* str)
                 return USMART_PARMERR; //参数错误.
             else //参数显示设定功能
             {
-                printf("16进制参数显示!\r\n");
+                printf("hex display!\r\n");
                 usmart_dev.sptype = SP_TYPE_HEX;
             }
 
@@ -149,7 +149,7 @@ u8 usmart_sys_cmd_exe(u8* str)
                 return USMART_PARMERR; //参数错误.
             else //参数显示设定功能
             {
-                printf("10进制参数显示!\r\n");
+                printf("dec display!\r\n");
                 usmart_dev.sptype = SP_TYPE_DEC;
             }
 
@@ -403,16 +403,16 @@ void usmart_scan(void)
             if (sta) {
                 switch (sta) {
                 case USMART_FUNCERR:
-                    printf("函数错误!\r\n");
+                    printf("method error!\r\n");
                     break;
                 case USMART_PARMERR:
-                    printf("参数错误!\r\n");
+                    printf("parameter error!\r\n");
                     break;
                 case USMART_PARMOVER:
-                    printf("参数太多!\r\n");
+                    printf("too much parameters!\r\n");
                     break;
                 case USMART_NOFUNCFIND:
-                    printf("未找到匹配的函数!\r\n");
+                    printf("method not found!\r\n");
                     break;
                 }
             }

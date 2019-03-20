@@ -1,5 +1,5 @@
 Dependencies for Project 'LED', Target 'BalanceCar': (DO NOT MODIFY !)
-F (.\main.c)(0x5C91BE61)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\HARDWARE\LED -I ..\FWLIB\inc -I ..\HARDWARE\CONTROL -I ..\HARDWARE\ENCODER -I ..\HARDWARE\OLED -I ..\HARDWARE\PID -I ..\HARDWARE\TB6612 -I ..\HARDWARE\YL_70 -I ..\HARDWARE\JY901 -I ..\HARDWARE\Mymath -I ..\HARDWARE\LedBuz -I .\include -I ..\freecars -I ..\HARDWARE\MYNVIC -I ..\USMART-I.\RTE\_BalanceCar-ID:\sofeware\arm_keil\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include-ID:\sofeware\arm_keil\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DSTM32F40_41xxx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
+F (.\main.c)(0x5C91FC16)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\HARDWARE\LED -I ..\FWLIB\inc -I ..\HARDWARE\CONTROL -I ..\HARDWARE\ENCODER -I ..\HARDWARE\OLED -I ..\HARDWARE\PID -I ..\HARDWARE\TB6612 -I ..\HARDWARE\YL_70 -I ..\HARDWARE\JY901 -I ..\HARDWARE\Mymath -I ..\HARDWARE\LedBuz -I .\include -I ..\freecars -I ..\HARDWARE\MYNVIC -I ..\USMART-I.\RTE\_BalanceCar-ID:\sofeware\arm_keil\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include-ID:\sofeware\arm_keil\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DSTM32F40_41xxx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
 I (..\freecars\FreeCars_uart.h)(0x5C7D3586)
 I (..\USER\stm32f4xx.h)(0x5710F357)
 I (..\CORE\core_cm4.h)(0x5710F354)
@@ -41,7 +41,7 @@ I (..\SYSTEM\sys\sys.h)(0x5C90DBBF)
 I (..\USER\stm32f4xx_it.h)(0x5710F357)
 I (..\HARDWARE\JY901\JY901_uart.h)(0x5C7F1AE4)
 I (..\HARDWARE\YL_70\YL70.h)(0x5C90DD2A)
-I (..\HARDWARE\CONTROL\control.h)(0x5C911534)
+I (..\HARDWARE\CONTROL\control.h)(0x5C91F919)
 I (..\SYSTEM\delay\delay.h)(0x5710F356)
 I (..\HARDWARE\ENCODER\encoder.h)(0x5C90E652)
 I (.\include\include.h)(0x5C7F1AE4)
@@ -50,7 +50,7 @@ I (D:\sofeware\arm_keil\ARM\ARMCC\include\math.h)(0x599EDB3E)
 I (..\HARDWARE\LED\led.h)(0x5C8F674C)
 I (..\HARDWARE\MYNVIC\mynvic.h)(0x5C839AA9)
 I (..\HARDWARE\PID\pid.h)(0x5C911422)
-I (..\HARDWARE\TB6612\tb6612.h)(0x5C911209)
+I (..\HARDWARE\TB6612\tb6612.h)(0x5C91FBE8)
 I (..\USMART\usmart.h)(0x5710F367)
 I (..\USMART\usmart_str.h)(0x5710F367)
 F (.\stm32f4xx_it.c)(0x5710F357)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\HARDWARE\LED -I ..\FWLIB\inc -I ..\HARDWARE\CONTROL -I ..\HARDWARE\ENCODER -I ..\HARDWARE\OLED -I ..\HARDWARE\PID -I ..\HARDWARE\TB6612 -I ..\HARDWARE\YL_70 -I ..\HARDWARE\JY901 -I ..\HARDWARE\Mymath -I ..\HARDWARE\LedBuz -I .\include -I ..\freecars -I ..\HARDWARE\MYNVIC -I ..\USMART-I.\RTE\_BalanceCar-ID:\sofeware\arm_keil\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include-ID:\sofeware\arm_keil\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DSTM32F40_41xxx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\stm32f4xx_it.o --omf_browse ..\obj\stm32f4xx_it.crf --depend ..\obj\stm32f4xx_it.d)
@@ -202,8 +202,8 @@ I (..\FWLIB\inc\stm32f4xx_dac.h)(0x5710F355)
 I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x5710F355)
 I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x5710F355)
 I (..\USER\stm32f4xx_it.h)(0x5710F357)
-F (..\HARDWARE\CONTROL\control.c)(0x5C91B695)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\HARDWARE\LED -I ..\FWLIB\inc -I ..\HARDWARE\CONTROL -I ..\HARDWARE\ENCODER -I ..\HARDWARE\OLED -I ..\HARDWARE\PID -I ..\HARDWARE\TB6612 -I ..\HARDWARE\YL_70 -I ..\HARDWARE\JY901 -I ..\HARDWARE\Mymath -I ..\HARDWARE\LedBuz -I .\include -I ..\freecars -I ..\HARDWARE\MYNVIC -I ..\USMART-I.\RTE\_BalanceCar-ID:\sofeware\arm_keil\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include-ID:\sofeware\arm_keil\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DSTM32F40_41xxx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\control.o --omf_browse ..\obj\control.crf --depend ..\obj\control.d)
-I (..\HARDWARE\CONTROL\control.h)(0x5C911534)
+F (..\HARDWARE\CONTROL\control.c)(0x5C91F8C2)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\HARDWARE\LED -I ..\FWLIB\inc -I ..\HARDWARE\CONTROL -I ..\HARDWARE\ENCODER -I ..\HARDWARE\OLED -I ..\HARDWARE\PID -I ..\HARDWARE\TB6612 -I ..\HARDWARE\YL_70 -I ..\HARDWARE\JY901 -I ..\HARDWARE\Mymath -I ..\HARDWARE\LedBuz -I .\include -I ..\freecars -I ..\HARDWARE\MYNVIC -I ..\USMART-I.\RTE\_BalanceCar-ID:\sofeware\arm_keil\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include-ID:\sofeware\arm_keil\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DSTM32F40_41xxx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\control.o --omf_browse ..\obj\control.crf --depend ..\obj\control.d)
+I (..\HARDWARE\CONTROL\control.h)(0x5C91F919)
 I (..\SYSTEM\sys\sys.h)(0x5C90DBBF)
 I (..\FWLIB\inc\misc.h)(0x5710F355)
 I (..\USER\stm32f4xx.h)(0x5710F357)
@@ -245,7 +245,7 @@ I (..\HARDWARE\YL_70\YL70.h)(0x5C90DD2A)
 I (..\HARDWARE\ENCODER\encoder.h)(0x5C90E652)
 I (D:\sofeware\arm_keil\ARM\ARMCC\include\math.h)(0x599EDB3E)
 I (..\HARDWARE\PID\pid.h)(0x5C911422)
-I (..\HARDWARE\TB6612\tb6612.h)(0x5C911209)
+I (..\HARDWARE\TB6612\tb6612.h)(0x5C91FBE8)
 I (..\SYSTEM\usart\usart.h)(0x5710F356)
 I (D:\sofeware\arm_keil\ARM\ARMCC\include\stdio.h)(0x599EDB3C)
 I (..\USMART\usmart.h)(0x5710F367)
@@ -331,7 +331,7 @@ I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x5710F355)
 I (..\USER\stm32f4xx_it.h)(0x5710F357)
 I (D:\sofeware\arm_keil\ARM\ARMCC\include\math.h)(0x599EDB3E)
 F (..\HARDWARE\TB6612\tb6612.c)(0x5C911237)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\HARDWARE\LED -I ..\FWLIB\inc -I ..\HARDWARE\CONTROL -I ..\HARDWARE\ENCODER -I ..\HARDWARE\OLED -I ..\HARDWARE\PID -I ..\HARDWARE\TB6612 -I ..\HARDWARE\YL_70 -I ..\HARDWARE\JY901 -I ..\HARDWARE\Mymath -I ..\HARDWARE\LedBuz -I .\include -I ..\freecars -I ..\HARDWARE\MYNVIC -I ..\USMART-I.\RTE\_BalanceCar-ID:\sofeware\arm_keil\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include-ID:\sofeware\arm_keil\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DSTM32F40_41xxx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\tb6612.o --omf_browse ..\obj\tb6612.crf --depend ..\obj\tb6612.d)
-I (..\HARDWARE\TB6612\tb6612.h)(0x5C911209)
+I (..\HARDWARE\TB6612\tb6612.h)(0x5C91FBE8)
 I (..\SYSTEM\sys\sys.h)(0x5C90DBBF)
 I (..\FWLIB\inc\misc.h)(0x5710F355)
 I (..\USER\stm32f4xx.h)(0x5710F357)
@@ -934,7 +934,7 @@ I (..\FWLIB\inc\stm32f4xx_dac.h)(0x5710F355)
 I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x5710F355)
 I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x5710F355)
 I (..\USMART\usmart.h)(0x5710F367)
-F (..\USMART\usmart_config.c)(0x5C91BB94)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\HARDWARE\LED -I ..\FWLIB\inc -I ..\HARDWARE\CONTROL -I ..\HARDWARE\ENCODER -I ..\HARDWARE\OLED -I ..\HARDWARE\PID -I ..\HARDWARE\TB6612 -I ..\HARDWARE\YL_70 -I ..\HARDWARE\JY901 -I ..\HARDWARE\Mymath -I ..\HARDWARE\LedBuz -I .\include -I ..\freecars -I ..\HARDWARE\MYNVIC -I ..\USMART-I.\RTE\_BalanceCar-ID:\sofeware\arm_keil\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include-ID:\sofeware\arm_keil\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DSTM32F40_41xxx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\usmart_config.o --omf_browse ..\obj\usmart_config.crf --depend ..\obj\usmart_config.d)
+F (..\USMART\usmart_config.c)(0x5C91FAB9)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\HARDWARE\LED -I ..\FWLIB\inc -I ..\HARDWARE\CONTROL -I ..\HARDWARE\ENCODER -I ..\HARDWARE\OLED -I ..\HARDWARE\PID -I ..\HARDWARE\TB6612 -I ..\HARDWARE\YL_70 -I ..\HARDWARE\JY901 -I ..\HARDWARE\Mymath -I ..\HARDWARE\LedBuz -I .\include -I ..\freecars -I ..\HARDWARE\MYNVIC -I ..\USMART-I.\RTE\_BalanceCar-ID:\sofeware\arm_keil\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include-ID:\sofeware\arm_keil\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DSTM32F40_41xxx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\usmart_config.o --omf_browse ..\obj\usmart_config.crf --depend ..\obj\usmart_config.d)
 I (..\USMART\usmart.h)(0x5710F367)
 I (..\USMART\usmart_str.h)(0x5710F367)
 I (..\USER\stm32f4xx.h)(0x5710F357)
@@ -975,7 +975,11 @@ I (..\SYSTEM\delay\delay.h)(0x5710F356)
 I (..\SYSTEM\sys\sys.h)(0x5C90DBBF)
 I (..\USER\stm32f4xx_it.h)(0x5710F357)
 I (..\HARDWARE\PID\pid.h)(0x5C911422)
-F (..\USMART\usmart.c)(0x5C91CF9A)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\HARDWARE\LED -I ..\FWLIB\inc -I ..\HARDWARE\CONTROL -I ..\HARDWARE\ENCODER -I ..\HARDWARE\OLED -I ..\HARDWARE\PID -I ..\HARDWARE\TB6612 -I ..\HARDWARE\YL_70 -I ..\HARDWARE\JY901 -I ..\HARDWARE\Mymath -I ..\HARDWARE\LedBuz -I .\include -I ..\freecars -I ..\HARDWARE\MYNVIC -I ..\USMART-I.\RTE\_BalanceCar-ID:\sofeware\arm_keil\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include-ID:\sofeware\arm_keil\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DSTM32F40_41xxx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\usmart.o --omf_browse ..\obj\usmart.crf --depend ..\obj\usmart.d)
+I (..\HARDWARE\CONTROL\control.h)(0x5C91F919)
+I (..\HARDWARE\JY901\JY901_uart.h)(0x5C7F1AE4)
+I (..\HARDWARE\YL_70\YL70.h)(0x5C90DD2A)
+I (..\HARDWARE\ENCODER\encoder.h)(0x5C90E652)
+F (..\USMART\usmart.c)(0x5C91F7E7)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\HARDWARE\LED -I ..\FWLIB\inc -I ..\HARDWARE\CONTROL -I ..\HARDWARE\ENCODER -I ..\HARDWARE\OLED -I ..\HARDWARE\PID -I ..\HARDWARE\TB6612 -I ..\HARDWARE\YL_70 -I ..\HARDWARE\JY901 -I ..\HARDWARE\Mymath -I ..\HARDWARE\LedBuz -I .\include -I ..\freecars -I ..\HARDWARE\MYNVIC -I ..\USMART-I.\RTE\_BalanceCar-ID:\sofeware\arm_keil\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include-ID:\sofeware\arm_keil\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DSTM32F40_41xxx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\usmart.o --omf_browse ..\obj\usmart.crf --depend ..\obj\usmart.d)
 I (..\USMART\usmart.h)(0x5710F367)
 I (..\USMART\usmart_str.h)(0x5710F367)
 I (..\USER\stm32f4xx.h)(0x5710F357)
