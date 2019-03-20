@@ -198,9 +198,9 @@ u8 usmart_sys_cmd_exe(u8* str)
 void usmart_reset_runtime(void)
 {
 
-    TIM_ClearFlag(TIM4, TIM_FLAG_Update); //清除中断标志位
-    TIM_SetAutoreload(TIM4, 0XFFFF); //将重装载值设置到最大
-    TIM_SetCounter(TIM4, 0); //清空定时器的CNT
+    TIM_ClearFlag(TIM1, TIM_FLAG_Update); //清除中断标志位
+    TIM_SetAutoreload(TIM1, 0XFFFF); //将重装载值设置到最大
+    TIM_SetCounter(TIM1, 0); //清空定时器的CNT
     usmart_dev.runtime = 0;
 }
 //获得runtime时间
@@ -208,41 +208,43 @@ void usmart_reset_runtime(void)
 //需要根据所移植到的MCU的定时器参数进行修改
 u32 usmart_get_runtime(void)
 {
-    if (TIM_GetFlagStatus(TIM4, TIM_FLAG_Update) == SET) //在运行期间,产生了定时器溢出
+    if (TIM_GetFlagStatus(TIM1, TIM_FLAG_Update) == SET) //在运行期间,产生了定时器溢出
     {
         usmart_dev.runtime += 0XFFFF;
     }
-    usmart_dev.runtime += TIM_GetCounter(TIM4);
+    usmart_dev.runtime += TIM_GetCounter(TIM1);
     return usmart_dev.runtime; //返回计数值
 }
 //下面这两个函数,非USMART函数,放到这里,仅仅方便移植.
 //定时器4中断服务程序
-void TIM4_IRQHandler(void)
+void TIM1_UP_TIM10_IRQHandler(void)
 {
-    if (TIM_GetITStatus(TIM4, TIM_IT_Update) == SET) //溢出中断
+    if (TIM_GetITStatus(TIM1, TIM_IT_Update) == SET) //溢出中断
     {
         usmart_dev.scan(); //执行usmart扫描
-        TIM_SetCounter(TIM4, 0); //清空定时器的CNT
-        TIM_SetAutoreload(TIM4, 100); //恢复原来的设置
+        TIM_SetCounter(TIM1, 0); //清空定时器的CNT
+        TIM_SetAutoreload(TIM1, 100); //恢复原来的设置
     }
-    TIM_ClearITPendingBit(TIM4, TIM_IT_Update); //清除中断标志位
+    TIM_ClearITPendingBit(TIM1, TIM_IT_Update); //清除中断标志位
 }
-//使能定时器4,使能中断.
-void Timer4_Init(u16 arr, u16 psc)
+//使能定时器1,使能中断.
+void Timer1_Init(u16 arr, u16 psc)
 {
     TIM_TimeBaseInitTypeDef TIM_TimeBaseInitStructure;
 
-    RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM4, ENABLE); ///使能TIM1时钟
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM1, ENABLE); ///使能TIM1时钟,总线2
 
     TIM_TimeBaseInitStructure.TIM_Prescaler = psc; //定时器分频
     TIM_TimeBaseInitStructure.TIM_CounterMode = TIM_CounterMode_Up; //向上计数模式
     TIM_TimeBaseInitStructure.TIM_Period = arr; //自动重装载值
     TIM_TimeBaseInitStructure.TIM_ClockDivision = TIM_CKD_DIV1;
+    TIM_TimeBaseInitStructure.TIM_RepetitionCounter = 0;
 
-    TIM_TimeBaseInit(TIM4, &TIM_TimeBaseInitStructure); //初始化定时器4
+    TIM_TimeBaseInit(TIM1, &TIM_TimeBaseInitStructure); //初始化定时器1
 
-    TIM_ITConfig(TIM4, TIM_IT_Update, ENABLE); //允许定时器4更新中断
-    TIM_Cmd(TIM4, ENABLE); //使能定时器4
+    TIM_ClearFlag(TIM1, TIM_FLAG_Update);
+    TIM_ITConfig(TIM1, TIM_IT_Update, ENABLE); //允许定时器1更新中断
+    TIM_Cmd(TIM1, ENABLE); //使能定时器1
 }
 #endif
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -251,7 +253,7 @@ void Timer4_Init(u16 arr, u16 psc)
 void usmart_init(u8 sysclk)
 {
 #if USMART_ENTIMX_SCAN == 1
-    Timer4_Init(1000, (u32)sysclk * 100 - 1); //分频,时钟为10K ,100ms中断一次,注意,计数频率必须为10Khz,以和runtime单位(0.1ms)同步.
+    Timer1_Init(1000, (u32)sysclk * 100 - 1); //分频,时钟为10K ,100ms中断一次,注意,计数频率必须为10Khz,以和runtime单位(0.1ms)同步.
 #endif
     usmart_dev.sptype = 1; //十六进制显示参数
 }
