@@ -81,6 +81,7 @@ int main(void)
     TB6612_Init(); //电机驱动初始化
 
     while (1) {
-			speedcontrol(500,1,500);
+			//speedcontrol(1500,1,500);
+			//speedcontrol(1500,2,-500);
     }
 }
