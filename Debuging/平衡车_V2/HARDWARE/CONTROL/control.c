@@ -9,6 +9,8 @@
 #include "usart.h"
 #include "usmart.h"
 
+#define deadband  170  //死区
+
 double Left_Encoder_Angle = 0;
 double Right_Encoder_Angle = 0;
 int taskMode = 0;  //任务模式
@@ -38,12 +40,12 @@ void KeepBalance()
     JYAngle_PID.SetPoint = 0;
     Speed_PID.SetPoint = 0;
     Encoder_Angle_PID.SetPoint = 0;
-    PIDCalc(&JYAngle_PID, roll);
+    PIDCalc(&JYAngle_PID, pitch);
     PIDCalc(&Speed_PID, PreSpeed);
     PIDCalc(&Encoder_Angle_PID, Encoder_Angle);
     pwmduty = JYAngle_PID.pwmduty + Speed_PID.pwmduty + Encoder_Angle_PID.pwmduty;
-    speedcontrol(pwmduty, LeftWheel, 110);
-    speedcontrol(pwmduty, RightWheel, 110);
+    speedcontrol(pwmduty, LeftWheel, deadband);
+    speedcontrol(pwmduty, RightWheel, deadband);
 }
 
 void stop()

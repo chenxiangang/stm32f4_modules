@@ -10,7 +10,9 @@
 #include "YL70.h"
 #include "encoder.h"
 												 
-extern void changePID(PID *pp,u8 p,u8 i,u8 d);
+extern void JY_changePID(u8 p,u8 i,u8 d);
+extern void speedcontrol(double speed, int ch, float basepwm);
+extern void Speed_changePID(u8 p,u8 i,u8 d);
 //函数名列表初始化(用户自己添加)
 //用户直接在这里输入要执行的函数名及其查找串
 struct _m_usmart_nametab usmart_nametab[]=
@@ -21,8 +23,10 @@ struct _m_usmart_nametab usmart_nametab[]=
 #endif		   
 	(void*)delay_ms,"void delay_ms(u16 nms)",
  	(void*)delay_us,"void delay_us(u32 nus)",
-	(void*)changePID,"void changePID(PID *pp,u8 p,u8 i,u8 d)\r\n--change the pid parameter",
+	(void*)JY_changePID,"void JY_changePID(u8 p,u8 i,u8 d)\r\n--change the JYAngle_pid parameter",
 	(void*)changeTask,"void changeTask(u8 taskid)\r\n--change the task:remote_control,tracking and keep_balance",
+	(void*)speedcontrol,"speedcontrol(double speed, int ch, float basepwm)\r\n--control motor speed",
+	(void*)Speed_changePID,"Speed_changePID(u8 p,u8 i,u8 d)\r\n--change the Speed_pid parameter",
 };						  
 ///////////////////////////////////END///////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
