@@ -7,12 +7,12 @@
 #include "include.h"
 #include "led.h"
 #include "mynvic.h"
+#include "oled.h"
 #include "pid.h"
 #include "sys.h"
 #include "tb6612.h"
 #include "usart.h"
 #include "usmart.h"
-#include "oled.h"
 
 /*
 光电对管： PD0 PD1 PD2 PD3 
@@ -29,24 +29,29 @@ OLED:   CS  PD3
 */
 
 FLAG_Typedef flag;
-
-void JY_changePID(u8 p,u8 i,u8 d)
+int sendflag = 0; //发送信息标志
+//-----------------usmart调试用------------
+void JY_changePID(u8 p, u8 i, u8 d)
 {
-	JYAngle_PID.Proportion = p;
-	JYAngle_PID.Integral = i;
-	JYAngle_PID.Derivative = d;
+    JYAngle_PID.Proportion = p;
+    JYAngle_PID.Integral = i;
+    JYAngle_PID.Derivative = d;
 }
-void Speed_changePID(u8 p,u8 i,u8 d)
+void Speed_changePID(u8 p, u8 i, u8 d)
 {
-	Speed_PID.Proportion = p;
-	Speed_PID.Integral = i;
-	Speed_PID.Derivative = d;
+    Speed_PID.Proportion = p;
+    Speed_PID.Integral = i;
+    Speed_PID.Derivative = d;
 }
-
+void send_info()
+{
+    sendflag = !sendflag;
+}
+//------------------------------------
 void PID_Init()
 {
     //角度环参数初始化
-    JYAngle_PID.SetPoint = 6;
+    JYAngle_PID.SetPoint = 0;
     JYAngle_PID.LastError0 = 0;
     JYAngle_PID.LastError = 0;
     JYAngle_PID.PrevError = 0;
@@ -74,27 +79,35 @@ void PID_Init()
 int main(void)
 {
 
+    taskMode = keep_balance;
     delay_init(168); //初始化延时函数
-		My_NVIC_Init(); //配置中断优先级
+    My_NVIC_Init(); //配置中断优先级
     LED_Init(); //初始化LED端口
-    PID_Init(); //PID初始化		
-		usmart_dev.init(84); 	//初始化USMART
+    PID_Init(); //PID初始化
+    usmart_dev.init(84); //初始化USMART
     YL_70_Init(); //初始化光电对管
     Encoder_TIM2_Init(); //初始化电机编码器B
     Encoder_TIM4_Init(); //初始化电机编码器A
-    TIM5_Init(100-1, 8400-1); //读取传感器数据，进行pid控制
+    TIM5_Init(10 - 1, 8400 - 1); //读取传感器数据，进行pid控制
     uart_init(115200); //初始化串口1，用于发送数据到上位机
     usart3_init(115200); //用来读取陀螺仪的数据
-    
+    JY_changePID(100, 0, 0);
     TB6612_Init(); //电机驱动初始化
-		//OLED_Init();  //OLED初始化
+    OLED_Init(); //OLED初始化
+    JY_changePID(70, 0, 15);
+    Speed_changePID(90, 0, 0);
+    last_Left_Encoder_Angle = Read_Encoder_L();
+    last_Right_Encoder_Angle = Read_Encoder_R();
+
     while (1) {
-			//speedcontrol(1500,1,500);
-			//speedcontrol(1500,2,-500);
-			//OLED_ShowMPU(JYAngle_PID.pwmduty,roll,pitch,yaw);
-//			speedcontrol(1,1,170);
-			push(0,(int)pitch);
-			push(1,(int)pwmduty);
-			uSendOnePage();
+        //OLED_ShowMPU(JYAngle_PID.pwmduty,roll,pitch,yaw);
+        //        push(0, (int)pitch);
+        //        push(1, (int)JYAngle_PID.pwmduty);
+        //        uSendOnePage();
+        if (sendflag) {
+            printf("pitch:%f	gyro:%f	pwmduty:%f\r\nspeed_PID.pwmduty:%f\r\n", pitch, gryo.y, pwmduty, Speed_PID.pwmduty);
+            //printf("Encoder:%f  %f\r\n", Read_Encoder_L(), Read_Encoder_R());
+            delay_ms(200);
+        }
     }
 }

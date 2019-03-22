@@ -2,7 +2,7 @@
 
 /*************************************** 中断初始化 *************************************/
 
-#define USART3_ON 0
+#define USART3_ON 1
 #define USART1_ON 1
 #define TIM1_ON 1
 #define TIM2_ON 1
@@ -36,7 +36,7 @@ void My_NVIC_Init(void)
 #if USART3_ON
     NVIC_InitStructure.NVIC_IRQChannel = USART3_IRQn; //串口3中断通道
     NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 3; //抢占优先级3
-    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 3; //子优先级3
+    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1; //子优先级3
     NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE; //IRQ通道使能
     NVIC_Init(&NVIC_InitStructure); //根据指定的参数初始化VIC寄存器
 #endif
@@ -45,7 +45,7 @@ void My_NVIC_Init(void)
     //定时器2 左轮编码器
     NVIC_InitStructure.NVIC_IRQChannel = TIM1_UP_TIM10_IRQn; //外部中断1
     NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 3; //抢占优先级3
-    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 3; //子优先级3
+    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 2; //子优先级3
     NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE; //使能外部中断通道
     NVIC_Init(&NVIC_InitStructure); //配置NVIC
 #endif
@@ -54,7 +54,7 @@ void My_NVIC_Init(void)
         //定时器2 左轮编码器
     NVIC_InitStructure.NVIC_IRQChannel = TIM2_IRQn;
     NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
-    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 2;
+    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;
     NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
     NVIC_Init(&NVIC_InitStructure);
 #endif
@@ -63,7 +63,7 @@ void My_NVIC_Init(void)
     //定时器3 pwm
     NVIC_InitStructure.NVIC_IRQChannel = TIM3_IRQn;
     NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
-    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 3;
+    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 2;
     NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
     NVIC_Init(&NVIC_InitStructure);
 #endif
@@ -71,8 +71,8 @@ void My_NVIC_Init(void)
 //定时器4 from encoder.c 右轮编码器
 #if TIM4_ON
     NVIC_InitStructure.NVIC_IRQChannel = TIM4_IRQn;
-    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
-    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;
+    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;
+    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 2;
     NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
     NVIC_Init(&NVIC_InitStructure);
 #endif

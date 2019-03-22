@@ -4,6 +4,8 @@
 
 extern double Left_Encoder_Angle; //左轮编码器读到的角度
 extern double Right_Encoder_Angle; //右轮编码器读到的角度
+extern double last_Left_Encoder_Angle; //左轮编码器读到的角度
+extern double last_Right_Encoder_Angle; //右轮编码器读到的角度
 extern int taskMode; //根据题目选择不同的模式
 
 extern double pwmduty;

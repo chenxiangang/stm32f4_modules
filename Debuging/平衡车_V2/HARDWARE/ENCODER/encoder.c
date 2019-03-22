@@ -128,19 +128,15 @@ void TIM2_IRQHandler(void)
 }
 //读编码器值
 //读角度
-//1 右轮 0左轮
-//前进时角度为正
-double Read_Encoder(u8 wheel)
+double Read_Encoder_L(void)
 {
-    //读取角度值
-    static double angle = 0;
+
+    static double angle;
     int temp;
     int temp_circle = 0;
     //int	temp_angle;
-    if (wheel == 1) //右轮
-        temp = TIM_GetCounter(TIM4);
-    else if (wheel == 0)
-        temp = TIM_GetCounter(TIM2);
+
+    temp = TIM_GetCounter(TIM4);
     temp -= 0x7FFF;
     //temp_angle=temp;
     if (temp > MAX_PULSE) {
@@ -155,9 +151,31 @@ double Read_Encoder(u8 wheel)
         //			temp_angle=temp%MAX_PULSE;
     }
     angle = angle + temp_circle * 360 + 1.0 * temp / MAX_PULSE * 360;
-    if (wheel == 1) //右轮
-        TIM4->CNT = 0x7FFF; //复位
-    else if (wheel == 0)
-        TIM2->CNT = 0x7FFF; //复位
+    TIM4->CNT = 0x7FFF; //复位
+    return angle;
+}
+double Read_Encoder_R(void)
+{
+    static double angle;
+    int temp;
+    int temp_circle = 0;
+    //int	temp_angle;
+
+    temp = TIM_GetCounter(TIM2);
+    temp -= 0x7FFF;
+    //temp_angle=temp;
+    if (temp > MAX_PULSE) {
+        temp -= MAX_PULSE;
+        temp_circle++;
+        //temp_circle=temp/MAX_PULSE;
+        //temp_angle=temp%MAX_PULSE;
+    } else if (temp < -MAX_PULSE) {
+        temp += MAX_PULSE;
+        temp_circle--;
+        //			temp_circle=temp/MAX_PULSE;
+        //			temp_angle=temp%MAX_PULSE;
+    }
+    angle = angle + temp_circle * 360 + 1.0 * temp / MAX_PULSE * 360;
+    TIM2->CNT = 0x7FFF; //复位
     return angle;
 }

@@ -68,7 +68,7 @@ void speedcontrol(double speed, int ch, float basepwm)
         AIN1 = 1;
         AIN2 = 0;
         TIM_SetCompare1(TIM3, speed + basepwm);
-    } else if (speed < 0 && ch == 1) {
+    } else if (speed <= 0 && ch == 1) {
         AIN1 = 0;
         AIN2 = 1;
 		  	speed = -speed;
@@ -77,7 +77,7 @@ void speedcontrol(double speed, int ch, float basepwm)
         BIN1 = 1;
         BIN2 = 0;
         TIM_SetCompare2(TIM3, speed + basepwm);
-    } else if (speed < 0 && ch == 2) {
+    } else if (speed <= 0 && ch == 2) {
         BIN1 = 0;
         BIN2 = 1;
 		   	speed = -speed;

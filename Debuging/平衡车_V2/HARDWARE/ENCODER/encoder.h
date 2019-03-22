@@ -7,5 +7,6 @@
 
 void Encoder_TIM4_Init(void);
 void Encoder_TIM2_Init(void);
-double Read_Encoder(u8 wheel);
+double Read_Encoder_L(void);
+double Read_Encoder_R(void);
 #endif

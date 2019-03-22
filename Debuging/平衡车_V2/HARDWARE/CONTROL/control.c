@@ -9,19 +9,21 @@
 #include "usart.h"
 #include "usmart.h"
 
-#define deadband  170  //死区
+#define deadband 110 //死区
 
+double last_Left_Encoder_Angle = 0;
+double last_Right_Encoder_Angle = 0;
 double Left_Encoder_Angle = 0;
 double Right_Encoder_Angle = 0;
-int taskMode = 0;  //任务模式
+int taskMode = 0; //任务模式
 double pwmduty = 0;
 
 float PreSpeed;
 float Encoder_Angle;
 
-void changeTask(u8 taskid)  //修改执行的任务
+void changeTask(u8 taskid) //修改执行的任务
 {
-	taskMode = taskid;
+    taskMode = taskid;
 }
 
 void Tracking()
@@ -33,17 +35,45 @@ void RemoteControl()
 {
 }
 
-//调节JYangle_PID,Speed_PID,Encoder_Angle_PID目标值均为0
+void balance_UP(float Angle, float Gyro)
+{
+    JYAngle_PID.PrevError = JYAngle_PID.SetPoint - Angle;
+    if (JYAngle_PID.PrevError > 15 || JYAngle_PID.PrevError < -15) //大于25°就不调节了
+        JYAngle_PID.PrevError = 0;
+    if (JYAngle_PID.PrevError < 2 && JYAngle_PID.PrevError > -2) //小于1°也不调节了
+        JYAngle_PID.PrevError = 0;
+    if (Gyro < 0.1 && Gyro > -0.1)
+        Gyro = 0;
+    JYAngle_PID.pwmduty = JYAngle_PID.Proportion * JYAngle_PID.PrevError - JYAngle_PID.Derivative * Gyro; //===计算平衡控制的电机PWM  PD控制   kp是P系数 kd是D系数
+}
+
+void speed_UP()
+{
+    double Encoder_speed = 0;
+		Left_Encoder_Angle = Read_Encoder_L();
+		Right_Encoder_Angle = Read_Encoder_R();
+    Encoder_speed = Left_Encoder_Angle + Right_Encoder_Angle - last_Left_Encoder_Angle - last_Right_Encoder_Angle;
+    Speed_PID.SumError += Encoder_speed;
+    Speed_PID.pwmduty = Speed_PID.Proportion * Encoder_speed;
+	last_Left_Encoder_Angle = Left_Encoder_Angle;
+	last_Right_Encoder_Angle = Right_Encoder_Angle;
+}
+
+void xianfu(double* pwmVal)
+{
+    if (*pwmVal > 1900)
+        *pwmVal = 1900;
+    else if (*pwmVal < -1900)
+        *pwmVal = -1900;
+}
+
 void KeepBalance()
 {
     //pitch,roll,yaw,speed(还要写一个函数)
-    JYAngle_PID.SetPoint = 0;
-    Speed_PID.SetPoint = 0;
-    Encoder_Angle_PID.SetPoint = 0;
-    PIDCalc(&JYAngle_PID, pitch);
-    PIDCalc(&Speed_PID, PreSpeed);
-    PIDCalc(&Encoder_Angle_PID, Encoder_Angle);
-    pwmduty = JYAngle_PID.pwmduty + Speed_PID.pwmduty + Encoder_Angle_PID.pwmduty;
+    balance_UP(pitch, gryo.y);
+    speed_UP();
+    pwmduty = JYAngle_PID.pwmduty + Speed_PID.pwmduty;
+    xianfu(&pwmduty);
     speedcontrol(pwmduty, LeftWheel, deadband);
     speedcontrol(pwmduty, RightWheel, deadband);
 }
@@ -66,10 +96,13 @@ void TIM5_Init(u16 arr, u16 psc)
     TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up; //TIM向上计数模式
     TIM_TimeBaseInit(TIM5, &TIM_TimeBaseStructure); //根据TIM_TimeBaseInitStruct中指定的参数初始化TIMx的时间基数单位
 
-    TIM_ITConfig(TIM5, TIM_IT_Update, ENABLE); //使能指定的TIM3中断,允许更新中断
+    TIM_ITConfig(TIM5, TIM_IT_Update, ENABLE); //使能指定的TIM5中断,允许更新中断
+
+    TIM_ClearFlag(TIM5, TIM_IT_Update);
 
     TIM_Cmd(TIM5, ENABLE); //使能TIMx外设
 }
+
 //定时器3中断服务程序
 void TIM5_IRQHandler(void) //TIM3中断
 {
