@@ -40,7 +40,7 @@ void balance_UP(float Angle, float Gyro)
     JYAngle_PID.PrevError = JYAngle_PID.SetPoint - Angle;
     if (JYAngle_PID.PrevError > 15 || JYAngle_PID.PrevError < -15) //大于25°就不调节了
         JYAngle_PID.PrevError = 0;
-    if (JYAngle_PID.PrevError < 2 && JYAngle_PID.PrevError > -2) //小于1°也不调节了
+    if (JYAngle_PID.PrevError < 3 && JYAngle_PID.PrevError > -3) //小于1°也不调节了
         JYAngle_PID.PrevError = 0;
     if (Gyro < 0.1 && Gyro > -0.1)
         Gyro = 0;
@@ -49,14 +49,15 @@ void balance_UP(float Angle, float Gyro)
 
 void speed_UP()
 {
-    double Encoder_speed = 0;
-		Left_Encoder_Angle = Read_Encoder_L();
-		Right_Encoder_Angle = Read_Encoder_R();
-    Encoder_speed = Left_Encoder_Angle + Right_Encoder_Angle - last_Left_Encoder_Angle - last_Right_Encoder_Angle;
-    Speed_PID.SumError += Encoder_speed;
-    Speed_PID.pwmduty = Speed_PID.Proportion * Encoder_speed;
-	last_Left_Encoder_Angle = Left_Encoder_Angle;
-	last_Right_Encoder_Angle = Right_Encoder_Angle;
+//    double Encoder_speed = 0;
+//		Left_Encoder_Angle = Read_Encoder_L();
+//		Right_Encoder_Angle = Read_Encoder_R();
+//    Encoder_speed = Left_Encoder_Angle + Right_Encoder_Angle - last_Left_Encoder_Angle - last_Right_Encoder_Angle;
+//    Speed_PID.SumError += Encoder_speed;
+//    Speed_PID.pwmduty = Speed_PID.Proportion * Encoder_speed;
+//	last_Left_Encoder_Angle = Left_Encoder_Angle;
+//	last_Right_Encoder_Angle = Right_Encoder_Angle;
+	Speed_PID.pwmduty = Speed_PID.Proportion * pwmduty;
 }
 
 void xianfu(double* pwmVal)
@@ -72,7 +73,7 @@ void KeepBalance()
     //pitch,roll,yaw,speed(还要写一个函数)
     balance_UP(pitch, gryo.y);
     speed_UP();
-    pwmduty = JYAngle_PID.pwmduty + Speed_PID.pwmduty;
+    pwmduty = JYAngle_PID.pwmduty + 0.2 * Speed_PID.pwmduty;
     xianfu(&pwmduty);
     speedcontrol(pwmduty, LeftWheel, deadband);
     speedcontrol(pwmduty, RightWheel, deadband);

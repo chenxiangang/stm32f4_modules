@@ -51,7 +51,7 @@ void send_info()
 void PID_Init()
 {
     //角度环参数初始化
-    JYAngle_PID.SetPoint = 0;
+    JYAngle_PID.SetPoint = -2;
     JYAngle_PID.LastError0 = 0;
     JYAngle_PID.LastError = 0;
     JYAngle_PID.PrevError = 0;
