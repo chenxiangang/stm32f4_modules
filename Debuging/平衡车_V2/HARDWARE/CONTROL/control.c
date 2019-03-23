@@ -48,7 +48,7 @@ void balance_UP(float Angle, float Gyro)
     double TempP;
     JYAngle_PID.PrevError = JYAngle_PID.SetPoint - Angle;
 	  
-    if (JYAngle_PID.PrevError > 25+balance_point || JYAngle_PID.PrevError < -25+balance_point) //大于25°就不调节了
+    if (JYAngle_PID.PrevError > 30+balance_point || JYAngle_PID.PrevError < -30+balance_point) //大于25°就不调节了
     {
         JYAngle_PID.PrevError = 0;
 				JYAngle_PID.SumError = 0;
@@ -107,7 +107,7 @@ void speed_UP()
 			if(Speed_PID.SumError>10000)
 				Speed_PID.SumError=10000;   //限幅
 			if(Speed_PID.SumError<-10000)
-				Speed_PID.SumError=-10000;
+				Speed_PID.SumError=-10000;  
 			Speed_PID.pwmduty= Speed_PID.Proportion*Speed_PID.PrevError+Speed_PID.SumError*Speed_PID.Integral;    //计算PID的值
 }
 
@@ -123,7 +123,7 @@ void KeepBalance()
 {
     balance_UP(pitch, gryo.y);
     speed_UP();
-    pwmduty = JYAngle_PID.pwmduty + Speed_PID.pwmduty;
+    pwmduty = JYAngle_PID.pwmduty + 2*Speed_PID.pwmduty;
     xianfu(&pwmduty);
     speedcontrol(pwmduty, LeftWheel, deadband);
     speedcontrol(pwmduty, RightWheel, deadband);
