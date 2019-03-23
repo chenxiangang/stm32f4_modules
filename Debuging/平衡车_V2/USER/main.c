@@ -34,24 +34,33 @@ int sendflag = 0; //发送信息标志
 void JY_changePID(u8 p, u8 i, u8 d)
 {
     JYAngle_PID.Proportion = p;
-    JYAngle_PID.Integral = i;
+    JYAngle_PID.Integral = 1.0 * i/1000;
     JYAngle_PID.Derivative = d;
 }
-void Speed_changePID(u8 p, u8 i, u8 d)
+void Speed_changePID(int p, int i, int d)
 {
-    Speed_PID.Proportion = p;
+    Speed_PID.Proportion = p/100;
     Speed_PID.Integral = i;
-    Speed_PID.Derivative = d;
+    Speed_PID.Derivative = d/100;
 }
 void send_info()
 {
     sendflag = !sendflag;
 }
+
+void change_balancePoint(u8 flag,u8 val10)
+{
+	if(flag == 0)
+	balance_point = - val10/10;
+else
+balance_point = val10/10;
+JYAngle_PID.SetPoint = balance_point;
+}
 //------------------------------------
 void PID_Init()
 {
     //角度环参数初始化
-    JYAngle_PID.SetPoint = -2;
+    JYAngle_PID.SetPoint = balance_point;
     JYAngle_PID.LastError0 = 0;
     JYAngle_PID.LastError = 0;
     JYAngle_PID.PrevError = 0;
@@ -88,17 +97,14 @@ int main(void)
     YL_70_Init(); //初始化光电对管
     Encoder_TIM2_Init(); //初始化电机编码器B
     Encoder_TIM4_Init(); //初始化电机编码器A
-    TIM5_Init(10 - 1, 8400 - 1); //读取传感器数据，进行pid控制
+    TIM5_Init(50 - 1, 8400 - 1); //读取传感器数据，进行pid控制
     uart_init(115200); //初始化串口1，用于发送数据到上位机
     usart3_init(115200); //用来读取陀螺仪的数据
-    JY_changePID(100, 0, 0);
     TB6612_Init(); //电机驱动初始化
     OLED_Init(); //OLED初始化
-    JY_changePID(70, 0, 15);
-    Speed_changePID(90, 0, 0);
-    last_Left_Encoder_Angle = Read_Encoder_L();
-    last_Right_Encoder_Angle = Read_Encoder_R();
-
+    JY_changePID(100, 10, 17);
+    Speed_changePID(100, 2, 0);
+		change_balancePoint(0,69);
     while (1) {
         //OLED_ShowMPU(JYAngle_PID.pwmduty,roll,pitch,yaw);
         //        push(0, (int)pitch);
@@ -106,6 +112,7 @@ int main(void)
         //        uSendOnePage();
         if (sendflag) {
             printf("pitch:%f	gyro:%f	pwmduty:%f\r\nspeed_PID.pwmduty:%f\r\n", pitch, gryo.y, pwmduty, Speed_PID.pwmduty);
+						printf("%lf	%f\r\n",Left_Encoder_Angle,Right_Encoder_Angle);
             //printf("Encoder:%f  %f\r\n", Read_Encoder_L(), Read_Encoder_R());
             delay_ms(200);
         }

@@ -9,7 +9,7 @@
 #include "usart.h"
 #include "usmart.h"
 
-#define deadband 110 //死区
+#define deadband 50 //死区
 
 double last_Left_Encoder_Angle = 0;
 double last_Right_Encoder_Angle = 0;
@@ -17,6 +17,7 @@ double Left_Encoder_Angle = 0;
 double Right_Encoder_Angle = 0;
 int taskMode = 0; //任务模式
 double pwmduty = 0;
+double balance_point = 0;  //平衡点
 
 float PreSpeed;
 float Encoder_Angle;
@@ -35,29 +36,79 @@ void RemoteControl()
 {
 }
 
+void stop()
+{
+    pwmduty = 0;
+    speedcontrol(0, LeftWheel, 0);
+    speedcontrol(0, RightWheel, 0);
+}
+
 void balance_UP(float Angle, float Gyro)
 {
+    double TempP;
     JYAngle_PID.PrevError = JYAngle_PID.SetPoint - Angle;
-    if (JYAngle_PID.PrevError > 15 || JYAngle_PID.PrevError < -15) //大于25°就不调节了
+	  
+    if (JYAngle_PID.PrevError > 25+balance_point || JYAngle_PID.PrevError < -25+balance_point) //大于25°就不调节了
+    {
         JYAngle_PID.PrevError = 0;
-    if (JYAngle_PID.PrevError < 3 && JYAngle_PID.PrevError > -3) //小于1°也不调节了
-        JYAngle_PID.PrevError = 0;
-    if (Gyro < 0.1 && Gyro > -0.1)
+				JYAngle_PID.SumError = 0;
+        stop();
+    }
+		JYAngle_PID.SumError *= 0.2;
+		JYAngle_PID.SumError += 0.8* JYAngle_PID.PrevError;
+	if(JYAngle_PID.SumError>10000)
+		 JYAngle_PID.SumError = 10000;
+	else if(JYAngle_PID.SumError<-10000)
+		 JYAngle_PID.SumError = -10000;
+	
+//    if (JYAngle_PID.PrevError < 2+balance_point && JYAngle_PID.PrevError >-2+balance_point) //小于2°也不调节了
+//        JYAngle_PID.PrevError = 0;
+//		else if(JYAngle_PID.PrevError > 6+balance_point || JYAngle_PID.PrevError <-6+balance_point)   //大于6°P增大
+//			  TempP = 1.4 * JYAngle_PID.Proportion;
+//		else if(JYAngle_PID.PrevError > 5+balance_point || JYAngle_PID.PrevError <-5+balance_point)   //大于5°P增大
+//			  TempP = 1.2 * JYAngle_PID.Proportion;
+//		else if(JYAngle_PID.PrevError > 4+balance_point || JYAngle_PID.PrevError <-4+balance_point)   //大于4°P增大
+			  TempP = JYAngle_PID.Proportion;
+//		else if(JYAngle_PID.PrevError > 3+balance_point || JYAngle_PID.PrevError <-3+balance_point)  //大于3°
+//			 TempP = 0.8 * JYAngle_PID.Proportion;
+//		else
+//				TempP = 1.5 * JYAngle_PID.Proportion;
+    if (Gyro < 0.2 && Gyro > -0.2)
         Gyro = 0;
-    JYAngle_PID.pwmduty = JYAngle_PID.Proportion * JYAngle_PID.PrevError - JYAngle_PID.Derivative * Gyro; //===计算平衡控制的电机PWM  PD控制   kp是P系数 kd是D系数
+    JYAngle_PID.pwmduty = TempP * JYAngle_PID.PrevError + JYAngle_PID.SumError * JYAngle_PID.Integral - JYAngle_PID.Derivative * Gyro; //===计算平衡控制的电机PWM  PD控制   kp是P系数 kd是D系数
 }
 
 void speed_UP()
 {
-//    double Encoder_speed = 0;
-//		Left_Encoder_Angle = Read_Encoder_L();
-//		Right_Encoder_Angle = Read_Encoder_R();
-//    Encoder_speed = Left_Encoder_Angle + Right_Encoder_Angle - last_Left_Encoder_Angle - last_Right_Encoder_Angle;
-//    Speed_PID.SumError += Encoder_speed;
-//    Speed_PID.pwmduty = Speed_PID.Proportion * Encoder_speed;
-//	last_Left_Encoder_Angle = Left_Encoder_Angle;
-//	last_Right_Encoder_Angle = Right_Encoder_Angle;
-	Speed_PID.pwmduty = Speed_PID.Proportion * pwmduty;
+		//double Encoder_L,Encoder_R;   //左右轮子的角度
+    //    double Encoder_speed = 0;
+    //		Left_Encoder_Angle = Read_Encoder_L();
+    //		Right_Encoder_Angle = Read_Encoder_R();
+    //    Encoder_speed = Left_Encoder_Angle + Right_Encoder_Angle - last_Left_Encoder_Angle - last_Right_Encoder_Angle;
+    //    Speed_PID.SumError += Encoder_speed;
+    //    Speed_PID.pwmduty = Speed_PID.Proportion * Encoder_speed;
+    //	last_Left_Encoder_Angle = Left_Encoder_Angle;
+    //	last_Right_Encoder_Angle = Right_Encoder_Angle;
+//    double TempP;
+//		Speed_PID.PrevError = pwmduty/10;
+//    TempP = Speed_PID.Proportion * (Speed_PID.PrevError / 1500);
+//    Speed_PID.pwmduty = TempP * pwmduty - Speed_PID.Derivative * (Speed_PID.PrevError - Speed_PID.LastError);
+//    Speed_PID.LastError = Speed_PID.PrevError;
+	static int i = 0;
+	if(i == 3)
+	{   i = 0;
+			Left_Encoder_Angle = Read_Encoder_L();
+			Right_Encoder_Angle = Read_Encoder_R();
+	}	//要不要负号不知道
+	i++;
+			Speed_PID.PrevError=Left_Encoder_Angle+Right_Encoder_Angle-Speed_PID.SetPoint;             						 //当前误差
+				Speed_PID.SumError*=0.2;																																						 //一阶滤波
+			Speed_PID.SumError+=0.8*Speed_PID.PrevError;   																												 //一阶滤波
+			if(Speed_PID.SumError>10000)
+				Speed_PID.SumError=10000;   //限幅
+			if(Speed_PID.SumError<-10000)
+				Speed_PID.SumError=-10000;
+			Speed_PID.pwmduty= Speed_PID.Proportion*Speed_PID.PrevError+Speed_PID.SumError*Speed_PID.Integral;    //计算PID的值
 }
 
 void xianfu(double* pwmVal)
@@ -70,19 +121,12 @@ void xianfu(double* pwmVal)
 
 void KeepBalance()
 {
-    //pitch,roll,yaw,speed(还要写一个函数)
     balance_UP(pitch, gryo.y);
     speed_UP();
-    pwmduty = JYAngle_PID.pwmduty + 0.2 * Speed_PID.pwmduty;
+    pwmduty = JYAngle_PID.pwmduty + Speed_PID.pwmduty;
     xianfu(&pwmduty);
     speedcontrol(pwmduty, LeftWheel, deadband);
     speedcontrol(pwmduty, RightWheel, deadband);
-}
-
-void stop()
-{
-    speedcontrol(0, LeftWheel, 0);
-    speedcontrol(0, RightWheel, 0);
 }
 
 void TIM5_Init(u16 arr, u16 psc)
