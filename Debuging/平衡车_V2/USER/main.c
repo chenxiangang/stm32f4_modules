@@ -39,9 +39,9 @@ void JY_changePID(u8 p, u8 i, u8 d)
 }
 void Speed_changePID(int p, int i, int d)
 {
-    Speed_PID.Proportion = 1.0*p/100;
-    Speed_PID.Integral = 1.0*i/100;
-    Speed_PID.Derivative = d;
+    Speed_PID.Proportion = p/100;
+    Speed_PID.Integral = i;
+    Speed_PID.Derivative = d/100;
 }
 void send_info()
 {
@@ -102,9 +102,9 @@ int main(void)
     usart3_init(115200); //用来读取陀螺仪的数据
     TB6612_Init(); //电机驱动初始化
     OLED_Init(); //OLED初始化
-    JY_changePID(70,5,15);//JY_changePID(100, 10, 17);  //满电JY_changePID(70,10,17)
+    JY_changePID(100, 10, 17);
     Speed_changePID(100, 2, 0);
-		change_balancePoint(0,75);//change_balancePoint(0,69);
+		change_balancePoint(0,69);
     while (1) {
         //OLED_ShowMPU(JYAngle_PID.pwmduty,roll,pitch,yaw);
         //        push(0, (int)pitch);
