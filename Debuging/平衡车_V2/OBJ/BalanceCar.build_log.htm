@@ -21,8 +21,8 @@ Target DLL:      Segger\JL2CM3.dll V2.99.31.0
 Dialog DLL:      TCM.DLL V1.36.1.0
  
 <h2>Project:</h2>
-D:\个人资料\NUEDC\各模块驱动\stm32f4_modules\Debuging\平衡车_V2\USER\LED.uvprojx
-Project File Date:  03/20/2019
+C:\Users\LZH\Desktop\平衡车_V2\USER\LED.uvprojx
+Project File Date:  03/24/2019
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\sofeware\arm_keil\ARM\ARMCC\Bin'
@@ -30,11 +30,13 @@ Build target 'BalanceCar'
 compiling control.c...
 ..\HARDWARE\CONTROL\control.c(76): warning:  #1035-D: single-precision operand implicitly converted to double-precision
       if (Gyro < 0.2 && Gyro > -0.2)
-..\HARDWARE\CONTROL\control.c: 1 warning, 0 errors
+..\HARDWARE\CONTROL\control.c(96): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+      Encoder *= 0.8;
+..\HARDWARE\CONTROL\control.c: 2 warnings, 0 errors
 linking...
-Program Size: Code=20578 RO-data=1522 RW-data=476 ZI-data=3428  
+Program Size: Code=21114 RO-data=1522 RW-data=480 ZI-data=3424  
 FromELF: creating hex file...
-"..\OBJ\BalanceCar.axf" - 0 Error(s), 1 Warning(s).
+"..\OBJ\BalanceCar.axf" - 0 Error(s), 2 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -48,7 +50,7 @@ Package Vendor: Keil
   D:\sofeware\arm_keil\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:05
+Build Time Elapsed:  00:00:04
 </pre>
 </body>
 </html>

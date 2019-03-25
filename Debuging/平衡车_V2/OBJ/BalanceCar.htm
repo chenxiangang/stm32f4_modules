@@ -3,7 +3,7 @@
 <title>Static Call Graph - [..\OBJ\BalanceCar.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\OBJ\BalanceCar.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sat Mar 23 16:38:17 2019
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Mon Mar 25 14:41:58 2019
 <BR><P>
 <H3>Maximum Stack Usage =        372 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -924,7 +924,7 @@ Global Symbols
 <P><STRONG><a name="[13]"></a>HardFault_Handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_it.o(i.HardFault_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f40_41xxx.o(RESET)
 </UL>
-<P><STRONG><a name="[7]"></a>JY_changePID</STRONG> (Thumb, 86 bytes, Stack size 32 bytes, main.o(i.JY_changePID))
+<P><STRONG><a name="[7]"></a>JY_changePID</STRONG> (Thumb, 102 bytes, Stack size 32 bytes, main.o(i.JY_changePID))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = JY_changePID &rArr; __aeabi_dmul
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
@@ -1083,10 +1083,12 @@ Global Symbols
 <P><STRONG><a name="[17]"></a>SVC_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f4xx_it.o(i.SVC_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f40_41xxx.o(RESET)
 </UL>
-<P><STRONG><a name="[a]"></a>Speed_changePID</STRONG> (Thumb, 62 bytes, Stack size 24 bytes, main.o(i.Speed_changePID))
-<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = Speed_changePID
+<P><STRONG><a name="[a]"></a>Speed_changePID</STRONG> (Thumb, 150 bytes, Stack size 32 bytes, main.o(i.Speed_changePID))
+<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = Speed_changePID &rArr; __aeabi_dmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
+<BR>[Calls]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
+<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1455,14 +1457,14 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_exit_exit
 </UL>
 
-<P><STRONG><a name="[c3]"></a>balance_UP</STRONG> (Thumb, 596 bytes, Stack size 56 bytes, control.o(i.balance_UP))
+<P><STRONG><a name="[c3]"></a>balance_UP</STRONG> (Thumb, 626 bytes, Stack size 56 bytes, control.o(i.balance_UP))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = balance_UP &rArr; stop &rArr; speedcontrol &rArr; __aeabi_cdcmple
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stop
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
-<LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
+<LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
 <LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
-<LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdcmple
+<LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdcmple
 <LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
 <LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
 <LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
@@ -1473,12 +1475,12 @@ Global Symbols
 <P><STRONG><a name="[8]"></a>changeTask</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, control.o(i.changeTask))
 <BR>[Address Reference Count : 1]<UL><LI> usmart_config.o(.data)
 </UL>
-<P><STRONG><a name="[c]"></a>change_balancePoint</STRONG> (Thumb, 58 bytes, Stack size 16 bytes, main.o(i.change_balancePoint))
-<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = change_balancePoint
+<P><STRONG><a name="[c]"></a>change_balancePoint</STRONG> (Thumb, 116 bytes, Stack size 32 bytes, main.o(i.change_balancePoint))
+<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = change_balancePoint &rArr; __aeabi_dmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
-</UL>
-<BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<BR>[Calls]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
+<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> usmart_config.o(.data)
 </UL>
@@ -1510,7 +1512,7 @@ Global Symbols
 <P><STRONG><a name="[6f]"></a>fputc</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, usart.o(i.fputc))
 <BR>[Address Reference Count : 1]<UL><LI> _printf_char_file.o(.text)
 </UL>
-<P><STRONG><a name="[8b]"></a>main</STRONG> (Thumb, 222 bytes, Stack size 40 bytes, main.o(i.main))
+<P><STRONG><a name="[8b]"></a>main</STRONG> (Thumb, 266 bytes, Stack size 40 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 184 + Unknown Stack Size
 <LI>Call Chain = main &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
@@ -1526,7 +1528,6 @@ Global Symbols
 <LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Init
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_TIM4_Init
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_TIM2_Init
-<LI><a href="#[c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;change_balancePoint
 <LI><a href="#[a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Speed_changePID
 <LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PID_Init
 <LI><a href="#[7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;JY_changePID
@@ -1542,16 +1543,18 @@ Global Symbols
 <P><STRONG><a name="[b]"></a>send_info</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, main.o(i.send_info))
 <BR>[Address Reference Count : 1]<UL><LI> usmart_config.o(.data)
 </UL>
-<P><STRONG><a name="[c4]"></a>speed_UP</STRONG> (Thumb, 400 bytes, Stack size 24 bytes, control.o(i.speed_UP))
-<BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = speed_UP &rArr; __aeabi_dmul
+<P><STRONG><a name="[c4]"></a>speed_UP</STRONG> (Thumb, 560 bytes, Stack size 32 bytes, control.o(i.speed_UP))
+<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = speed_UP &rArr; __aeabi_dmul
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Read_Encoder_R
 <LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Read_Encoder_L
-<LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
+<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
 <LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
-<LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdcmple
+<LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdcmple
 <LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
 <LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
 </UL>
 <BR>[Called By]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KeepBalance
 </UL>
@@ -1562,8 +1565,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetCompare2
 <LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetCompare1
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
-<LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
-<LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdcmple
+<LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
+<LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdcmple
 <LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2uiz
 <LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 <LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dneg
@@ -1763,8 +1766,8 @@ Global Symbols
 <P><STRONG><a name="[c6]"></a>xianfu</STRONG> (Thumb, 84 bytes, Stack size 8 bytes, control.o(i.xianfu))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = xianfu &rArr; __aeabi_cdcmple
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
-<LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdcmple
+<BR>[Calls]<UL><LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
+<LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdcmple
 </UL>
 <BR>[Called By]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KeepBalance
 </UL>
@@ -1794,7 +1797,8 @@ Global Symbols
 <P><STRONG><a name="[b2]"></a>__aeabi_d2f</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, d2f.o(x$fpl$d2f))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_d2f
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CopeSerial2Data
+<BR>[Called By]<UL><LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;speed_UP
+<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CopeSerial2Data
 </UL>
 
 <P><STRONG><a name="[118]"></a>_d2f</STRONG> (Thumb, 98 bytes, Stack size 32 bytes, d2f.o(x$fpl$d2f), UNUSED)
@@ -1824,7 +1828,9 @@ Global Symbols
 <P><STRONG><a name="[c1]"></a>__aeabi_ddiv</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, ddiv.o(x$fpl$ddiv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_ddiv
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;JY_changePID
+<BR>[Called By]<UL><LI><a href="#[c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;change_balancePoint
+<LI><a href="#[a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Speed_changePID
+<LI><a href="#[7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;JY_changePID
 </UL>
 
 <P><STRONG><a name="[11e]"></a>_ddiv</STRONG> (Thumb, 552 bytes, Stack size 32 bytes, ddiv.o(x$fpl$ddiv), UNUSED)
@@ -1845,19 +1851,19 @@ Global Symbols
 <P><STRONG><a name="[d2]"></a>__aeabi_i2d</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, dflt_clz.o(x$fpl$dflt))
 <BR><BR>[Called By]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Read_Encoder_R
 <LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Read_Encoder_L
-<LI><a href="#[c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;change_balancePoint
 <LI><a href="#[a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Speed_changePID
 </UL>
 
 <P><STRONG><a name="[15e]"></a>_dflt</STRONG> (Thumb, 46 bytes, Stack size 0 bytes, dflt_clz.o(x$fpl$dflt), UNUSED)
 
 <P><STRONG><a name="[c0]"></a>__aeabi_ui2d</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, dflt_clz.o(x$fpl$dfltu))
-<BR><BR>[Called By]<UL><LI><a href="#[7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;JY_changePID
+<BR><BR>[Called By]<UL><LI><a href="#[c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;change_balancePoint
+<LI><a href="#[7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;JY_changePID
 </UL>
 
 <P><STRONG><a name="[15f]"></a>_dfltu</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, dflt_clz.o(x$fpl$dfltu), UNUSED)
 
-<P><STRONG><a name="[f8]"></a>__aeabi_cdcmple</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, dleqf.o(x$fpl$dleqf))
+<P><STRONG><a name="[f9]"></a>__aeabi_cdcmple</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, dleqf.o(x$fpl$dleqf))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_cdcmple
 </UL>
 <BR>[Called By]<UL><LI><a href="#[9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;speedcontrol
@@ -1880,6 +1886,8 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;speed_UP
 <LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;balance_UP
+<LI><a href="#[c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;change_balancePoint
+<LI><a href="#[a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Speed_changePID
 <LI><a href="#[7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;JY_changePID
 <LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CopeSerial2Data
 </UL>
@@ -1906,7 +1914,7 @@ Global Symbols
 <LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dadd
 </UL>
 
-<P><STRONG><a name="[f9]"></a>__aeabi_cdrcmple</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, drleqf.o(x$fpl$drleqf))
+<P><STRONG><a name="[f8]"></a>__aeabi_cdrcmple</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, drleqf.o(x$fpl$drleqf))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_cdrcmple
 </UL>
 <BR>[Called By]<UL><LI><a href="#[9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;speedcontrol
@@ -1946,6 +1954,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_f2d
 </UL>
 <BR>[Called By]<UL><LI><a href="#[9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;speedcontrol
+<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;speed_UP
 <LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;balance_UP
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CopeSerial2Data
