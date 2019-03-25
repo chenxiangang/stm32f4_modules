@@ -31,11 +31,11 @@ OLED:   CS  PD3
 FLAG_Typedef flag;
 int sendflag = 0; //发送信息标志
 //-----------------usmart调试用------------
-void JY_changePID(u8 p, u8 i, u8 d)
+void JY_changePID(int p, int i, int d)
 {
     JYAngle_PID.Proportion = p;
     JYAngle_PID.Integral = 1.0 * i / 1000;
-    JYAngle_PID.Derivative = 1.0 * d;
+    JYAngle_PID.Derivative = 1.0 * d/100;
 }
 void Speed_changePID(int p, int i, int d)
 {
@@ -97,13 +97,13 @@ int main(void)
     YL_70_Init(); //初始化光电对管
     Encoder_TIM2_Init(); //初始化电机编码器B
     Encoder_TIM4_Init(); //初始化电机编码器A
-    TIM5_Init(50 - 1, 8400 - 1); //读取传感器数据，进行pid控制
+    TIM5_Init(10000 - 1, 84 - 1); //读取传感器数据，进行pid控制
     uart_init(115200); //初始化串口1，用于发送数据到上位机
     usart3_init(115200); //用来读取陀螺仪的数据
     TB6612_Init(); //电机驱动初始化
     OLED_Init(); //OLED初始化
-    JY_changePID(55, 0, 4);
-    Speed_changePID(800, 4, 0);
+    JY_changePID(500,0,11500);  //  这是乘0.6前的稳JY_changePID(500,0,11500)
+    //Speed_changePID(800, 4, 0);
     while (1) {
         //OLED_ShowMPU(JYAngle_PID.pwmduty,roll,pitch,yaw);
         //        push(0, (int)pitch);
@@ -113,6 +113,7 @@ int main(void)
             printf("pitch:%f	gyro:%f	pwmduty:%f\r\nspeed_PID.pwmduty:%f\r\n", pitch, gryo.y, pwmduty, Speed_PID.pwmduty);
             printf("%lf	%f\r\n", Left_Encoder_Angle, Right_Encoder_Angle);
             printf("Angle PrevError:%lf\r\n", JYAngle_PID.PrevError);
+					printf("Pitch:%lf\r\n", pitch);
 					printf("Encoder_SumError:%f",Speed_PID.SumError);
             //printf("Encoder:%f  %f\r\n", Read_Encoder_L(), Read_Encoder_R());
             delay_ms(300);

@@ -38,8 +38,8 @@ void TIM3_PWM_Init(void)
 
     TIM_TimeBaseInitStructure.TIM_ClockDivision = TIM_CKD_DIV1; //1分频
     TIM_TimeBaseInitStructure.TIM_CounterMode = TIM_CounterMode_Up; //向上计数模式
-    TIM_TimeBaseInitStructure.TIM_Period = 2100 - 1; //重装载初值
-    TIM_TimeBaseInitStructure.TIM_Prescaler = 4 - 1; //预分频系数
+    TIM_TimeBaseInitStructure.TIM_Period = 8400 - 1; //重装载初值
+    TIM_TimeBaseInitStructure.TIM_Prescaler = 50 - 1; //预分频系数
     TIM_TimeBaseInit(TIM3, &TIM_TimeBaseInitStructure);
 
     TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1; //PWM模式1 低于CCR为有效极性

@@ -9,7 +9,7 @@
 #include "usart.h"
 #include "usmart.h"
 
-#define deadband 70 //死区
+#define deadband 60 //死区
 
 double last_Left_Encoder_Angle = 0;
 double last_Right_Encoder_Angle = 0;
@@ -17,7 +17,7 @@ double Left_Encoder_Angle = 0;
 double Right_Encoder_Angle = 0;
 int taskMode = 0; //任务模式
 double pwmduty = 0;
-double balance_point = 0; //平衡点
+double balance_point = 0.3; //平衡点
 
 float PreSpeed;
 float Encoder_Angle;
@@ -54,15 +54,15 @@ void balance_UP(float Angle, float Gyro)
         JYAngle_PID.SumError = 0;
         stop();
     }
-    JYAngle_PID.SumError *= 0.2;
-    JYAngle_PID.SumError += 0.8 * JYAngle_PID.PrevError;
-    if (JYAngle_PID.SumError > 10000)
-        JYAngle_PID.SumError = 10000;
-    else if (JYAngle_PID.SumError < -10000)
-        JYAngle_PID.SumError = -10000;
+//    JYAngle_PID.SumError *= 0.2;
+//    JYAngle_PID.SumError += 0.8 * JYAngle_PID.PrevError;
+//    if (JYAngle_PID.SumError > 10000)
+//        JYAngle_PID.SumError = 10000;
+//    else if (JYAngle_PID.SumError < -10000)
+//        JYAngle_PID.SumError = -10000;
 
-    if (JYAngle_PID.PrevError < 1&& JYAngle_PID.PrevError > -1) //小于2°也不调节了
-        JYAngle_PID.PrevError = 0;
+//    if (JYAngle_PID.PrevError < 1&& JYAngle_PID.PrevError > -1) //小于2°也不调节了
+//        JYAngle_PID.PrevError = 0;
     //		else if(JYAngle_PID.PrevError > 6+balance_point || JYAngle_PID.PrevError <-6+balance_point)   //大于6°P增大
     //			  TempP = 1.4 * JYAngle_PID.Proportion;
     //		else if(JYAngle_PID.PrevError > 5+balance_point || JYAngle_PID.PrevError <-5+balance_point)   //大于5°P增大
@@ -73,9 +73,10 @@ void balance_UP(float Angle, float Gyro)
     //			 TempP = 0.8 * JYAngle_PID.Proportion;
     //		else
     //				TempP = 1.5 * JYAngle_PID.Proportion;
-    if (Gyro < 0.2 && Gyro > -0.2)
-        Gyro = 0;
-    JYAngle_PID.pwmduty = TempP * JYAngle_PID.PrevError + JYAngle_PID.SumError * JYAngle_PID.Integral - JYAngle_PID.Derivative * Gyro; //===计算平衡控制的电机PWM  PD控制   kp是P系数 kd是D系数
+//    if (Gyro < 0.2 && Gyro > -0.2)
+//        Gyro = 0;
+    //JYAngle_PID.pwmduty = TempP * JYAngle_PID.PrevError + JYAngle_PID.SumError * JYAngle_PID.Integral - JYAngle_PID.Derivative * Gyro; //===计算平衡控制的电机PWM  PD控制   kp是P系数 kd是D系数
+		JYAngle_PID.pwmduty = TempP * JYAngle_PID.PrevError - JYAngle_PID.Derivative * Gyro; //===计算平衡控制的电机PWM  PD控制   kp是P系数 kd是D系数
 }
 
 void speed_UP()
@@ -121,10 +122,10 @@ void speed_UP()
 
 void xianfu(double* pwmVal)
 {
-    if (*pwmVal > 1900)
-        *pwmVal = 1900;
-    else if (*pwmVal < -1900)
-        *pwmVal = -1900;
+    if (*pwmVal > 8400)
+        *pwmVal = 8400;
+    else if (*pwmVal < -8400)
+        *pwmVal = -8400;
 }
 
 void KeepBalance()
