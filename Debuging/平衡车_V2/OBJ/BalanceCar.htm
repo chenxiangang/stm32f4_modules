@@ -3,7 +3,7 @@
 <title>Static Call Graph - [..\OBJ\BalanceCar.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\OBJ\BalanceCar.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050106: Last Updated: Mon Mar 25 21:31:52 2019
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050106: Last Updated: Wed Mar 27 21:42:40 2019
 <BR><P>
 <H3>Maximum Stack Usage =        372 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -930,13 +930,14 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> usmart_config.o(.data)
 </UL>
-<P><STRONG><a name="[c2]"></a>KeepBalance</STRONG> (Thumb, 110 bytes, Stack size 8 bytes, control.o(i.KeepBalance))
-<BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = KeepBalance &rArr; balance_UP &rArr; stop &rArr; speedcontrol &rArr; __aeabi_cdcmple
+<P><STRONG><a name="[c2]"></a>KeepBalance</STRONG> (Thumb, 138 bytes, Stack size 16 bytes, control.o(i.KeepBalance))
+<BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = KeepBalance &rArr; balance_UP &rArr; stop &rArr; speedcontrol &rArr; __aeabi_cdcmple
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;speedcontrol
 <LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xianfu
 <LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;speed_UP
 <LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;balance_UP
+<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM5_IRQHandler
@@ -1164,7 +1165,7 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f40_41xxx.o(RESET)
 </UL>
 <P><STRONG><a name="[4d]"></a>TIM5_IRQHandler</STRONG> (Thumb, 66 bytes, Stack size 8 bytes, control.o(i.TIM5_IRQHandler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = TIM5_IRQHandler &rArr; KeepBalance &rArr; balance_UP &rArr; stop &rArr; speedcontrol &rArr; __aeabi_cdcmple
+<BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = TIM5_IRQHandler &rArr; KeepBalance &rArr; balance_UP &rArr; stop &rArr; speedcontrol &rArr; __aeabi_cdcmple
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stop
 <LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Tracking
@@ -1534,8 +1535,8 @@ Global Symbols
 <P><STRONG><a name="[b]"></a>send_info</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, main.o(i.send_info))
 <BR>[Address Reference Count : 1]<UL><LI> usmart_config.o(.data)
 </UL>
-<P><STRONG><a name="[c4]"></a>speed_UP</STRONG> (Thumb, 560 bytes, Stack size 32 bytes, control.o(i.speed_UP))
-<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = speed_UP &rArr; __aeabi_dmul
+<P><STRONG><a name="[c4]"></a>speed_UP</STRONG> (Thumb, 598 bytes, Stack size 48 bytes, control.o(i.speed_UP))
+<BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = speed_UP &rArr; __aeabi_dmul
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Read_Encoder_R
 <LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Read_Encoder_L
@@ -1876,6 +1877,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;speed_UP
 <LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;balance_UP
+<LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KeepBalance
 <LI><a href="#[c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;change_balancePoint
 <LI><a href="#[a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Speed_changePID
 <LI><a href="#[7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;JY_changePID

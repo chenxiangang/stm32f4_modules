@@ -22,16 +22,19 @@ Dialog DLL:      TCM.DLL V1.14.4.0
  
 <h2>Project:</h2>
 F:\钱旭\武汉理工大学\电赛\stm32f4_modules\Debuging\平衡车_V2\USER\LED.uvprojx
-Project File Date:  03/24/2019
+Project File Date:  03/25/2019
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.05 update 1 (build 106)', folder: 'F:\keil5\ARM\ARMCC\Bin'
 Build target 'BalanceCar'
-compiling main.c...
+compiling control.c...
+..\HARDWARE\CONTROL\control.c(99): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+      Encoder *= 0.8;
+..\HARDWARE\CONTROL\control.c: 1 warning, 0 errors
 linking...
-Program Size: Code=20674 RO-data=1522 RW-data=480 ZI-data=3424  
+Program Size: Code=20742 RO-data=1522 RW-data=480 ZI-data=3424  
 FromELF: creating hex file...
-"..\OBJ\BalanceCar.axf" - 0 Error(s), 0 Warning(s).
+"..\OBJ\BalanceCar.axf" - 0 Error(s), 1 Warning(s).
 
 <h2>Collection of Component include folders:</h2>
   F:\钱旭\武汉理工大学\电赛\stm32f4_modules\Debuging\平衡车_V2\USER\RTE

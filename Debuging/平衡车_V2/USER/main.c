@@ -102,7 +102,7 @@ int main(void)
     usart3_init(115200); //用来读取陀螺仪的数据
     TB6612_Init(); //电机驱动初始化
     OLED_Init(); //OLED初始化
-    JY_changePID(500,0,11500);  //  这是乘0.6前的稳JY_changePID(500,0,11500)
+    JY_changePID(560,0,12000);  //  这是乘0.6前的稳JY_changePID(500,0,11500)
     //Speed_changePID(800, 4, 0);
     while (1) {
         //OLED_ShowMPU(JYAngle_PID.pwmduty,roll,pitch,yaw);

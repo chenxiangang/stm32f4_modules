@@ -9,7 +9,7 @@
 #include "usart.h"
 #include "usmart.h"
 
-#define deadband 60 //死区
+#define deadband 190 //死区
 
 double last_Left_Encoder_Angle = 0;
 double last_Right_Encoder_Angle = 0;
@@ -17,7 +17,7 @@ double Left_Encoder_Angle = 0;
 double Right_Encoder_Angle = 0;
 int taskMode = 0; //任务模式
 double pwmduty = 0;
-double balance_point = 0.3; //平衡点
+double balance_point = -1.5; //平衡点
 
 float PreSpeed;
 float Encoder_Angle;
@@ -83,17 +83,19 @@ void speed_UP()
 {
     static int i = 0;
     static float Encoder;
+		double temp_p;
+		double temp_i;
     if (i == 2) {
         i = 0;
         Left_Encoder_Angle = Read_Encoder_L();
         Right_Encoder_Angle = Read_Encoder_R();
-    } //要不要负号不知道
-    i++;
+    
+   
     Speed_PID.PrevError = Left_Encoder_Angle + Right_Encoder_Angle - 0;
-		if(Speed_PID.PrevError < 4 && Speed_PID.PrevError > -4)
-		{
-			Speed_PID.PrevError = 0;
-		}
+//		if(Speed_PID.PrevError < 4 && Speed_PID.PrevError > -4)
+//		{
+//			Speed_PID.PrevError = 0;
+//		}
     Encoder *= 0.8;
     Encoder += Speed_PID.PrevError * 0.2;
     Speed_PID.SumError += Encoder;
@@ -102,6 +104,16 @@ void speed_UP()
         Speed_PID.SumError = 10000; //限幅
     if (Speed_PID.SumError < -10000)
         Speed_PID.SumError = -10000;
+		if(pitch <= 10 || pitch >= -10)
+		{
+			temp_p=Speed_PID.Proportion;
+			temp_i=Speed_PID.Integral;
+		}
+		else 
+		{
+			temp_p=2.0*Speed_PID.Proportion;
+			temp_i=2.0*Speed_PID.Integral;
+		}
     if (pitch > 35 || pitch < -35) {
         Speed_PID.PrevError = 0;
         Speed_PID.SumError = 0;
@@ -111,7 +123,9 @@ void speed_UP()
 //				Speed_PID.PrevError = 0;
 //        Speed_PID.SumError = 0;
 //		}
-    Speed_PID.pwmduty = Speed_PID.Proportion * Speed_PID.PrevError + Speed_PID.SumError * Speed_PID.Integral; //计算PID的值
+    Speed_PID.pwmduty = temp_p * Speed_PID.PrevError + Speed_PID.SumError * temp_i; //计算PID的值
+		} //要不要负号不知道
+		 i++;
 }
 
 //void pwm_pid()
@@ -133,7 +147,7 @@ void KeepBalance()
     balance_UP(pitch, gryo.y);
     speed_UP();
 	//pwm_pid();
-    pwmduty = JYAngle_PID.pwmduty + Speed_PID.pwmduty;
+    pwmduty = JYAngle_PID.pwmduty + 0.8*Speed_PID.pwmduty;
     xianfu(&pwmduty);
     speedcontrol(pwmduty, LeftWheel, deadband);
     speedcontrol(pwmduty, RightWheel, deadband);
