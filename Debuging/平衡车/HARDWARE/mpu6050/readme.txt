@@ -1,7 +1,0 @@
-VCC	3.3V
-GND 	GND
-SCL 	PB8
-SDA	PB9
-AD0	接GND时地址为0x68
-AD1	接3.3V时地址为0x69
-好像有点问题，最好不用
