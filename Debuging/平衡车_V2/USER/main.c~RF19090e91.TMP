@@ -42,15 +42,8 @@ void Speed_changePID(int p, int i, int d)
     Speed_PID.Proportion = 1.0 * p / 100;
     Speed_PID.Integral = 1.0 * i / 100;
     Speed_PID.Derivative = 1.0 * d / 100;
-	  
 }
-void  Turn_changePID(int p,int i,int d)
-{
-		Turn_PID.Proportion = 1.0*p/100;
-    Turn_PID.Integral = 1.0*i/100;
-    Turn_PID.Derivative = 1.0*d/100;
-}
-void send_info(void)
+void send_info()
 {
     sendflag = !sendflag;
 }
@@ -62,17 +55,6 @@ void change_balancePoint(u8 flag, u8 val10)
     else
         balance_point = 1.0 * val10 / 10;
     JYAngle_PID.SetPoint = balance_point;
-}
-void forward(u16 flag,u16 dist)
-{
-		if(flag)
-		{
-			Speed_PID.SumError-=dist;
-		}
-		else
-		{
-			Speed_PID.SumError+=dist;
-		}	
 }
 //------------------------------------
 void PID_Init()
@@ -91,14 +73,7 @@ void PID_Init()
     Speed_PID.PrevError = 0;
     Speed_PID.SumError = 0;
     Speed_PID.pwmduty = 0;
-		//转向环参数初始化
-		Turn_PID.SetPoint = 0;
-		Turn_PID.LastError0 = 0;
-    Turn_PID.LastError = 0;
-    Turn_PID.PrevError = 0;
-    Turn_PID.SumError = 0;
-    Turn_PID.pwmduty = 0;
-			
+
     //角度环PID
     JYAngle_PID.Proportion = 0;
     JYAngle_PID.Integral = 0;
@@ -108,11 +83,6 @@ void PID_Init()
     Speed_PID.Proportion = 0;
     Speed_PID.Integral = 0;
     Speed_PID.Derivative = 0;
-		
-		//转向环PID
-		Turn_PID.Proportion = 0;
-    Turn_PID.Integral = 0;
-    Turn_PID.Derivative = 0;
 }
 
 int main(void)
@@ -127,28 +97,26 @@ int main(void)
     YL_70_Init(); //初始化光电对管
     Encoder_TIM2_Init(); //初始化电机编码器B
     Encoder_TIM4_Init(); //初始化电机编码器A
-    TIM5_Init(5000 - 1, 84 - 1); //读取传感器数据，进行pid控制
+    TIM5_Init(20000 - 1, 84 - 1); //读取传感器数据，进行pid控制
     uart_init(115200); //初始化串口1，用于发送数据到上位机
     usart3_init(115200); //用来读取陀螺仪的数据
     TB6612_Init(); //电机驱动初始化
     OLED_Init(); //OLED初始化
-		TIM7_Init();
-    JY_changePID(200,0,7000);  //  这是乘0.6前的稳JY_changePID(500,0,11500)
-    Speed_changePID(32000,160,0);
-		Turn_changePID(0,0,0);
+    JY_changePID(470,0,9700);  //  这是乘0.6前的稳JY_changePID(500,0,11500)
+    //Speed_changePID(800, 4, 0);
     while (1) {
-        OLED_ShowMPU(Left_Encoder_Angle,Right_Encoder_Angle,pitch,Speed_PID.SumError);
+        //OLED_ShowMPU(JYAngle_PID.pwmduty,roll,pitch,yaw);
         //        push(0, (int)pitch);
         //        push(1, (int)JYAngle_PID.pwmduty);
         //        uSendOnePage();
 			//printf("Encoder:%f  %f\r\n", Read_Encoder_L(), Read_Encoder_R());
         if (sendflag) {
-            printf("pitch:%f	gyro:%f	pwmduty:%f\r\nspeed_PID.pwmduty:%f\r\n", pitch, gryo.y, pwmduty1, Speed_PID.pwmduty);
-           // printf("%lf	%f\r\n", Left_Encoder_Angle, Right_Encoder_Angle);
+            printf("pitch:%f	gyro:%f	pwmduty:%f\r\nspeed_PID.pwmduty:%f\r\n", pitch, gryo.y, pwmduty, Speed_PID.pwmduty);
+            printf("%lf	%f\r\n", Left_Encoder_Angle, Right_Encoder_Angle);
             printf("Angle PrevError:%lf\r\n", JYAngle_PID.PrevError);
 					printf("Pitch:%lf\r\n", pitch);
 					printf("Encoder_SumError:%f\r\n",Speed_PID.SumError);
-            printf("Encoder:%d  %d\r\n\r\n", Left_Encoder_Angle, Right_Encoder_Angle);
+            printf("Encoder:%f  %f\r\n", Left_Encoder_Angle, Read_Encoder_R());
             delay_ms(300);
         }
     }

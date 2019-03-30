@@ -16,8 +16,7 @@ double last_Right_Encoder_Angle = 0;
 int Left_Encoder_Angle = 0;
 int Right_Encoder_Angle = 0;
 int taskMode = 0; //任务模式
-double pwmduty1 = 0;
-double pwmduty2 = 0;
+double pwmduty = 0;
 double balance_point = -0.3; //平衡点
 
 float PreSpeed;
@@ -39,8 +38,7 @@ void RemoteControl()
 
 void stop()
 {
-    pwmduty1 = 0;
-	  pwmduty2 = 0;
+    pwmduty = 0;
     speedcontrol(0, LeftWheel, 0);
     speedcontrol(0, RightWheel, 0);          
 }
@@ -69,10 +67,16 @@ void balance_UP(float Angle, float Gyro)
 void speed_UP()
 {
     static double Encoder=0;
+//        Left_Encoder_Angle = Read_Encoder_L();
+//        Right_Encoder_Angle = Read_Encoder_R();
     Speed_PID.PrevError = Left_Encoder_Angle + Right_Encoder_Angle - Speed_PID.SetPoint;
     Encoder *= 0.8;
     Encoder += Speed_PID.PrevError * 0.2;
     Speed_PID.SumError += Encoder;
+//			if(JYAngle_PID.pwmduty < 100 && JYAngle_PID.pwmduty > -100)
+//		{
+//			Speed_PID.SumError = 0;
+//		}
     if (Speed_PID.SumError > 60000)
         Speed_PID.SumError = 60000; //限幅
     if (Speed_PID.SumError < -60000)
@@ -91,15 +95,7 @@ void speed_UP()
 void turn_UP()
 {
 	//TO DO
-	  if(1)
-	  {
-	     pwmduty1 += 100;
-			 pwmduty2 -= 100;
-	  }
-		else if(0)
-		{
-		
-		}
+	
 }
 
 
@@ -116,17 +112,10 @@ void KeepBalance()
     balance_UP(pitch, gryo.y);
 		speed_UP();
 		turn_UP();
-		pwmduty1 = JYAngle_PID.pwmduty + Speed_PID.pwmduty;
-	  pwmduty2 = JYAngle_PID.pwmduty + Speed_PID.pwmduty;
-		
-		pwmduty1 += 2000;
-		pwmduty2 -= 2000;
-	
-    xianfu(&pwmduty1);
-		xianfu(&pwmduty2);
-		
-    speedcontrol(pwmduty1, LeftWheel, deadband);
-    speedcontrol(pwmduty2, RightWheel, deadband);
+		pwmduty = JYAngle_PID.pwmduty + Speed_PID.pwmduty;
+    xianfu(&pwmduty);
+    speedcontrol(pwmduty, LeftWheel, deadband);
+    speedcontrol(pwmduty, RightWheel, deadband);
 }
 
 void TIM5_Init(u16 arr, u16 psc)

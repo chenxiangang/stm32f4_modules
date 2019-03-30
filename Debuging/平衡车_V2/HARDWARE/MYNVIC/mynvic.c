@@ -9,6 +9,7 @@
 #define TIM3_ON 1
 #define TIM4_ON 1
 #define TIM5_ON 1
+#define TIM7_ON 1
 /**
   * @brief  中断初始化函数.
   * @param  None
@@ -85,6 +86,14 @@ void My_NVIC_Init(void)
     NVIC_Init(&NVIC_InitStructure);
 #endif
 
+
+#if TIM7_ON
+    NVIC_InitStructure.NVIC_IRQChannel = TIM7_IRQn;
+    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 2;
+    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 2;
+    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+    NVIC_Init(&NVIC_InitStructure);
+#endif
     /*************************** DCMI Interrupt ****************/
     Enable_Interrupts();
 }
@@ -92,9 +101,9 @@ void My_NVIC_Init(void)
 /*************************************** System IRQ handers *************************************/
 
 /*The mainly control timer interrupt*/
-void TIM7_IRQHandler(void)
-{
-}
+//void TIM7_IRQHandler(void)
+//{
+//}
 
 /**
 	*example

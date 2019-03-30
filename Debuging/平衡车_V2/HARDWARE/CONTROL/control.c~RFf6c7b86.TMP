@@ -96,7 +96,7 @@ void turn_UP()
 	     pwmduty1 += 100;
 			 pwmduty2 -= 100;
 	  }
-		else if(0)
+		else if()
 		{
 		
 		}
@@ -119,9 +119,6 @@ void KeepBalance()
 		pwmduty1 = JYAngle_PID.pwmduty + Speed_PID.pwmduty;
 	  pwmduty2 = JYAngle_PID.pwmduty + Speed_PID.pwmduty;
 		
-		pwmduty1 += 2000;
-		pwmduty2 -= 2000;
-	
     xianfu(&pwmduty1);
 		xianfu(&pwmduty2);
 		

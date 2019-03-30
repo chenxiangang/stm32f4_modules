@@ -119,8 +119,8 @@ void KeepBalance()
 		pwmduty1 = JYAngle_PID.pwmduty + Speed_PID.pwmduty;
 	  pwmduty2 = JYAngle_PID.pwmduty + Speed_PID.pwmduty;
 		
-		pwmduty1 += 2000;
-		pwmduty2 -= 2000;
+		pwmduty1 += 300;
+		pwmduty2 -= 300;
 	
     xianfu(&pwmduty1);
 		xianfu(&pwmduty2);

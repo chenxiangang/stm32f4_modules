@@ -13,8 +13,10 @@
 extern void JY_changePID(u8 p, u8 i, u8 d);
 extern void speedcontrol(double speed, int ch, float basepwm);
 extern void Speed_changePID(int p, int i, int d);
-extern void send_info();
+extern void send_info(void);
 extern void change_balancePoint(u8 flag,u8 val10);
+extern void forward(u16 flag,u16 dist);
+extern void  Turn_changePID(int p,int i,int d);
 //函数名列表初始化(用户自己添加)
 //用户直接在这里输入要执行的函数名及其查找串
 struct _m_usmart_nametab usmart_nametab[] = {
@@ -39,6 +41,8 @@ struct _m_usmart_nametab usmart_nametab[] = {
     (void*)send_info,
     "send_info()\r\n--turn on/off sending informations",
 		(void*)change_balancePoint,"change_balancePoint(u8 flag,u8 val10)\r\n0 means -",
+		(void*)forward,"forward(u16 flag,u16 dist)\r\n--change sumerror 1- 0+\r\n",
+		(void*)Turn_changePID,"Turn_changePID(int p,int i,int d)\r\n--change turnPID\r\n",
 };
 ///////////////////////////////////END///////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////

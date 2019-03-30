@@ -13,12 +13,13 @@ typedef struct PID {
     double SumError; // 总误差,用来做积分
     double LastError0;
     double pwmduty;
-	float allowError;
+	  float  allowError;
 } PID;
 
 extern PID JYAngle_PID;
 extern PID Speed_PID;
 extern PID Encoder_Angle_PID;
+extern PID Turn_PID;  //转速环
 
 void PIDCalc(PID* pp, double PreVal); //速度PID
 double position_PIDCalc(PID* pp, double PreVal); //位置PID

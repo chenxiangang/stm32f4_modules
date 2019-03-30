@@ -1,5 +1,5 @@
 Dependencies for Project 'LED', Target 'BalanceCar': (DO NOT MODIFY !)
-F (.\main.c)(0x5C9B6E59)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\CONTROL -I..\HARDWARE\ENCODER -I..\HARDWARE\OLED -I..\HARDWARE\PID -I..\HARDWARE\TB6612 -I..\HARDWARE\YL_70 -I..\HARDWARE\JY901 -I..\HARDWARE\Mymath -I..\HARDWARE\LedBuz -I.\include -I..\freecars -I..\HARDWARE\MYNVIC -I..\USMART-I F:\钱旭\武汉理工大学\电赛\stm32f4_modules\Debuging\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
+F (.\main.c)(0x5C9F6F0F)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\CONTROL -I..\HARDWARE\ENCODER -I..\HARDWARE\OLED -I..\HARDWARE\PID -I..\HARDWARE\TB6612 -I..\HARDWARE\YL_70 -I..\HARDWARE\JY901 -I..\HARDWARE\Mymath -I..\HARDWARE\LedBuz -I.\include -I..\freecars -I..\HARDWARE\MYNVIC -I..\USMART-I C:\Users\14642\Desktop\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
 I (..\freecars\FreeCars_uart.h)(0x5C7D3586)
 I (..\USER\stm32f4xx.h)(0x5710F357)
 I (..\CORE\core_cm4.h)(0x5710F354)
@@ -41,21 +41,21 @@ I (..\SYSTEM\sys\sys.h)(0x5C90DBBF)
 I (..\USER\stm32f4xx_it.h)(0x5710F357)
 I (..\HARDWARE\JY901\JY901_uart.h)(0x5C7F1AE4)
 I (..\HARDWARE\YL_70\YL70.h)(0x5C90DD2A)
-I (..\HARDWARE\CONTROL\control.h)(0x5C95AF83)
+I (..\HARDWARE\CONTROL\control.h)(0x5C9F6F29)
 I (..\SYSTEM\delay\delay.h)(0x5710F356)
-I (..\HARDWARE\ENCODER\encoder.h)(0x5C952E04)
-I (.\include\include.h)(0x5C7F1AE4)
+I (..\HARDWARE\ENCODER\encoder.h)(0x5C9F590D)
+I (.\include\include.h)(0x5C9F51AD)
 I (..\HARDWARE\Mymath\MyMath.h)(0x5C7F1AE4)
 I (F:\keil5\ARM\ARMCC\include\math.h)(0x5475F2FE)
 I (..\HARDWARE\LED\led.h)(0x5C8F674C)
 I (..\HARDWARE\MYNVIC\mynvic.h)(0x5C839AA9)
 I (..\HARDWARE\OLED\oled.h)(0x5C7F1AE4)
 I (F:\keil5\ARM\ARMCC\include\stdlib.h)(0x5475F300)
-I (..\HARDWARE\PID\pid.h)(0x5C91FD9E)
+I (..\HARDWARE\PID\pid.h)(0x5C9F6BDA)
 I (..\HARDWARE\TB6612\tb6612.h)(0x5C91FBE8)
 I (..\USMART\usmart.h)(0x5710F367)
 I (..\USMART\usmart_str.h)(0x5710F367)
-F (.\stm32f4xx_it.c)(0x5710F357)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\CONTROL -I..\HARDWARE\ENCODER -I..\HARDWARE\OLED -I..\HARDWARE\PID -I..\HARDWARE\TB6612 -I..\HARDWARE\YL_70 -I..\HARDWARE\JY901 -I..\HARDWARE\Mymath -I..\HARDWARE\LedBuz -I.\include -I..\freecars -I..\HARDWARE\MYNVIC -I..\USMART-I F:\钱旭\武汉理工大学\电赛\stm32f4_modules\Debuging\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\stm32f4xx_it.o --omf_browse ..\obj\stm32f4xx_it.crf --depend ..\obj\stm32f4xx_it.d)
+F (.\stm32f4xx_it.c)(0x5710F357)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\CONTROL -I..\HARDWARE\ENCODER -I..\HARDWARE\OLED -I..\HARDWARE\PID -I..\HARDWARE\TB6612 -I..\HARDWARE\YL_70 -I..\HARDWARE\JY901 -I..\HARDWARE\Mymath -I..\HARDWARE\LedBuz -I.\include -I..\freecars -I..\HARDWARE\MYNVIC -I..\USMART-I C:\Users\14642\Desktop\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\stm32f4xx_it.o --omf_browse ..\obj\stm32f4xx_it.crf --depend ..\obj\stm32f4xx_it.d)
 I (stm32f4xx_it.h)(0x5710F357)
 I (stm32f4xx.h)(0x5710F357)
 I (..\CORE\core_cm4.h)(0x5710F354)
@@ -92,7 +92,7 @@ I (..\FWLIB\inc\stm32f4xx_can.h)(0x5710F355)
 I (..\FWLIB\inc\stm32f4xx_dac.h)(0x5710F355)
 I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x5710F355)
 I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x5710F355)
-F (.\system_stm32f4xx.c)(0x5710F357)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\CONTROL -I..\HARDWARE\ENCODER -I..\HARDWARE\OLED -I..\HARDWARE\PID -I..\HARDWARE\TB6612 -I..\HARDWARE\YL_70 -I..\HARDWARE\JY901 -I..\HARDWARE\Mymath -I..\HARDWARE\LedBuz -I.\include -I..\freecars -I..\HARDWARE\MYNVIC -I..\USMART-I F:\钱旭\武汉理工大学\电赛\stm32f4_modules\Debuging\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\system_stm32f4xx.o --omf_browse ..\obj\system_stm32f4xx.crf --depend ..\obj\system_stm32f4xx.d)
+F (.\system_stm32f4xx.c)(0x5710F357)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\CONTROL -I..\HARDWARE\ENCODER -I..\HARDWARE\OLED -I..\HARDWARE\PID -I..\HARDWARE\TB6612 -I..\HARDWARE\YL_70 -I..\HARDWARE\JY901 -I..\HARDWARE\Mymath -I..\HARDWARE\LedBuz -I.\include -I..\freecars -I..\HARDWARE\MYNVIC -I..\USMART-I C:\Users\14642\Desktop\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\system_stm32f4xx.o --omf_browse ..\obj\system_stm32f4xx.crf --depend ..\obj\system_stm32f4xx.d)
 I (stm32f4xx.h)(0x5710F357)
 I (..\CORE\core_cm4.h)(0x5710F354)
 I (F:\keil5\ARM\ARMCC\include\stdint.h)(0x5475F300)
@@ -128,7 +128,7 @@ I (..\FWLIB\inc\stm32f4xx_can.h)(0x5710F355)
 I (..\FWLIB\inc\stm32f4xx_dac.h)(0x5710F355)
 I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x5710F355)
 I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x5710F355)
-F (..\HARDWARE\LED\led.c)(0x5C8F674C)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\CONTROL -I..\HARDWARE\ENCODER -I..\HARDWARE\OLED -I..\HARDWARE\PID -I..\HARDWARE\TB6612 -I..\HARDWARE\YL_70 -I..\HARDWARE\JY901 -I..\HARDWARE\Mymath -I..\HARDWARE\LedBuz -I.\include -I..\freecars -I..\HARDWARE\MYNVIC -I..\USMART-I F:\钱旭\武汉理工大学\电赛\stm32f4_modules\Debuging\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\led.o --omf_browse ..\obj\led.crf --depend ..\obj\led.d)
+F (..\HARDWARE\LED\led.c)(0x5C8F674C)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\CONTROL -I..\HARDWARE\ENCODER -I..\HARDWARE\OLED -I..\HARDWARE\PID -I..\HARDWARE\TB6612 -I..\HARDWARE\YL_70 -I..\HARDWARE\JY901 -I..\HARDWARE\Mymath -I..\HARDWARE\LedBuz -I.\include -I..\freecars -I..\HARDWARE\MYNVIC -I..\USMART-I C:\Users\14642\Desktop\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\led.o --omf_browse ..\obj\led.crf --depend ..\obj\led.d)
 I (..\HARDWARE\LED\led.h)(0x5C8F674C)
 I (..\SYSTEM\sys\sys.h)(0x5C90DBBF)
 I (..\FWLIB\inc\misc.h)(0x5710F355)
@@ -166,8 +166,8 @@ I (..\FWLIB\inc\stm32f4xx_dac.h)(0x5710F355)
 I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x5710F355)
 I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x5710F355)
 I (..\USER\stm32f4xx_it.h)(0x5710F357)
-F (..\HARDWARE\ENCODER\encoder.c)(0x5C95E8EC)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\CONTROL -I..\HARDWARE\ENCODER -I..\HARDWARE\OLED -I..\HARDWARE\PID -I..\HARDWARE\TB6612 -I..\HARDWARE\YL_70 -I..\HARDWARE\JY901 -I..\HARDWARE\Mymath -I..\HARDWARE\LedBuz -I.\include -I..\freecars -I..\HARDWARE\MYNVIC -I..\USMART-I F:\钱旭\武汉理工大学\电赛\stm32f4_modules\Debuging\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\encoder.o --omf_browse ..\obj\encoder.crf --depend ..\obj\encoder.d)
-I (..\HARDWARE\ENCODER\encoder.h)(0x5C952E04)
+F (..\HARDWARE\ENCODER\encoder.c)(0x5C9F6B88)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\CONTROL -I..\HARDWARE\ENCODER -I..\HARDWARE\OLED -I..\HARDWARE\PID -I..\HARDWARE\TB6612 -I..\HARDWARE\YL_70 -I..\HARDWARE\JY901 -I..\HARDWARE\Mymath -I..\HARDWARE\LedBuz -I.\include -I..\freecars -I..\HARDWARE\MYNVIC -I..\USMART-I C:\Users\14642\Desktop\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\encoder.o --omf_browse ..\obj\encoder.crf --depend ..\obj\encoder.d)
+I (..\HARDWARE\ENCODER\encoder.h)(0x5C9F590D)
 I (..\SYSTEM\sys\sys.h)(0x5C90DBBF)
 I (..\FWLIB\inc\misc.h)(0x5710F355)
 I (..\USER\stm32f4xx.h)(0x5710F357)
@@ -204,8 +204,11 @@ I (..\FWLIB\inc\stm32f4xx_dac.h)(0x5710F355)
 I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x5710F355)
 I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x5710F355)
 I (..\USER\stm32f4xx_it.h)(0x5710F357)
-F (..\HARDWARE\CONTROL\control.c)(0x5C9B7DCD)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\CONTROL -I..\HARDWARE\ENCODER -I..\HARDWARE\OLED -I..\HARDWARE\PID -I..\HARDWARE\TB6612 -I..\HARDWARE\YL_70 -I..\HARDWARE\JY901 -I..\HARDWARE\Mymath -I..\HARDWARE\LedBuz -I.\include -I..\freecars -I..\HARDWARE\MYNVIC -I..\USMART-I F:\钱旭\武汉理工大学\电赛\stm32f4_modules\Debuging\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\control.o --omf_browse ..\obj\control.crf --depend ..\obj\control.d)
-I (..\HARDWARE\CONTROL\control.h)(0x5C95AF83)
+I (.\include\include.h)(0x5C9F51AD)
+I (..\HARDWARE\Mymath\MyMath.h)(0x5C7F1AE4)
+I (F:\keil5\ARM\ARMCC\include\math.h)(0x5475F2FE)
+F (..\HARDWARE\CONTROL\control.c)(0x5C9F71F3)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\CONTROL -I..\HARDWARE\ENCODER -I..\HARDWARE\OLED -I..\HARDWARE\PID -I..\HARDWARE\TB6612 -I..\HARDWARE\YL_70 -I..\HARDWARE\JY901 -I..\HARDWARE\Mymath -I..\HARDWARE\LedBuz -I.\include -I..\freecars -I..\HARDWARE\MYNVIC -I..\USMART-I C:\Users\14642\Desktop\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\control.o --omf_browse ..\obj\control.crf --depend ..\obj\control.d)
+I (..\HARDWARE\CONTROL\control.h)(0x5C9F6F29)
 I (..\SYSTEM\sys\sys.h)(0x5C90DBBF)
 I (..\FWLIB\inc\misc.h)(0x5710F355)
 I (..\USER\stm32f4xx.h)(0x5710F357)
@@ -244,15 +247,17 @@ I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x5710F355)
 I (..\USER\stm32f4xx_it.h)(0x5710F357)
 I (..\HARDWARE\JY901\JY901_uart.h)(0x5C7F1AE4)
 I (..\HARDWARE\YL_70\YL70.h)(0x5C90DD2A)
-I (..\HARDWARE\ENCODER\encoder.h)(0x5C952E04)
+I (..\HARDWARE\ENCODER\encoder.h)(0x5C9F590D)
+I (.\include\include.h)(0x5C9F51AD)
+I (..\HARDWARE\Mymath\MyMath.h)(0x5C7F1AE4)
 I (F:\keil5\ARM\ARMCC\include\math.h)(0x5475F2FE)
-I (..\HARDWARE\PID\pid.h)(0x5C91FD9E)
+I (..\HARDWARE\PID\pid.h)(0x5C9F6BDA)
 I (..\HARDWARE\TB6612\tb6612.h)(0x5C91FBE8)
 I (..\SYSTEM\usart\usart.h)(0x5710F356)
 I (F:\keil5\ARM\ARMCC\include\stdio.h)(0x5475F300)
 I (..\USMART\usmart.h)(0x5710F367)
 I (..\USMART\usmart_str.h)(0x5710F367)
-F (..\HARDWARE\OLED\oled.c)(0x5C9351A6)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\CONTROL -I..\HARDWARE\ENCODER -I..\HARDWARE\OLED -I..\HARDWARE\PID -I..\HARDWARE\TB6612 -I..\HARDWARE\YL_70 -I..\HARDWARE\JY901 -I..\HARDWARE\Mymath -I..\HARDWARE\LedBuz -I.\include -I..\freecars -I..\HARDWARE\MYNVIC -I..\USMART-I F:\钱旭\武汉理工大学\电赛\stm32f4_modules\Debuging\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\oled.o --omf_browse ..\obj\oled.crf --depend ..\obj\oled.d)
+F (..\HARDWARE\OLED\oled.c)(0x5C9C8493)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\CONTROL -I..\HARDWARE\ENCODER -I..\HARDWARE\OLED -I..\HARDWARE\PID -I..\HARDWARE\TB6612 -I..\HARDWARE\YL_70 -I..\HARDWARE\JY901 -I..\HARDWARE\Mymath -I..\HARDWARE\LedBuz -I.\include -I..\freecars -I..\HARDWARE\MYNVIC -I..\USMART-I C:\Users\14642\Desktop\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\oled.o --omf_browse ..\obj\oled.crf --depend ..\obj\oled.d)
 I (..\HARDWARE\OLED\oled.h)(0x5C7F1AE4)
 I (..\SYSTEM\sys\sys.h)(0x5C90DBBF)
 I (..\FWLIB\inc\misc.h)(0x5710F355)
@@ -293,8 +298,8 @@ I (..\USER\stm32f4xx_it.h)(0x5710F357)
 I (F:\keil5\ARM\ARMCC\include\stdlib.h)(0x5475F300)
 I (..\SYSTEM\delay\delay.h)(0x5710F356)
 I (..\HARDWARE\OLED\oledfont.h)(0x5C7F1AE4)
-F (..\HARDWARE\PID\pid.c)(0x5C91FF05)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\CONTROL -I..\HARDWARE\ENCODER -I..\HARDWARE\OLED -I..\HARDWARE\PID -I..\HARDWARE\TB6612 -I..\HARDWARE\YL_70 -I..\HARDWARE\JY901 -I..\HARDWARE\Mymath -I..\HARDWARE\LedBuz -I.\include -I..\freecars -I..\HARDWARE\MYNVIC -I..\USMART-I F:\钱旭\武汉理工大学\电赛\stm32f4_modules\Debuging\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\pid.o --omf_browse ..\obj\pid.crf --depend ..\obj\pid.d)
-I (..\HARDWARE\PID\pid.h)(0x5C91FD9E)
+F (..\HARDWARE\PID\pid.c)(0x5C9F6B7F)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\CONTROL -I..\HARDWARE\ENCODER -I..\HARDWARE\OLED -I..\HARDWARE\PID -I..\HARDWARE\TB6612 -I..\HARDWARE\YL_70 -I..\HARDWARE\JY901 -I..\HARDWARE\Mymath -I..\HARDWARE\LedBuz -I.\include -I..\freecars -I..\HARDWARE\MYNVIC -I..\USMART-I C:\Users\14642\Desktop\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\pid.o --omf_browse ..\obj\pid.crf --depend ..\obj\pid.d)
+I (..\HARDWARE\PID\pid.h)(0x5C9F6BDA)
 I (..\SYSTEM\sys\sys.h)(0x5C90DBBF)
 I (..\FWLIB\inc\misc.h)(0x5710F355)
 I (..\USER\stm32f4xx.h)(0x5710F357)
@@ -332,7 +337,7 @@ I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x5710F355)
 I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x5710F355)
 I (..\USER\stm32f4xx_it.h)(0x5710F357)
 I (F:\keil5\ARM\ARMCC\include\math.h)(0x5475F2FE)
-F (..\HARDWARE\TB6612\tb6612.c)(0x5C98C3ED)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\CONTROL -I..\HARDWARE\ENCODER -I..\HARDWARE\OLED -I..\HARDWARE\PID -I..\HARDWARE\TB6612 -I..\HARDWARE\YL_70 -I..\HARDWARE\JY901 -I..\HARDWARE\Mymath -I..\HARDWARE\LedBuz -I.\include -I..\freecars -I..\HARDWARE\MYNVIC -I..\USMART-I F:\钱旭\武汉理工大学\电赛\stm32f4_modules\Debuging\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\tb6612.o --omf_browse ..\obj\tb6612.crf --depend ..\obj\tb6612.d)
+F (..\HARDWARE\TB6612\tb6612.c)(0x5C98C3ED)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\CONTROL -I..\HARDWARE\ENCODER -I..\HARDWARE\OLED -I..\HARDWARE\PID -I..\HARDWARE\TB6612 -I..\HARDWARE\YL_70 -I..\HARDWARE\JY901 -I..\HARDWARE\Mymath -I..\HARDWARE\LedBuz -I.\include -I..\freecars -I..\HARDWARE\MYNVIC -I..\USMART-I C:\Users\14642\Desktop\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\tb6612.o --omf_browse ..\obj\tb6612.crf --depend ..\obj\tb6612.d)
 I (..\HARDWARE\TB6612\tb6612.h)(0x5C91FBE8)
 I (..\SYSTEM\sys\sys.h)(0x5C90DBBF)
 I (..\FWLIB\inc\misc.h)(0x5710F355)
@@ -370,7 +375,7 @@ I (..\FWLIB\inc\stm32f4xx_dac.h)(0x5710F355)
 I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x5710F355)
 I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x5710F355)
 I (..\USER\stm32f4xx_it.h)(0x5710F357)
-F (..\HARDWARE\YL_70\YL70.c)(0x5C90DD4D)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\CONTROL -I..\HARDWARE\ENCODER -I..\HARDWARE\OLED -I..\HARDWARE\PID -I..\HARDWARE\TB6612 -I..\HARDWARE\YL_70 -I..\HARDWARE\JY901 -I..\HARDWARE\Mymath -I..\HARDWARE\LedBuz -I.\include -I..\freecars -I..\HARDWARE\MYNVIC -I..\USMART-I F:\钱旭\武汉理工大学\电赛\stm32f4_modules\Debuging\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\yl70.o --omf_browse ..\obj\yl70.crf --depend ..\obj\yl70.d)
+F (..\HARDWARE\YL_70\YL70.c)(0x5C90DD4D)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\CONTROL -I..\HARDWARE\ENCODER -I..\HARDWARE\OLED -I..\HARDWARE\PID -I..\HARDWARE\TB6612 -I..\HARDWARE\YL_70 -I..\HARDWARE\JY901 -I..\HARDWARE\Mymath -I..\HARDWARE\LedBuz -I.\include -I..\freecars -I..\HARDWARE\MYNVIC -I..\USMART-I C:\Users\14642\Desktop\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\yl70.o --omf_browse ..\obj\yl70.crf --depend ..\obj\yl70.d)
 I (..\HARDWARE\YL_70\YL70.h)(0x5C90DD2A)
 I (..\SYSTEM\sys\sys.h)(0x5C90DBBF)
 I (..\FWLIB\inc\misc.h)(0x5710F355)
@@ -408,11 +413,11 @@ I (..\FWLIB\inc\stm32f4xx_dac.h)(0x5710F355)
 I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x5710F355)
 I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x5710F355)
 I (..\USER\stm32f4xx_it.h)(0x5710F357)
-F (..\HARDWARE\Mymath\MyMath.c)(0x5C7F1AE4)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\CONTROL -I..\HARDWARE\ENCODER -I..\HARDWARE\OLED -I..\HARDWARE\PID -I..\HARDWARE\TB6612 -I..\HARDWARE\YL_70 -I..\HARDWARE\JY901 -I..\HARDWARE\Mymath -I..\HARDWARE\LedBuz -I.\include -I..\freecars -I..\HARDWARE\MYNVIC -I..\USMART-I F:\钱旭\武汉理工大学\电赛\stm32f4_modules\Debuging\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\mymath.o --omf_browse ..\obj\mymath.crf --depend ..\obj\mymath.d)
+F (..\HARDWARE\Mymath\MyMath.c)(0x5C7F1AE4)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\CONTROL -I..\HARDWARE\ENCODER -I..\HARDWARE\OLED -I..\HARDWARE\PID -I..\HARDWARE\TB6612 -I..\HARDWARE\YL_70 -I..\HARDWARE\JY901 -I..\HARDWARE\Mymath -I..\HARDWARE\LedBuz -I.\include -I..\freecars -I..\HARDWARE\MYNVIC -I..\USMART-I C:\Users\14642\Desktop\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\mymath.o --omf_browse ..\obj\mymath.crf --depend ..\obj\mymath.d)
 I (..\HARDWARE\Mymath\MyMath.h)(0x5C7F1AE4)
 I (F:\keil5\ARM\ARMCC\include\stdint.h)(0x5475F300)
 I (F:\keil5\ARM\ARMCC\include\math.h)(0x5475F2FE)
-F (..\HARDWARE\JY901\JY901_uart.c)(0x5C951C82)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\CONTROL -I..\HARDWARE\ENCODER -I..\HARDWARE\OLED -I..\HARDWARE\PID -I..\HARDWARE\TB6612 -I..\HARDWARE\YL_70 -I..\HARDWARE\JY901 -I..\HARDWARE\Mymath -I..\HARDWARE\LedBuz -I.\include -I..\freecars -I..\HARDWARE\MYNVIC -I..\USMART-I F:\钱旭\武汉理工大学\电赛\stm32f4_modules\Debuging\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\jy901_uart.o --omf_browse ..\obj\jy901_uart.crf --depend ..\obj\jy901_uart.d)
+F (..\HARDWARE\JY901\JY901_uart.c)(0x5C951C82)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\CONTROL -I..\HARDWARE\ENCODER -I..\HARDWARE\OLED -I..\HARDWARE\PID -I..\HARDWARE\TB6612 -I..\HARDWARE\YL_70 -I..\HARDWARE\JY901 -I..\HARDWARE\Mymath -I..\HARDWARE\LedBuz -I.\include -I..\freecars -I..\HARDWARE\MYNVIC -I..\USMART-I C:\Users\14642\Desktop\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\jy901_uart.o --omf_browse ..\obj\jy901_uart.crf --depend ..\obj\jy901_uart.d)
 I (..\HARDWARE\JY901\JY901_uart.h)(0x5C7F1AE4)
 I (..\HARDWARE\LedBuz\LedBuz.h)(0x5C7F1AE4)
 I (..\SYSTEM\sys\sys.h)(0x5C90DBBF)
@@ -452,10 +457,10 @@ I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x5710F355)
 I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x5710F355)
 I (..\USER\stm32f4xx_it.h)(0x5710F357)
 I (..\SYSTEM\delay\delay.h)(0x5710F356)
-I (.\include\include.h)(0x5C7F1AE4)
+I (.\include\include.h)(0x5C9F51AD)
 I (..\HARDWARE\Mymath\MyMath.h)(0x5C7F1AE4)
 I (F:\keil5\ARM\ARMCC\include\math.h)(0x5475F2FE)
-F (..\HARDWARE\MYNVIC\mynvic.c)(0x5C935F73)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\CONTROL -I..\HARDWARE\ENCODER -I..\HARDWARE\OLED -I..\HARDWARE\PID -I..\HARDWARE\TB6612 -I..\HARDWARE\YL_70 -I..\HARDWARE\JY901 -I..\HARDWARE\Mymath -I..\HARDWARE\LedBuz -I.\include -I..\freecars -I..\HARDWARE\MYNVIC -I..\USMART-I F:\钱旭\武汉理工大学\电赛\stm32f4_modules\Debuging\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\mynvic.o --omf_browse ..\obj\mynvic.crf --depend ..\obj\mynvic.d)
+F (..\HARDWARE\MYNVIC\mynvic.c)(0x5C9DF1A3)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\CONTROL -I..\HARDWARE\ENCODER -I..\HARDWARE\OLED -I..\HARDWARE\PID -I..\HARDWARE\TB6612 -I..\HARDWARE\YL_70 -I..\HARDWARE\JY901 -I..\HARDWARE\Mymath -I..\HARDWARE\LedBuz -I.\include -I..\freecars -I..\HARDWARE\MYNVIC -I..\USMART-I C:\Users\14642\Desktop\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\mynvic.o --omf_browse ..\obj\mynvic.crf --depend ..\obj\mynvic.d)
 I (..\HARDWARE\MYNVIC\mynvic.h)(0x5C839AA9)
 I (..\SYSTEM\sys\sys.h)(0x5C90DBBF)
 I (..\FWLIB\inc\misc.h)(0x5710F355)
@@ -493,7 +498,7 @@ I (..\FWLIB\inc\stm32f4xx_dac.h)(0x5710F355)
 I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x5710F355)
 I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x5710F355)
 I (..\USER\stm32f4xx_it.h)(0x5710F357)
-F (..\SYSTEM\delay\delay.c)(0x5710F356)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\CONTROL -I..\HARDWARE\ENCODER -I..\HARDWARE\OLED -I..\HARDWARE\PID -I..\HARDWARE\TB6612 -I..\HARDWARE\YL_70 -I..\HARDWARE\JY901 -I..\HARDWARE\Mymath -I..\HARDWARE\LedBuz -I.\include -I..\freecars -I..\HARDWARE\MYNVIC -I..\USMART-I F:\钱旭\武汉理工大学\电赛\stm32f4_modules\Debuging\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\delay.o --omf_browse ..\obj\delay.crf --depend ..\obj\delay.d)
+F (..\SYSTEM\delay\delay.c)(0x5710F356)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\CONTROL -I..\HARDWARE\ENCODER -I..\HARDWARE\OLED -I..\HARDWARE\PID -I..\HARDWARE\TB6612 -I..\HARDWARE\YL_70 -I..\HARDWARE\JY901 -I..\HARDWARE\Mymath -I..\HARDWARE\LedBuz -I.\include -I..\freecars -I..\HARDWARE\MYNVIC -I..\USMART-I C:\Users\14642\Desktop\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\delay.o --omf_browse ..\obj\delay.crf --depend ..\obj\delay.d)
 I (..\SYSTEM\delay\delay.h)(0x5710F356)
 I (..\SYSTEM\sys\sys.h)(0x5C90DBBF)
 I (..\FWLIB\inc\misc.h)(0x5710F355)
@@ -531,7 +536,7 @@ I (..\FWLIB\inc\stm32f4xx_dac.h)(0x5710F355)
 I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x5710F355)
 I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x5710F355)
 I (..\USER\stm32f4xx_it.h)(0x5710F357)
-F (..\SYSTEM\sys\sys.c)(0x5710F356)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\CONTROL -I..\HARDWARE\ENCODER -I..\HARDWARE\OLED -I..\HARDWARE\PID -I..\HARDWARE\TB6612 -I..\HARDWARE\YL_70 -I..\HARDWARE\JY901 -I..\HARDWARE\Mymath -I..\HARDWARE\LedBuz -I.\include -I..\freecars -I..\HARDWARE\MYNVIC -I..\USMART-I F:\钱旭\武汉理工大学\电赛\stm32f4_modules\Debuging\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\sys.o --omf_browse ..\obj\sys.crf --depend ..\obj\sys.d)
+F (..\SYSTEM\sys\sys.c)(0x5710F356)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\CONTROL -I..\HARDWARE\ENCODER -I..\HARDWARE\OLED -I..\HARDWARE\PID -I..\HARDWARE\TB6612 -I..\HARDWARE\YL_70 -I..\HARDWARE\JY901 -I..\HARDWARE\Mymath -I..\HARDWARE\LedBuz -I.\include -I..\freecars -I..\HARDWARE\MYNVIC -I..\USMART-I C:\Users\14642\Desktop\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\sys.o --omf_browse ..\obj\sys.crf --depend ..\obj\sys.d)
 I (..\SYSTEM\sys\sys.h)(0x5C90DBBF)
 I (..\FWLIB\inc\misc.h)(0x5710F355)
 I (..\USER\stm32f4xx.h)(0x5710F357)
@@ -568,7 +573,7 @@ I (..\FWLIB\inc\stm32f4xx_dac.h)(0x5710F355)
 I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x5710F355)
 I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x5710F355)
 I (..\USER\stm32f4xx_it.h)(0x5710F357)
-F (..\SYSTEM\usart\usart.c)(0x5C91B448)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\CONTROL -I..\HARDWARE\ENCODER -I..\HARDWARE\OLED -I..\HARDWARE\PID -I..\HARDWARE\TB6612 -I..\HARDWARE\YL_70 -I..\HARDWARE\JY901 -I..\HARDWARE\Mymath -I..\HARDWARE\LedBuz -I.\include -I..\freecars -I..\HARDWARE\MYNVIC -I..\USMART-I F:\钱旭\武汉理工大学\电赛\stm32f4_modules\Debuging\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\usart.o --omf_browse ..\obj\usart.crf --depend ..\obj\usart.d)
+F (..\SYSTEM\usart\usart.c)(0x5C91B448)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\CONTROL -I..\HARDWARE\ENCODER -I..\HARDWARE\OLED -I..\HARDWARE\PID -I..\HARDWARE\TB6612 -I..\HARDWARE\YL_70 -I..\HARDWARE\JY901 -I..\HARDWARE\Mymath -I..\HARDWARE\LedBuz -I.\include -I..\freecars -I..\HARDWARE\MYNVIC -I..\USMART-I C:\Users\14642\Desktop\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\usart.o --omf_browse ..\obj\usart.crf --depend ..\obj\usart.d)
 I (..\SYSTEM\sys\sys.h)(0x5C90DBBF)
 I (..\FWLIB\inc\misc.h)(0x5710F355)
 I (..\USER\stm32f4xx.h)(0x5710F357)
@@ -607,8 +612,8 @@ I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x5710F355)
 I (..\USER\stm32f4xx_it.h)(0x5710F357)
 I (..\SYSTEM\usart\usart.h)(0x5710F356)
 I (F:\keil5\ARM\ARMCC\include\stdio.h)(0x5475F300)
-F (..\CORE\startup_stm32f40_41xxx.s)(0x5710F355)(--cpu Cortex-M4.fp -g --apcs=interwork -I F:\钱旭\武汉理工大学\电赛\stm32f4_modules\Debuging\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include--pd "__UVISION_VERSION SETA 514" --pd "STM32F407xx SETA 1"--list ..\obj\startup_stm32f40_41xxx.lst --xref -o ..\obj\startup_stm32f40_41xxx.o --depend ..\obj\startup_stm32f40_41xxx.d)
-F (..\FWLIB\src\misc.c)(0x5710F355)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\CONTROL -I..\HARDWARE\ENCODER -I..\HARDWARE\OLED -I..\HARDWARE\PID -I..\HARDWARE\TB6612 -I..\HARDWARE\YL_70 -I..\HARDWARE\JY901 -I..\HARDWARE\Mymath -I..\HARDWARE\LedBuz -I.\include -I..\freecars -I..\HARDWARE\MYNVIC -I..\USMART-I F:\钱旭\武汉理工大学\电赛\stm32f4_modules\Debuging\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\misc.o --omf_browse ..\obj\misc.crf --depend ..\obj\misc.d)
+F (..\CORE\startup_stm32f40_41xxx.s)(0x5710F355)(--cpu Cortex-M4.fp -g --apcs=interwork -I C:\Users\14642\Desktop\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include--pd "__UVISION_VERSION SETA 514" --pd "STM32F407xx SETA 1"--list ..\obj\startup_stm32f40_41xxx.lst --xref -o ..\obj\startup_stm32f40_41xxx.o --depend ..\obj\startup_stm32f40_41xxx.d)
+F (..\FWLIB\src\misc.c)(0x5710F355)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\CONTROL -I..\HARDWARE\ENCODER -I..\HARDWARE\OLED -I..\HARDWARE\PID -I..\HARDWARE\TB6612 -I..\HARDWARE\YL_70 -I..\HARDWARE\JY901 -I..\HARDWARE\Mymath -I..\HARDWARE\LedBuz -I.\include -I..\freecars -I..\HARDWARE\MYNVIC -I..\USMART-I C:\Users\14642\Desktop\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\misc.o --omf_browse ..\obj\misc.crf --depend ..\obj\misc.d)
 I (..\FWLIB\inc\misc.h)(0x5710F355)
 I (..\USER\stm32f4xx.h)(0x5710F357)
 I (..\CORE\core_cm4.h)(0x5710F354)
@@ -643,7 +648,7 @@ I (..\FWLIB\inc\stm32f4xx_can.h)(0x5710F355)
 I (..\FWLIB\inc\stm32f4xx_dac.h)(0x5710F355)
 I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x5710F355)
 I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x5710F355)
-F (..\FWLIB\src\stm32f4xx_gpio.c)(0x5710F356)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\CONTROL -I..\HARDWARE\ENCODER -I..\HARDWARE\OLED -I..\HARDWARE\PID -I..\HARDWARE\TB6612 -I..\HARDWARE\YL_70 -I..\HARDWARE\JY901 -I..\HARDWARE\Mymath -I..\HARDWARE\LedBuz -I.\include -I..\freecars -I..\HARDWARE\MYNVIC -I..\USMART-I F:\钱旭\武汉理工大学\电赛\stm32f4_modules\Debuging\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\stm32f4xx_gpio.o --omf_browse ..\obj\stm32f4xx_gpio.crf --depend ..\obj\stm32f4xx_gpio.d)
+F (..\FWLIB\src\stm32f4xx_gpio.c)(0x5710F356)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\CONTROL -I..\HARDWARE\ENCODER -I..\HARDWARE\OLED -I..\HARDWARE\PID -I..\HARDWARE\TB6612 -I..\HARDWARE\YL_70 -I..\HARDWARE\JY901 -I..\HARDWARE\Mymath -I..\HARDWARE\LedBuz -I.\include -I..\freecars -I..\HARDWARE\MYNVIC -I..\USMART-I C:\Users\14642\Desktop\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\stm32f4xx_gpio.o --omf_browse ..\obj\stm32f4xx_gpio.crf --depend ..\obj\stm32f4xx_gpio.d)
 I (..\FWLIB\inc\stm32f4xx_gpio.h)(0x5710F355)
 I (..\USER\stm32f4xx.h)(0x5710F357)
 I (..\CORE\core_cm4.h)(0x5710F354)
@@ -678,7 +683,7 @@ I (..\FWLIB\inc\stm32f4xx_can.h)(0x5710F355)
 I (..\FWLIB\inc\stm32f4xx_dac.h)(0x5710F355)
 I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x5710F355)
 I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x5710F355)
-F (..\FWLIB\src\stm32f4xx_rcc.c)(0x5710F356)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\CONTROL -I..\HARDWARE\ENCODER -I..\HARDWARE\OLED -I..\HARDWARE\PID -I..\HARDWARE\TB6612 -I..\HARDWARE\YL_70 -I..\HARDWARE\JY901 -I..\HARDWARE\Mymath -I..\HARDWARE\LedBuz -I.\include -I..\freecars -I..\HARDWARE\MYNVIC -I..\USMART-I F:\钱旭\武汉理工大学\电赛\stm32f4_modules\Debuging\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\stm32f4xx_rcc.o --omf_browse ..\obj\stm32f4xx_rcc.crf --depend ..\obj\stm32f4xx_rcc.d)
+F (..\FWLIB\src\stm32f4xx_rcc.c)(0x5710F356)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\CONTROL -I..\HARDWARE\ENCODER -I..\HARDWARE\OLED -I..\HARDWARE\PID -I..\HARDWARE\TB6612 -I..\HARDWARE\YL_70 -I..\HARDWARE\JY901 -I..\HARDWARE\Mymath -I..\HARDWARE\LedBuz -I.\include -I..\freecars -I..\HARDWARE\MYNVIC -I..\USMART-I C:\Users\14642\Desktop\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\stm32f4xx_rcc.o --omf_browse ..\obj\stm32f4xx_rcc.crf --depend ..\obj\stm32f4xx_rcc.d)
 I (..\FWLIB\inc\stm32f4xx_rcc.h)(0x5710F355)
 I (..\USER\stm32f4xx.h)(0x5710F357)
 I (..\CORE\core_cm4.h)(0x5710F354)
@@ -713,7 +718,7 @@ I (..\FWLIB\inc\stm32f4xx_can.h)(0x5710F355)
 I (..\FWLIB\inc\stm32f4xx_dac.h)(0x5710F355)
 I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x5710F355)
 I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x5710F355)
-F (..\FWLIB\src\stm32f4xx_syscfg.c)(0x5710F356)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\CONTROL -I..\HARDWARE\ENCODER -I..\HARDWARE\OLED -I..\HARDWARE\PID -I..\HARDWARE\TB6612 -I..\HARDWARE\YL_70 -I..\HARDWARE\JY901 -I..\HARDWARE\Mymath -I..\HARDWARE\LedBuz -I.\include -I..\freecars -I..\HARDWARE\MYNVIC -I..\USMART-I F:\钱旭\武汉理工大学\电赛\stm32f4_modules\Debuging\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\stm32f4xx_syscfg.o --omf_browse ..\obj\stm32f4xx_syscfg.crf --depend ..\obj\stm32f4xx_syscfg.d)
+F (..\FWLIB\src\stm32f4xx_syscfg.c)(0x5710F356)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\CONTROL -I..\HARDWARE\ENCODER -I..\HARDWARE\OLED -I..\HARDWARE\PID -I..\HARDWARE\TB6612 -I..\HARDWARE\YL_70 -I..\HARDWARE\JY901 -I..\HARDWARE\Mymath -I..\HARDWARE\LedBuz -I.\include -I..\freecars -I..\HARDWARE\MYNVIC -I..\USMART-I C:\Users\14642\Desktop\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\stm32f4xx_syscfg.o --omf_browse ..\obj\stm32f4xx_syscfg.crf --depend ..\obj\stm32f4xx_syscfg.d)
 I (..\FWLIB\inc\stm32f4xx_syscfg.h)(0x5710F355)
 I (..\USER\stm32f4xx.h)(0x5710F357)
 I (..\CORE\core_cm4.h)(0x5710F354)
@@ -748,7 +753,7 @@ I (..\FWLIB\inc\stm32f4xx_can.h)(0x5710F355)
 I (..\FWLIB\inc\stm32f4xx_dac.h)(0x5710F355)
 I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x5710F355)
 I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x5710F355)
-F (..\FWLIB\src\stm32f4xx_usart.c)(0x5710F356)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\CONTROL -I..\HARDWARE\ENCODER -I..\HARDWARE\OLED -I..\HARDWARE\PID -I..\HARDWARE\TB6612 -I..\HARDWARE\YL_70 -I..\HARDWARE\JY901 -I..\HARDWARE\Mymath -I..\HARDWARE\LedBuz -I.\include -I..\freecars -I..\HARDWARE\MYNVIC -I..\USMART-I F:\钱旭\武汉理工大学\电赛\stm32f4_modules\Debuging\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\stm32f4xx_usart.o --omf_browse ..\obj\stm32f4xx_usart.crf --depend ..\obj\stm32f4xx_usart.d)
+F (..\FWLIB\src\stm32f4xx_usart.c)(0x5710F356)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\CONTROL -I..\HARDWARE\ENCODER -I..\HARDWARE\OLED -I..\HARDWARE\PID -I..\HARDWARE\TB6612 -I..\HARDWARE\YL_70 -I..\HARDWARE\JY901 -I..\HARDWARE\Mymath -I..\HARDWARE\LedBuz -I.\include -I..\freecars -I..\HARDWARE\MYNVIC -I..\USMART-I C:\Users\14642\Desktop\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\stm32f4xx_usart.o --omf_browse ..\obj\stm32f4xx_usart.crf --depend ..\obj\stm32f4xx_usart.d)
 I (..\FWLIB\inc\stm32f4xx_usart.h)(0x5710F355)
 I (..\USER\stm32f4xx.h)(0x5710F357)
 I (..\CORE\core_cm4.h)(0x5710F354)
@@ -783,7 +788,7 @@ I (..\FWLIB\inc\stm32f4xx_can.h)(0x5710F355)
 I (..\FWLIB\inc\stm32f4xx_dac.h)(0x5710F355)
 I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x5710F355)
 I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x5710F355)
-F (..\FWLIB\src\stm32f4xx_tim.c)(0x5710F356)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\CONTROL -I..\HARDWARE\ENCODER -I..\HARDWARE\OLED -I..\HARDWARE\PID -I..\HARDWARE\TB6612 -I..\HARDWARE\YL_70 -I..\HARDWARE\JY901 -I..\HARDWARE\Mymath -I..\HARDWARE\LedBuz -I.\include -I..\freecars -I..\HARDWARE\MYNVIC -I..\USMART-I F:\钱旭\武汉理工大学\电赛\stm32f4_modules\Debuging\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\stm32f4xx_tim.o --omf_browse ..\obj\stm32f4xx_tim.crf --depend ..\obj\stm32f4xx_tim.d)
+F (..\FWLIB\src\stm32f4xx_tim.c)(0x5710F356)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\CONTROL -I..\HARDWARE\ENCODER -I..\HARDWARE\OLED -I..\HARDWARE\PID -I..\HARDWARE\TB6612 -I..\HARDWARE\YL_70 -I..\HARDWARE\JY901 -I..\HARDWARE\Mymath -I..\HARDWARE\LedBuz -I.\include -I..\freecars -I..\HARDWARE\MYNVIC -I..\USMART-I C:\Users\14642\Desktop\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\stm32f4xx_tim.o --omf_browse ..\obj\stm32f4xx_tim.crf --depend ..\obj\stm32f4xx_tim.d)
 I (..\FWLIB\inc\stm32f4xx_tim.h)(0x5710F355)
 I (..\USER\stm32f4xx.h)(0x5710F357)
 I (..\CORE\core_cm4.h)(0x5710F354)
@@ -818,7 +823,7 @@ I (..\FWLIB\inc\stm32f4xx_can.h)(0x5710F355)
 I (..\FWLIB\inc\stm32f4xx_dac.h)(0x5710F355)
 I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x5710F355)
 I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x5710F355)
-F (..\freecars\FreeCars_uart.c)(0x5C7D3586)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\CONTROL -I..\HARDWARE\ENCODER -I..\HARDWARE\OLED -I..\HARDWARE\PID -I..\HARDWARE\TB6612 -I..\HARDWARE\YL_70 -I..\HARDWARE\JY901 -I..\HARDWARE\Mymath -I..\HARDWARE\LedBuz -I.\include -I..\freecars -I..\HARDWARE\MYNVIC -I..\USMART-I F:\钱旭\武汉理工大学\电赛\stm32f4_modules\Debuging\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\freecars_uart.o --omf_browse ..\obj\freecars_uart.crf --depend ..\obj\freecars_uart.d)
+F (..\freecars\FreeCars_uart.c)(0x5C7D3586)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\CONTROL -I..\HARDWARE\ENCODER -I..\HARDWARE\OLED -I..\HARDWARE\PID -I..\HARDWARE\TB6612 -I..\HARDWARE\YL_70 -I..\HARDWARE\JY901 -I..\HARDWARE\Mymath -I..\HARDWARE\LedBuz -I.\include -I..\freecars -I..\HARDWARE\MYNVIC -I..\USMART-I C:\Users\14642\Desktop\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\freecars_uart.o --omf_browse ..\obj\freecars_uart.crf --depend ..\obj\freecars_uart.d)
 I (..\freecars\FreeCars_uart.h)(0x5C7D3586)
 I (..\USER\stm32f4xx.h)(0x5710F357)
 I (..\CORE\core_cm4.h)(0x5710F354)
@@ -858,7 +863,7 @@ I (..\SYSTEM\usart\usart.h)(0x5710F356)
 I (F:\keil5\ARM\ARMCC\include\stdio.h)(0x5475F300)
 I (..\SYSTEM\sys\sys.h)(0x5C90DBBF)
 I (..\USER\stm32f4xx_it.h)(0x5710F357)
-F (..\freecars\FreeCars_isr.c)(0x5C91B448)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\CONTROL -I..\HARDWARE\ENCODER -I..\HARDWARE\OLED -I..\HARDWARE\PID -I..\HARDWARE\TB6612 -I..\HARDWARE\YL_70 -I..\HARDWARE\JY901 -I..\HARDWARE\Mymath -I..\HARDWARE\LedBuz -I.\include -I..\freecars -I..\HARDWARE\MYNVIC -I..\USMART-I F:\钱旭\武汉理工大学\电赛\stm32f4_modules\Debuging\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\freecars_isr.o --omf_browse ..\obj\freecars_isr.crf --depend ..\obj\freecars_isr.d)
+F (..\freecars\FreeCars_isr.c)(0x5C91B448)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\CONTROL -I..\HARDWARE\ENCODER -I..\HARDWARE\OLED -I..\HARDWARE\PID -I..\HARDWARE\TB6612 -I..\HARDWARE\YL_70 -I..\HARDWARE\JY901 -I..\HARDWARE\Mymath -I..\HARDWARE\LedBuz -I.\include -I..\freecars -I..\HARDWARE\MYNVIC -I..\USMART-I C:\Users\14642\Desktop\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\freecars_isr.o --omf_browse ..\obj\freecars_isr.crf --depend ..\obj\freecars_isr.d)
 I (..\freecars\FreeCars_isr.h)(0x5C7D2944)
 I (..\USER\stm32f4xx.h)(0x5710F357)
 I (..\CORE\core_cm4.h)(0x5710F354)
@@ -899,7 +904,7 @@ I (..\SYSTEM\usart\usart.h)(0x5710F356)
 I (F:\keil5\ARM\ARMCC\include\stdio.h)(0x5475F300)
 I (..\SYSTEM\sys\sys.h)(0x5C90DBBF)
 I (..\USER\stm32f4xx_it.h)(0x5710F357)
-F (..\USMART\usmart_str.c)(0x5710F367)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\CONTROL -I..\HARDWARE\ENCODER -I..\HARDWARE\OLED -I..\HARDWARE\PID -I..\HARDWARE\TB6612 -I..\HARDWARE\YL_70 -I..\HARDWARE\JY901 -I..\HARDWARE\Mymath -I..\HARDWARE\LedBuz -I.\include -I..\freecars -I..\HARDWARE\MYNVIC -I..\USMART-I F:\钱旭\武汉理工大学\电赛\stm32f4_modules\Debuging\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\usmart_str.o --omf_browse ..\obj\usmart_str.crf --depend ..\obj\usmart_str.d)
+F (..\USMART\usmart_str.c)(0x5710F367)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\CONTROL -I..\HARDWARE\ENCODER -I..\HARDWARE\OLED -I..\HARDWARE\PID -I..\HARDWARE\TB6612 -I..\HARDWARE\YL_70 -I..\HARDWARE\JY901 -I..\HARDWARE\Mymath -I..\HARDWARE\LedBuz -I.\include -I..\freecars -I..\HARDWARE\MYNVIC -I..\USMART-I C:\Users\14642\Desktop\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\usmart_str.o --omf_browse ..\obj\usmart_str.crf --depend ..\obj\usmart_str.d)
 I (..\USMART\usmart_str.h)(0x5710F367)
 I (..\USER\stm32f4xx.h)(0x5710F357)
 I (..\CORE\core_cm4.h)(0x5710F354)
@@ -936,7 +941,7 @@ I (..\FWLIB\inc\stm32f4xx_dac.h)(0x5710F355)
 I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x5710F355)
 I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x5710F355)
 I (..\USMART\usmart.h)(0x5710F367)
-F (..\USMART\usmart_config.c)(0x5C95D629)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\CONTROL -I..\HARDWARE\ENCODER -I..\HARDWARE\OLED -I..\HARDWARE\PID -I..\HARDWARE\TB6612 -I..\HARDWARE\YL_70 -I..\HARDWARE\JY901 -I..\HARDWARE\Mymath -I..\HARDWARE\LedBuz -I.\include -I..\freecars -I..\HARDWARE\MYNVIC -I..\USMART-I F:\钱旭\武汉理工大学\电赛\stm32f4_modules\Debuging\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\usmart_config.o --omf_browse ..\obj\usmart_config.crf --depend ..\obj\usmart_config.d)
+F (..\USMART\usmart_config.c)(0x5C9F6C9D)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\CONTROL -I..\HARDWARE\ENCODER -I..\HARDWARE\OLED -I..\HARDWARE\PID -I..\HARDWARE\TB6612 -I..\HARDWARE\YL_70 -I..\HARDWARE\JY901 -I..\HARDWARE\Mymath -I..\HARDWARE\LedBuz -I.\include -I..\freecars -I..\HARDWARE\MYNVIC -I..\USMART-I C:\Users\14642\Desktop\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\usmart_config.o --omf_browse ..\obj\usmart_config.crf --depend ..\obj\usmart_config.d)
 I (..\USMART\usmart.h)(0x5710F367)
 I (..\USMART\usmart_str.h)(0x5710F367)
 I (..\USER\stm32f4xx.h)(0x5710F357)
@@ -977,11 +982,14 @@ I (..\HARDWARE\JY901\JY901_uart.h)(0x5C7F1AE4)
 I (..\HARDWARE\YL_70\YL70.h)(0x5C90DD2A)
 I (..\SYSTEM\sys\sys.h)(0x5C90DBBF)
 I (..\USER\stm32f4xx_it.h)(0x5710F357)
-I (..\HARDWARE\CONTROL\control.h)(0x5C95AF83)
+I (..\HARDWARE\CONTROL\control.h)(0x5C9F6F29)
 I (..\SYSTEM\delay\delay.h)(0x5710F356)
-I (..\HARDWARE\ENCODER\encoder.h)(0x5C952E04)
-I (..\HARDWARE\PID\pid.h)(0x5C91FD9E)
-F (..\USMART\usmart.c)(0x5C91F7E7)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\CONTROL -I..\HARDWARE\ENCODER -I..\HARDWARE\OLED -I..\HARDWARE\PID -I..\HARDWARE\TB6612 -I..\HARDWARE\YL_70 -I..\HARDWARE\JY901 -I..\HARDWARE\Mymath -I..\HARDWARE\LedBuz -I.\include -I..\freecars -I..\HARDWARE\MYNVIC -I..\USMART-I F:\钱旭\武汉理工大学\电赛\stm32f4_modules\Debuging\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\usmart.o --omf_browse ..\obj\usmart.crf --depend ..\obj\usmart.d)
+I (..\HARDWARE\ENCODER\encoder.h)(0x5C9F590D)
+I (.\include\include.h)(0x5C9F51AD)
+I (..\HARDWARE\Mymath\MyMath.h)(0x5C7F1AE4)
+I (F:\keil5\ARM\ARMCC\include\math.h)(0x5475F2FE)
+I (..\HARDWARE\PID\pid.h)(0x5C9F6BDA)
+F (..\USMART\usmart.c)(0x5C9B4AB7)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\HARDWARE\CONTROL -I..\HARDWARE\ENCODER -I..\HARDWARE\OLED -I..\HARDWARE\PID -I..\HARDWARE\TB6612 -I..\HARDWARE\YL_70 -I..\HARDWARE\JY901 -I..\HARDWARE\Mymath -I..\HARDWARE\LedBuz -I.\include -I..\freecars -I..\HARDWARE\MYNVIC -I..\USMART-I C:\Users\14642\Desktop\平衡车_V2\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\usmart.o --omf_browse ..\obj\usmart.crf --depend ..\obj\usmart.d)
 I (..\USMART\usmart.h)(0x5710F367)
 I (..\USMART\usmart_str.h)(0x5710F367)
 I (..\USER\stm32f4xx.h)(0x5710F357)

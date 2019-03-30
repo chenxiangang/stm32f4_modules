@@ -4,6 +4,7 @@
 PID JYAngle_PID; //利用JY901读到的数据进行控制
 PID Encoder_Angle_PID; //电机编码器测到的角度作为控制量
 PID Speed_PID; //利用电机速度来控制
+PID Turn_PID;  //转速环
 
 //传入pid结构体和误差量，返回反馈量,即电机的pwm输出
 void PIDCalc(PID* pp, double PreVal) // PreError为当前误差值

@@ -44,12 +44,6 @@ void Speed_changePID(int p, int i, int d)
     Speed_PID.Derivative = 1.0 * d / 100;
 	  
 }
-void  Turn_changePID(int p,int i,int d)
-{
-		Turn_PID.Proportion = 1.0*p/100;
-    Turn_PID.Integral = 1.0*i/100;
-    Turn_PID.Derivative = 1.0*d/100;
-}
 void send_info(void)
 {
     sendflag = !sendflag;
@@ -91,14 +85,7 @@ void PID_Init()
     Speed_PID.PrevError = 0;
     Speed_PID.SumError = 0;
     Speed_PID.pwmduty = 0;
-		//转向环参数初始化
-		Turn_PID.SetPoint = 0;
-		Turn_PID.LastError0 = 0;
-    Turn_PID.LastError = 0;
-    Turn_PID.PrevError = 0;
-    Turn_PID.SumError = 0;
-    Turn_PID.pwmduty = 0;
-			
+
     //角度环PID
     JYAngle_PID.Proportion = 0;
     JYAngle_PID.Integral = 0;
@@ -108,11 +95,6 @@ void PID_Init()
     Speed_PID.Proportion = 0;
     Speed_PID.Integral = 0;
     Speed_PID.Derivative = 0;
-		
-		//转向环PID
-		Turn_PID.Proportion = 0;
-    Turn_PID.Integral = 0;
-    Turn_PID.Derivative = 0;
 }
 
 int main(void)
@@ -133,9 +115,8 @@ int main(void)
     TB6612_Init(); //电机驱动初始化
     OLED_Init(); //OLED初始化
 		TIM7_Init();
-    JY_changePID(200,0,7000);  //  这是乘0.6前的稳JY_changePID(500,0,11500)
-    Speed_changePID(32000,160,0);
-		Turn_changePID(0,0,0);
+    JY_changePID(324,0,7200);  //  这是乘0.6前的稳JY_changePID(500,0,11500)
+    Speed_changePID(7400,280,0);
     while (1) {
         OLED_ShowMPU(Left_Encoder_Angle,Right_Encoder_Angle,pitch,Speed_PID.SumError);
         //        push(0, (int)pitch);
@@ -143,7 +124,7 @@ int main(void)
         //        uSendOnePage();
 			//printf("Encoder:%f  %f\r\n", Read_Encoder_L(), Read_Encoder_R());
         if (sendflag) {
-            printf("pitch:%f	gyro:%f	pwmduty:%f\r\nspeed_PID.pwmduty:%f\r\n", pitch, gryo.y, pwmduty1, Speed_PID.pwmduty);
+            printf("pitch:%f	gyro:%f	pwmduty:%f\r\nspeed_PID.pwmduty:%f\r\n", pitch, gryo.y, pwmduty, Speed_PID.pwmduty);
            // printf("%lf	%f\r\n", Left_Encoder_Angle, Right_Encoder_Angle);
             printf("Angle PrevError:%lf\r\n", JYAngle_PID.PrevError);
 					printf("Pitch:%lf\r\n", pitch);

@@ -1,7 +1,4 @@
 #include "encoder.h"
-
-MOTO_Typedef moto;
-
 //尝试使用定时器的编码器接口
 //使用时记得改中断的优先级
 void Encoder_TIM4_Init(void)
@@ -134,7 +131,7 @@ void TIM2_IRQHandler(void)
 }
 //读编码器值
 //读角度
-int Read_Encoder_L(void)
+u32 Read_Encoder_L(void)
 {
 //    int temp;
 //    temp = TIM_GetCounter(TIM4);
@@ -157,7 +154,7 @@ int Read_Encoder_L(void)
 	TIM4->CNT=0x7fff;
 	return moto.m1.speed.now;
 }
-int Read_Encoder_R(void)
+u32 Read_Encoder_R(void)
 {  
 //    int temp;
 //    temp = TIM_GetCounter(TIM2);

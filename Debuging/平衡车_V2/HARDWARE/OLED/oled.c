@@ -388,10 +388,10 @@ void OLED_ShowFloat(u8 x, u8 y, float val)
 void OLED_ShowMPU( float angel, float roll, float pitch, float yaw)
 {
 	//OLED_ShowString(36, 0, Pro_Name, 16);
-	OLED_ShowString(5, 0, "Angle :",12);
-	OLED_ShowString(5, 18, "Roll  :", 12);
+	OLED_ShowString(5, 0, "EncoderL :",12);
+	OLED_ShowString(5, 18, "EncoderR  :", 12);
 	OLED_ShowString(5, 32, "Pitch :", 12);
-	OLED_ShowString(5, 46, "Yaw   :", 12);
+	OLED_ShowString(5, 46, "SumError   :", 12);
 	OLED_ShowFloat(56, 0, angel);
 	OLED_ShowFloat(56, 18, roll);
 	OLED_ShowFloat(56, 32, pitch);
