@@ -43,7 +43,7 @@ void Tracking()
 	//0是没检测到黑线，灯亮
 		if((YL70[1] & YL70[2]) && !(YL70[0] | YL70[3]))  //中间两个检测到黑线
 		{
-			forward(0,470);
+			forward(0,600);
 			turn(0,0);
 		}
 		else if(YL70[1] && !(YL70[0] | YL70[2] | YL70[3]))  //中间偏右检测到黑线
@@ -59,7 +59,7 @@ void Tracking()
 		}
 		else if(!(YL70[0]|YL70[1]|YL70[2]|YL70[3]))  //居中或者离开区域
 		{
-			forward(0,470);
+			forward(0,600);
 			turn(0,0);
 		}
 			

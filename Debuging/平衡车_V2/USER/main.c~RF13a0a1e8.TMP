@@ -133,7 +133,7 @@ void PID_Init()
 
 int main(void)
 {
-	int i;
+
     taskMode = keep_balance;
     delay_init(168); //初始化延时函数
     My_NVIC_Init(); //配置中断优先级
@@ -153,25 +153,19 @@ int main(void)
     Speed_changePID(32000,160,0);
 		Turn_changePID(0,0,0);
     while (1) {
-			YL_70_Read_All(YL70);
-			for(i=0; i <4;i++)
-			{
-		printf("%d	",YL70[i]);
-			}
-			printf("\r\n");
-//        OLED_ShowMPU(Left_Encoder_Angle,Right_Encoder_Angle,pitch,Speed_PID.SumError);
-//        //        push(0, (int)pitch);
-//        //        push(1, (int)JYAngle_PID.pwmduty);
-//        //        uSendOnePage();
-//			//printf("Encoder:%f  %f\r\n", Read_Encoder_L(), Read_Encoder_R());
-//        if (sendflag) {
-//            printf("pitch:%f	gyro:%f	pwmduty:%f\r\nspeed_PID.pwmduty:%f\r\n", pitch, gryo.y, pwmduty1, Speed_PID.pwmduty);
-//           // printf("%lf	%f\r\n", Left_Encoder_Angle, Right_Encoder_Angle);
-//            printf("Angle PrevError:%lf\r\n", JYAngle_PID.PrevError);
-//					printf("Pitch:%lf\r\n", pitch);
-//					printf("Encoder_SumError:%f\r\n",Speed_PID.SumError);
-//            printf("Encoder:%d  %d\r\n\r\n", Left_Encoder_Angle, Right_Encoder_Angle);
+        OLED_ShowMPU(Left_Encoder_Angle,Right_Encoder_Angle,pitch,Speed_PID.SumError);
+        //        push(0, (int)pitch);
+        //        push(1, (int)JYAngle_PID.pwmduty);
+        //        uSendOnePage();
+			//printf("Encoder:%f  %f\r\n", Read_Encoder_L(), Read_Encoder_R());
+        if (sendflag) {
+            printf("pitch:%f	gyro:%f	pwmduty:%f\r\nspeed_PID.pwmduty:%f\r\n", pitch, gryo.y, pwmduty1, Speed_PID.pwmduty);
+           // printf("%lf	%f\r\n", Left_Encoder_Angle, Right_Encoder_Angle);
+            printf("Angle PrevError:%lf\r\n", JYAngle_PID.PrevError);
+					printf("Pitch:%lf\r\n", pitch);
+					printf("Encoder_SumError:%f\r\n",Speed_PID.SumError);
+            printf("Encoder:%d  %d\r\n\r\n", Left_Encoder_Angle, Right_Encoder_Angle);
             delay_ms(300);
-//       }
+        }
     }
 }

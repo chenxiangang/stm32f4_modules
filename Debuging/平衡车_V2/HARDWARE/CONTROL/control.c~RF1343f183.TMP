@@ -12,10 +12,10 @@
 
 #define deadband 0 //死区
 
-int turn_flag=3;
-int turn_speed=0;
-int forward_flag=3;
-int forward_speed=0;
+int turn_flag;
+int turn_speed;
+int forward_flag;
+int forward_speed;
 u8 track_flag = 0;
 
 
@@ -38,29 +38,29 @@ void changeTask(u8 taskid) //修改执行的任务
 
 void Tracking()
 {
-		static int case1 = 0;
+		
     YL_70_Read_All(YL70);
-	//0是没检测到黑线，灯亮
 		if((YL70[1] & YL70[2]) && !(YL70[0] | YL70[3]))  //中间两个检测到黑线
 		{
-			forward(0,470);
-			turn(0,0);
+			forward(0,1000);
+			printf("forward(0,1000)\r\n");
+			printf("YL70[0]:%u,YL70[1]:%u,YL70[2]:%u,YL70[3]:%u\r\n",YL70[0],YL70[1],YL70[2],YL70[3]);
 		}
-		else if(YL70[1] && !(YL70[0] | YL70[2] | YL70[3]))  //中间偏右检测到黑线
+		else if(YL70[1] &&!(YL70[0] | YL70[2] | YL70[3]))  //中间偏右检测到黑线
 		{
 			forward(0,0);
-			//printf("\r\n2\r\n");
-			turn(RIGHT,1000);//左转
+			turn(LEFT,3000);//左转
+			delay_ms(1);  //延时好不好呢？
+			turn(LEFT,0);//停
+			printf("turn(LEFT,0)\r\n");
 		}
-		else if(YL70[2] && !(YL70[0] | YL70[1] | YL70[3]))  //中间偏左检测到黑线
+		else if(YL70[2] &&!(YL70[0] | YL70[1] | YL70[3]))  //中间偏左检测到黑线
 		{
 			forward(0,0);
-			turn(LEFT,1000);//右转
-		}
-		else if(!(YL70[0]|YL70[1]|YL70[2]|YL70[3]))  //居中或者离开区域
-		{
-			forward(0,470);
-			turn(0,0);
+			turn(RIGHT,3000);//右转
+			delay_ms(1);  //延时好不好呢？
+			turn(RIGHT,0);//停
+			printf("turn(RIGHT,0)\r\n");
 		}
 			
 }

@@ -15,6 +15,10 @@ extern int turn_flag;
 extern int turn_speed;
 extern int forward_flag;
 extern int forward_speed;
+extern u8 track_flag;
+
+extern void forward(u16 flag,u16 dist);
+extern void turn(u16 flag,u16 dist);
 
 
 #define remote_control 1
