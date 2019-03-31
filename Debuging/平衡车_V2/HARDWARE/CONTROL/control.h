@@ -11,10 +11,19 @@ extern double balance_point;
 
 extern double pwmduty1;
 extern double pwmduty2;
+extern int turn_flag;
+extern int turn_speed;
+extern int forward_flag;
+extern int forward_speed;
+
 
 #define remote_control 1
 #define keep_balance 2
 #define tracking 3
+
+#define LEFT 1
+#define RIGHT 0
+
 
 void TIM5_Init(u16 arr, u16 psc);
 void changeTask(u8 taskid);

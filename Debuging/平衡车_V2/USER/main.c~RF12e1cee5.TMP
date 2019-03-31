@@ -73,12 +73,6 @@ void turn(u16 flag,u16 dist)
 		turn_flag=flag;
 		turn_speed=dist;
 }
-//停止转向和前进后退
-void stop_ctl(void)
-{
-	forward_speed = 0;
-	turn_speed = 0;
-}
 //------------------------------------
 void PID_Init()
 {

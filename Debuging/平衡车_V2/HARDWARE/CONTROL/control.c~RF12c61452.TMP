@@ -13,8 +13,6 @@
 
 int turn_flag;
 int turn_speed;
-int forward_flag;
-int forward_speed;
 
 
 double last_Left_Encoder_Angle = 0;
@@ -36,12 +34,7 @@ void changeTask(u8 taskid) //修改执行的任务
 
 void Tracking()
 {
-//    YL_70_Read_All(YL70);
-//		if()  //TO DO
-//		{}
-//		else if()
-//		{}
-			
+    YL_70_Read_All(YL70);
 }
 
 void RemoteControl()
@@ -53,9 +46,7 @@ void stop()
     pwmduty1 = 0;
 	  pwmduty2 = 0;
     speedcontrol(0, LeftWheel, 0);
-    speedcontrol(0, RightWheel, 0);
-forward_speed = 0;
-turn_speed = 0;	
+    speedcontrol(0, RightWheel, 0);          
 }
 
 void balance_UP(float Angle, float Gyro)
@@ -101,6 +92,19 @@ void speed_UP()
 												Speed_PID.Derivative * (Speed_PID.PrevError - Speed_PID.LastError); //计算PID的值
 		Speed_PID.LastError = Speed_PID.PrevError;
 }
+void turn_UP()
+{
+	//TO DO
+	  if(1)
+	  {
+	     pwmduty1 += 100;
+			 pwmduty2 -= 100;
+	  }
+		else if(0)
+		{
+		
+		}
+}
 
 
 void xianfu(double* pwmVal)
@@ -110,8 +114,15 @@ void xianfu(double* pwmVal)
     else if (*pwmVal < -8400)
         *pwmVal = -8400;
 }
-void turn_ctl()
+
+void KeepBalance()
 {
+    balance_UP(pitch, gryo.y);
+		speed_UP();
+		turn_UP();
+		pwmduty1 = JYAngle_PID.pwmduty + Speed_PID.pwmduty;
+	  pwmduty2 = JYAngle_PID.pwmduty + Speed_PID.pwmduty;
+		
 	if(turn_flag==LEFT||turn_flag==RIGHT)
 	{
 		if(turn_flag==LEFT)
@@ -124,27 +135,6 @@ void turn_ctl()
 			pwmduty2 -= turn_speed;
 		}
 	}
-}
-
-void forward_ctl()
-{
-	if(forward_flag == 0)
-		Speed_PID.SumError = forward_speed;
-	if(forward_flag == 1)
-		Speed_PID.SumError = -forward_speed;
-}
-
-void KeepBalance()
-{
-    balance_UP(pitch, gryo.y);  //角度环
-		speed_UP(); //速度环
-		pwmduty1 = JYAngle_PID.pwmduty + Speed_PID.pwmduty;
-	  pwmduty2 = JYAngle_PID.pwmduty + Speed_PID.pwmduty;
-	
-	//---------------遥控
-		turn_ctl();  //转向
-		forward_ctl();
-	//----------------
 
     xianfu(&pwmduty1);
 		xianfu(&pwmduty2);
