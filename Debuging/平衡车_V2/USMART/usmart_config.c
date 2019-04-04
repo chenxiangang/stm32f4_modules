@@ -35,8 +35,6 @@ struct _m_usmart_nametab usmart_nametab[] = {
     "void delay_us(u32 nus)",
     (void*)JY_changePID,
     "void JY_changePID(u8 p,u8 i,u8 d)\r\n--change the JYAngle_pid parameter",
-    (void*)changeTask,
-    "void changeTask(u8 taskid)\r\n--change the task:remote_control,tracking and keep_balance",
     (void*)speedcontrol,
     "speedcontrol(double speed, int ch, float basepwm)\r\n--control motor speed",
     (void*)Speed_changePID,

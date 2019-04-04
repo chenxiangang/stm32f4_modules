@@ -35,20 +35,19 @@ void JY_changePID(int p, int i, int d)
 {
     JYAngle_PID.Proportion = p;
     JYAngle_PID.Integral = 1.0 * i / 1000;
-    JYAngle_PID.Derivative = 1.0 * d/100;
+    JYAngle_PID.Derivative = 1.0 * d / 100;
 }
 void Speed_changePID(int p, int i, int d)
 {
     Speed_PID.Proportion = 1.0 * p / 100;
     Speed_PID.Integral = 1.0 * i / 100;
     Speed_PID.Derivative = 1.0 * d / 100;
-	  
 }
-void  Turn_changePID(int p,int i,int d)
+void Turn_changePID(int p, int i, int d)
 {
-		Turn_PID.Proportion = 1.0*p/100;
-    Turn_PID.Integral = 1.0*i/100;
-    Turn_PID.Derivative = 1.0*d/100;
+    Turn_PID.Proportion = 1.0 * p / 100;
+    Turn_PID.Integral = 1.0 * i / 100;
+    Turn_PID.Derivative = 1.0 * d / 100;
 }
 void send_info(void)
 {
@@ -63,32 +62,32 @@ void change_balancePoint(u8 flag, u8 val10)
         balance_point = 1.0 * val10 / 10;
     JYAngle_PID.SetPoint = balance_point;
 }
-void forward(u16 flag,u16 dist)
+void forward(u16 flag, u16 dist)
 {
-		forward_flag = flag;
-		forward_speed = dist;
+    forward_flag = flag;
+    forward_speed = dist;
 }
-void turn(u16 flag,u16 dist)
+void turn(u16 flag, u16 dist)
 {
-		turn_flag=flag;
-		turn_speed=dist;
+    turn_flag = flag;
+    turn_speed = dist;
 }
 //停止转向和前进后退
 void stop_ctl(void)
 {
-	
-	forward_flag=2;
-	Speed_PID.SumError=0;
-	turn_speed = 0;
+
+    forward_flag = 2;
+    Speed_PID.SumError = 0;
+    turn_speed = 0;
 }
 
 void track_ctl()
 {
-	track_flag = !track_flag;
-	if(track_flag)
-		printf("ON\r\n");
-	else
-		printf("OFF\r\n");
+    track_flag = !track_flag;
+    if (track_flag) {
+        printf("ON\r\n");
+    } else
+        printf("OFF\r\n");
 }
 //------------------------------------
 void PID_Init()
@@ -107,7 +106,7 @@ void PID_Init()
     Speed_PID.PrevError = 0;
     Speed_PID.SumError = 0;
     Speed_PID.pwmduty = 0;
-			
+
     //角度环PID
     JYAngle_PID.Proportion = 0;
     JYAngle_PID.Integral = 0;
@@ -117,13 +116,10 @@ void PID_Init()
     Speed_PID.Proportion = 0;
     Speed_PID.Integral = 0;
     Speed_PID.Derivative = 0;
-		
 }
 
 int main(void)
 {
-	int i;
-    taskMode = keep_balance;
     delay_init(168); //初始化延时函数
     My_NVIC_Init(); //配置中断优先级
     LED_Init(); //初始化LED端口
@@ -137,30 +133,29 @@ int main(void)
     usart3_init(115200); //用来读取陀螺仪的数据
     TB6612_Init(); //电机驱动初始化
     OLED_Init(); //OLED初始化
-		TIM7_Init();
-    JY_changePID(200,0,7000);  //  这是乘0.6前的稳JY_changePID(500,0,11500)
-    Speed_changePID(32000,160,0);
-		Turn_changePID(0,0,0);
+    TIM7_Init();
+    JY_changePID(200, 0, 7000); //  这是乘0.6前的稳JY_changePID(500,0,11500)
+    Speed_changePID(32000, 160, 0);
+    Turn_changePID(0, 0, 0);
     while (1) {
-			YL_70_Read_All(YL70);
-			for(i=0; i <4;i++)
-			{
-		printf("%d	",YL70[i]);
-			}
-			printf("\r\n");
-//        OLED_ShowMPU(Left_Encoder_Angle,Right_Encoder_Angle,pitch,Speed_PID.SumError);
-//        //        push(0, (int)pitch);
-//        //        push(1, (int)JYAngle_PID.pwmduty);
-//        //        uSendOnePage();
-//			//printf("Encoder:%f  %f\r\n", Read_Encoder_L(), Read_Encoder_R());
-//        if (sendflag) {
-//            printf("pitch:%f	gyro:%f	pwmduty:%f\r\nspeed_PID.pwmduty:%f\r\n", pitch, gryo.y, pwmduty1, Speed_PID.pwmduty);
-//           // printf("%lf	%f\r\n", Left_Encoder_Angle, Right_Encoder_Angle);
-//            printf("Angle PrevError:%lf\r\n", JYAngle_PID.PrevError);
-//					printf("Pitch:%lf\r\n", pitch);
-//					printf("Encoder_SumError:%f\r\n",Speed_PID.SumError);
-//            printf("Encoder:%d  %d\r\n\r\n", Left_Encoder_Angle, Right_Encoder_Angle);
-            delay_ms(300);
-//       }
+        //        YL_70_Read_All(YL70);
+        //        for (i = 0; i < 4; i++) {
+        //            printf("%d	", YL70[i]);
+        //        }
+        //printf("\r\n");
+        //        OLED_ShowMPU(Left_Encoder_Angle,Right_Encoder_Angle,pitch,Speed_PID.SumError);
+        //        //        push(0, (int)pitch);
+        //        //        push(1, (int)JYAngle_PID.pwmduty);
+        //        //        uSendOnePage();
+        //			//printf("Encoder:%f  %f\r\n", Read_Encoder_L(), Read_Encoder_R());
+        //        if (sendflag) {
+        //            printf("pitch:%f	gyro:%f	pwmduty:%f\r\nspeed_PID.pwmduty:%f\r\n", pitch, gryo.y, pwmduty1, Speed_PID.pwmduty);
+        //           // printf("%lf	%f\r\n", Left_Encoder_Angle, Right_Encoder_Angle);
+        //            printf("Angle PrevError:%lf\r\n", JYAngle_PID.PrevError);
+        //					printf("Pitch:%lf\r\n", pitch);
+        //					printf("Encoder_SumError:%f\r\n",Speed_PID.SumError);
+        //            printf("Encoder:%d  %d\r\n\r\n", Left_Encoder_Angle, Right_Encoder_Angle);
+        delay_ms(300);
+        //       }
     }
 }

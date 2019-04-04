@@ -18,47 +18,54 @@ int turn_speed = 0;
 int forward_flag = 3;
 int forward_speed = 0;
 u8 track_flag = 0;
-
-double last_Left_Encoder_Angle = 0;
-double last_Right_Encoder_Angle = 0;
 int Left_Encoder_Angle = 0;
 int Right_Encoder_Angle = 0;
-int taskMode = 0; //任务模式
 double pwmduty1 = 0;
 double pwmduty2 = 0;
 double balance_point = -0.3; //平衡点
 
-float PreSpeed;
-float Encoder_Angle;
-
-void changeTask(u8 taskid) //修改执行的任务
-{
-    taskMode = taskid;
-}
+int last_YL3 = 0;
+int corner_num = 0;
+int corner_flag = 0; //判断拐直角的标志位,因为在直角转弯是可能会出现一段时间全空白的
 
 void Tracking()
 {
-    static int case1 = 0;
     YL_70_Read_All(YL70);
     //0是没检测到黑线，灯亮
-    if ((YL70[1] & YL70[2]) && !(YL70[0] | YL70[3])) //中间两个检测到黑线
+    if (last_YL3 == 0 && YL70[3] == 1) //由白到黑跳变,直角或者十字，1和5为十字的
     {
-        forward(0, 470);
-        turn(0, 0);
-    } else if (YL70[1] && !(YL70[0] | YL70[2] | YL70[3])) //中间偏右检测到黑线
-    {
-        forward(0, 0);
-        //printf("\r\n2\r\n");
-        turn(RIGHT, 1000); //左转
-    } else if (YL70[2] && !(YL70[0] | YL70[1] | YL70[3])) //中间偏左检测到黑线
-    {
-        forward(0, 0);
-        turn(LEFT, 1000); //右转
-    } else if (!(YL70[0] | YL70[1] | YL70[2] | YL70[3])) //居中或者离开区域
-    {
-        forward(0, 470);
-        turn(0, 0);
+        corner_num++;
+        corner_flag = 1;
     }
+
+    if (!(YL70[0] | YL70[1] | YL70[2] | YL70[3]) && !corner_flag) //居中或者离开区域
+    {
+        forward(0, 600);
+        turn(0, 0);
+    } else if (YL70[2] && !(YL70[0] | YL70[1] | YL70[3])) //中间偏左检测到黑线，不需要转弯
+    {
+        forward(0, 0);
+        turn(LEFT, 1200); //右转
+        corner_flag = 0;
+    } else if (YL70[1] && !(YL70[0] | YL70[2] | YL70[3])) //中间偏右检测到黑线，不需要转弯
+    {
+        forward(0, 0);
+        turn(RIGHT, 1200); //左转
+        corner_flag = 0;
+    }
+
+    //直角转弯
+    if (corner_flag) {
+        if (corner_num == 1) //第一次十字
+            forward(0, 600);
+        else if (corner_num == 5) //第二次十字
+        {
+            track_flag = 0; //关闭循迹
+            Speed_PID.SumError = 1200; //前进一点点
+        } else
+            turn(LEFT, 1000);
+    }
+    last_YL3 = YL70[3];
 }
 
 void stop()
@@ -120,6 +127,8 @@ void xianfu(double* pwmVal)
     else if (*pwmVal < -8400)
         *pwmVal = -8400;
 }
+
+//转向遥控
 void turn_ctl()
 {
     if (turn_flag == LEFT || turn_flag == RIGHT) {
@@ -133,6 +142,7 @@ void turn_ctl()
     }
 }
 
+//前进遥控
 void forward_ctl()
 {
     if (forward_flag == 0)
@@ -149,6 +159,10 @@ void KeepBalance()
     pwmduty2 = JYAngle_PID.pwmduty + Speed_PID.pwmduty;
     if (track_flag) {
         Tracking();
+    } else {
+        corner_flag = 0;
+        corner_num = 0;
+        last_YL3 = 0;
     }
     //---------------运动控制，可以遥控或者循迹来控制
     turn_ctl(); //转向
@@ -179,7 +193,7 @@ void TIM5_Init(u16 arr, u16 psc)
     TIM_Cmd(TIM5, ENABLE); //使能TIMx外设
 }
 
-//定时器3中断服务程序
+//定时执行任务
 void TIM5_IRQHandler(void) //TIM3中断
 {
     if (TIM_GetITStatus(TIM5, TIM_IT_Update) != RESET) //检查指定的TIM中断发生与否:TIM 中断源
@@ -188,6 +202,8 @@ void TIM5_IRQHandler(void) //TIM3中断
         TIM_ClearITPendingBit(TIM5, TIM_IT_Update); //清除TIMx的中断待处理位:TIM 中断源
     }
 }
+
+//定时读编码器
 void TIM7_Init(void)
 {
     TIM_TimeBaseInitTypeDef TIM_TimeBaseStructure;
