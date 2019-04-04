@@ -107,13 +107,6 @@ void PID_Init()
     Speed_PID.PrevError = 0;
     Speed_PID.SumError = 0;
     Speed_PID.pwmduty = 0;
-		//转向环参数初始化
-		Turn_PID.SetPoint = 0;
-		Turn_PID.LastError0 = 0;
-    Turn_PID.LastError = 0;
-    Turn_PID.PrevError = 0;
-    Turn_PID.SumError = 0;
-    Turn_PID.pwmduty = 0;
 			
     //角度环PID
     JYAngle_PID.Proportion = 0;
@@ -125,10 +118,6 @@ void PID_Init()
     Speed_PID.Integral = 0;
     Speed_PID.Derivative = 0;
 		
-		//转向环PID
-		Turn_PID.Proportion = 0;
-    Turn_PID.Integral = 0;
-    Turn_PID.Derivative = 0;
 }
 
 int main(void)
