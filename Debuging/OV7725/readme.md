@@ -3,11 +3,17 @@
  * @LastEditors: QianXu
  * @Description: NONE
  * @Date: 2019-03-10 21:52:44
- * @LastEditTime: 2019-04-05 19:56:48
+ * @LastEditTime: 2019-04-05 20:30:23
  -->
 ## HOW TO USE
 SCCB是一种简化版的IIC
 
+## 注意!!!
+使用的是OV7725鹰眼摄像头，和普通的7725不一样
+
+## debugging
+- 目前对于DCMI的中断处理还没有，但是中断已经打开了。
+- SCCB引脚改完没测试
 
 ## 接法
 - PA4    DCMI_HSYNC
@@ -24,10 +30,6 @@ SCCB是一种简化版的IIC
 
 - SCL    PA8
 - SDA    PA7
-
-## 555
-学姐，你们代码真的乱，抄的时候觉得要看哭了就直接复制
-
 ## SCCB
 我个人感觉和IIC一样，而且感觉基本上只需要写   
 以下摘自[网络](http://www.cnblogs.com/aslmer/p/5965229.html)
