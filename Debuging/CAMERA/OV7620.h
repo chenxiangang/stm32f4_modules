@@ -3,10 +3,13 @@
  * @LastEditors: QianXu
  * @Description: NONE
  * @Date: 2019-04-05 12:16:47
- * @LastEditTime: 2019-04-05 13:40:02
+ * @LastEditTime: 2019-04-05 14:17:46
  */
 #ifndef _OV7620_H_
 #define _OV7620_H_
+
+#include "stdbool.h"
+#include "sys.h"
 
 #define	CAMERA_DMA_CH 	    DMA_CH0		    //定义摄像头的DMA采集通道
 #define CAMERA_W            160            	//定义摄像头图像宽度
@@ -31,7 +34,7 @@ typedef struct
 
 extern CamCtrlClass ImgControl;
 
-extern u8 Image[CAMERA_H+5][CAMERA_W]= {0};  //图像
+extern u8 Image[CAMERA_H+5][CAMERA_W];  //图像
 
 extern u8 Ov7620_reg_Init(void); //寄存器初始化
 extern u8 OV7620_Init(void);   //初始化摄像头
