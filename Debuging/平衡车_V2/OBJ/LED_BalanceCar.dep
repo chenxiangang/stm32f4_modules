@@ -1,5 +1,5 @@
 Dependencies for Project 'LED', Target 'BalanceCar': (DO NOT MODIFY !)
-F (.\main.c)(0x5CA6234F)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\HARDWARE\LED -I ..\FWLIB\inc -I ..\HARDWARE\CONTROL -I ..\HARDWARE\ENCODER -I ..\HARDWARE\OLED -I ..\HARDWARE\PID -I ..\HARDWARE\TB6612 -I ..\HARDWARE\YL_70 -I ..\HARDWARE\JY901 -I ..\HARDWARE\Mymath -I ..\HARDWARE\LedBuz -I .\include -I ..\freecars -I ..\HARDWARE\MYNVIC -I ..\USMART-I.\RTE\_BalanceCar-ID:\sofeware\arm_keil\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include-ID:\sofeware\arm_keil\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DSTM32F40_41xxx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
+F (.\main.c)(0x5CA75277)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\HARDWARE\LED -I ..\FWLIB\inc -I ..\HARDWARE\CONTROL -I ..\HARDWARE\ENCODER -I ..\HARDWARE\OLED -I ..\HARDWARE\PID -I ..\HARDWARE\TB6612 -I ..\HARDWARE\YL_70 -I ..\HARDWARE\JY901 -I ..\HARDWARE\Mymath -I ..\HARDWARE\LedBuz -I .\include -I ..\freecars -I ..\HARDWARE\MYNVIC -I ..\USMART-I.\RTE\_BalanceCar-ID:\sofeware\arm_keil\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include-ID:\sofeware\arm_keil\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DSTM32F40_41xxx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
 I (..\freecars\FreeCars_uart.h)(0x5CA0E71F)
 I (..\USER\stm32f4xx.h)(0x5CA0E71F)
 I (..\CORE\core_cm4.h)(0x5CA0E71D)
@@ -41,7 +41,7 @@ I (..\SYSTEM\sys\sys.h)(0x5CA0E71F)
 I (..\USER\stm32f4xx_it.h)(0x5CA0E71F)
 I (..\HARDWARE\JY901\JY901_uart.h)(0x5C7F1AE4)
 I (..\HARDWARE\YL_70\YL70.h)(0x5CA0E86A)
-I (..\HARDWARE\CONTROL\control.h)(0x5CA6233C)
+I (..\HARDWARE\CONTROL\control.h)(0x5CA728B1)
 I (..\SYSTEM\delay\delay.h)(0x5CA0E71F)
 I (..\HARDWARE\ENCODER\encoder.h)(0x5CA0E86A)
 I (.\include\include.h)(0x5C7F1AE4)
@@ -207,8 +207,8 @@ I (..\USER\stm32f4xx_it.h)(0x5CA0E71F)
 I (.\include\include.h)(0x5C7F1AE4)
 I (..\HARDWARE\Mymath\MyMath.h)(0x5C7F1AE4)
 I (D:\sofeware\arm_keil\ARM\ARMCC\include\math.h)(0x599EDB3E)
-F (..\HARDWARE\CONTROL\control.c)(0x5CA62330)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\HARDWARE\LED -I ..\FWLIB\inc -I ..\HARDWARE\CONTROL -I ..\HARDWARE\ENCODER -I ..\HARDWARE\OLED -I ..\HARDWARE\PID -I ..\HARDWARE\TB6612 -I ..\HARDWARE\YL_70 -I ..\HARDWARE\JY901 -I ..\HARDWARE\Mymath -I ..\HARDWARE\LedBuz -I .\include -I ..\freecars -I ..\HARDWARE\MYNVIC -I ..\USMART-I.\RTE\_BalanceCar-ID:\sofeware\arm_keil\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include-ID:\sofeware\arm_keil\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DSTM32F40_41xxx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\control.o --omf_browse ..\obj\control.crf --depend ..\obj\control.d)
-I (..\HARDWARE\CONTROL\control.h)(0x5CA6233C)
+F (..\HARDWARE\CONTROL\control.c)(0x5CA76CAD)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\HARDWARE\LED -I ..\FWLIB\inc -I ..\HARDWARE\CONTROL -I ..\HARDWARE\ENCODER -I ..\HARDWARE\OLED -I ..\HARDWARE\PID -I ..\HARDWARE\TB6612 -I ..\HARDWARE\YL_70 -I ..\HARDWARE\JY901 -I ..\HARDWARE\Mymath -I ..\HARDWARE\LedBuz -I .\include -I ..\freecars -I ..\HARDWARE\MYNVIC -I ..\USMART-I.\RTE\_BalanceCar-ID:\sofeware\arm_keil\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include-ID:\sofeware\arm_keil\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DSTM32F40_41xxx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\control.o --omf_browse ..\obj\control.crf --depend ..\obj\control.d)
+I (..\HARDWARE\CONTROL\control.h)(0x5CA728B1)
 I (..\SYSTEM\sys\sys.h)(0x5CA0E71F)
 I (..\FWLIB\inc\misc.h)(0x5CA0E71D)
 I (..\USER\stm32f4xx.h)(0x5CA0E71F)
@@ -942,7 +942,7 @@ I (..\FWLIB\inc\stm32f4xx_dac.h)(0x5CA0E71D)
 I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x5CA0E71D)
 I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x5CA0E71D)
 I (..\USMART\usmart.h)(0x5CA0E71F)
-F (..\USMART\usmart_config.c)(0x5CA5EE3E)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\HARDWARE\LED -I ..\FWLIB\inc -I ..\HARDWARE\CONTROL -I ..\HARDWARE\ENCODER -I ..\HARDWARE\OLED -I ..\HARDWARE\PID -I ..\HARDWARE\TB6612 -I ..\HARDWARE\YL_70 -I ..\HARDWARE\JY901 -I ..\HARDWARE\Mymath -I ..\HARDWARE\LedBuz -I .\include -I ..\freecars -I ..\HARDWARE\MYNVIC -I ..\USMART-I.\RTE\_BalanceCar-ID:\sofeware\arm_keil\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include-ID:\sofeware\arm_keil\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DSTM32F40_41xxx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\usmart_config.o --omf_browse ..\obj\usmart_config.crf --depend ..\obj\usmart_config.d)
+F (..\USMART\usmart_config.c)(0x5CA74B0F)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\HARDWARE\LED -I ..\FWLIB\inc -I ..\HARDWARE\CONTROL -I ..\HARDWARE\ENCODER -I ..\HARDWARE\OLED -I ..\HARDWARE\PID -I ..\HARDWARE\TB6612 -I ..\HARDWARE\YL_70 -I ..\HARDWARE\JY901 -I ..\HARDWARE\Mymath -I ..\HARDWARE\LedBuz -I .\include -I ..\freecars -I ..\HARDWARE\MYNVIC -I ..\USMART-I.\RTE\_BalanceCar-ID:\sofeware\arm_keil\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include-ID:\sofeware\arm_keil\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DSTM32F40_41xxx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\usmart_config.o --omf_browse ..\obj\usmart_config.crf --depend ..\obj\usmart_config.d)
 I (..\USMART\usmart.h)(0x5CA0E71F)
 I (..\USMART\usmart_str.h)(0x5CA0E71F)
 I (..\USER\stm32f4xx.h)(0x5CA0E71F)
@@ -983,7 +983,7 @@ I (..\HARDWARE\JY901\JY901_uart.h)(0x5C7F1AE4)
 I (..\HARDWARE\YL_70\YL70.h)(0x5CA0E86A)
 I (..\SYSTEM\sys\sys.h)(0x5CA0E71F)
 I (..\USER\stm32f4xx_it.h)(0x5CA0E71F)
-I (..\HARDWARE\CONTROL\control.h)(0x5CA6233C)
+I (..\HARDWARE\CONTROL\control.h)(0x5CA728B1)
 I (..\SYSTEM\delay\delay.h)(0x5CA0E71F)
 I (..\HARDWARE\ENCODER\encoder.h)(0x5CA0E86A)
 I (.\include\include.h)(0x5C7F1AE4)

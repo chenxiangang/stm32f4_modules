@@ -14,8 +14,12 @@ extern int forward_flag;
 extern int forward_speed;
 extern u8 track_flag;
 
+extern int corner_num;
+extern int cross_num;
+
 extern void forward(u16 flag, u16 dist);
 extern void turn(u16 flag, u16 dist);
+extern void stop_ctl();
 
 #define LEFT 1
 #define RIGHT 0

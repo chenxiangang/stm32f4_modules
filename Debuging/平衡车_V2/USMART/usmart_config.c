@@ -20,6 +20,7 @@ extern void turn(u16 flag,u16 dist);
 extern void  Turn_changePID(int p,int i,int d);
 extern void stop_ctl(void);
 extern void track_ctl(void);
+extern void set_track_speed(int forward_speed,int turn_speed);
 //函数名列表初始化(用户自己添加)
 //用户直接在这里输入要执行的函数名及其查找串
 struct _m_usmart_nametab usmart_nametab[] = {
@@ -47,6 +48,7 @@ struct _m_usmart_nametab usmart_nametab[] = {
 		(void*)turn,"turn(u16 flag,u16 dist)\r\n--change turn\r\n",
 		(void*)stop_ctl,"stop_ctl()",
 			(void*)track_ctl,"track_ctl()",
+				(void*)set_track_speed,"void set_track_speed(int forward_speed,int turn_speed)",
 };
 ///////////////////////////////////END///////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////

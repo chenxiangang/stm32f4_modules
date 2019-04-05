@@ -142,20 +142,23 @@ int main(void)
         //        for (i = 0; i < 4; i++) {
         //            printf("%d	", YL70[i]);
         //        }
-        //printf("\r\n");
+			printf("YL0:%d\r\n",YL70[0]);
+			printf("crossnum:%d\r\n",cross_num);
+			printf("cornernum:%d\r\n",corner_num);
+			delay_ms(300);
         //        OLED_ShowMPU(Left_Encoder_Angle,Right_Encoder_Angle,pitch,Speed_PID.SumError);
         //        //        push(0, (int)pitch);
         //        //        push(1, (int)JYAngle_PID.pwmduty);
         //        //        uSendOnePage();
         //			//printf("Encoder:%f  %f\r\n", Read_Encoder_L(), Read_Encoder_R());
-        //        if (sendflag) {
-        //            printf("pitch:%f	gyro:%f	pwmduty:%f\r\nspeed_PID.pwmduty:%f\r\n", pitch, gryo.y, pwmduty1, Speed_PID.pwmduty);
-        //           // printf("%lf	%f\r\n", Left_Encoder_Angle, Right_Encoder_Angle);
-        //            printf("Angle PrevError:%lf\r\n", JYAngle_PID.PrevError);
-        //					printf("Pitch:%lf\r\n", pitch);
-        //					printf("Encoder_SumError:%f\r\n",Speed_PID.SumError);
-        //            printf("Encoder:%d  %d\r\n\r\n", Left_Encoder_Angle, Right_Encoder_Angle);
-        delay_ms(300);
-        //       }
+								if (sendflag) {
+										printf("pitch:%f	gyro:%f	pwmduty:%f\r\nspeed_PID.pwmduty:%f\r\n", pitch, gryo.y, pwmduty1, Speed_PID.pwmduty);
+									 // printf("%lf	%f\r\n", Left_Encoder_Angle, Right_Encoder_Angle);
+										printf("Angle PrevError:%lf\r\n", JYAngle_PID.PrevError);
+									printf("Pitch:%lf\r\n", pitch);
+									printf("Encoder_SumError:%f\r\n",Speed_PID.SumError);
+										printf("Encoder:%d  %d\r\n\r\n", Left_Encoder_Angle, Right_Encoder_Angle);
+				delay_ms(300);
+             }
     }
 }

@@ -27,11 +27,14 @@ Project File Date:  04/04/2019
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\sofeware\arm_keil\ARM\ARMCC\Bin'
 Build target 'BalanceCar'
-compiling main.c...
+compiling control.c...
+..\HARDWARE\CONTROL\control.h(22): warning:  #1295-D: Deprecated declaration stop_ctl - give arg types
+  extern void stop_ctl();
+..\HARDWARE\CONTROL\control.c: 1 warning, 0 errors
 linking...
-Program Size: Code=18738 RO-data=1438 RW-data=520 ZI-data=3696  
+Program Size: Code=22858 RO-data=1670 RW-data=544 ZI-data=3696  
 FromELF: creating hex file...
-"..\OBJ\BalanceCar.axf" - 0 Error(s), 0 Warning(s).
+"..\OBJ\BalanceCar.axf" - 0 Error(s), 1 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -45,7 +48,7 @@ Package Vendor: Keil
   D:\sofeware\arm_keil\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:06
+Build Time Elapsed:  00:00:04
 </pre>
 </body>
 </html>
