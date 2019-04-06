@@ -137,6 +137,7 @@ int main(void)
     JY_changePID(200, 0, 7000); //  这是乘0.6前的稳JY_changePID(500,0,11500)
     Speed_changePID(32000, 160, 0);
     Turn_changePID(0, 0, 0);
+	track_ctl();
     while (1) {
         //        YL_70_Read_All(YL70);
         //        for (i = 0; i < 4; i++) {

@@ -3,7 +3,7 @@
 <title>Static Call Graph - [..\OBJ\BalanceCar.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\OBJ\BalanceCar.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Fri Apr 05 22:56:49 2019
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sat Apr 06 23:59:12 2019
 <BR><P>
 <H3>Maximum Stack Usage =        372 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -313,8 +313,8 @@ Global Symbols
 <P><STRONG><a name="[156]"></a>__rt_entry_postsh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000009))
 
 <P><STRONG><a name="[8f]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
-<BR><BR>[Stack]<UL><LI>Max Depth = 184 + Unknown Stack Size
-<LI>Call Chain = __rt_entry_main &rArr; main &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
+<BR><BR>[Stack]<UL><LI>Max Depth = 192 + Unknown Stack Size
+<LI>Call Chain = __rt_entry_main &rArr; main &rArr; track_ctl &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
@@ -943,7 +943,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> usmart_config.o(.data)
 </UL>
-<P><STRONG><a name="[c8]"></a>KeepBalance</STRONG> (Thumb, 194 bytes, Stack size 8 bytes, control.o(i.KeepBalance))
+<P><STRONG><a name="[c8]"></a>KeepBalance</STRONG> (Thumb, 202 bytes, Stack size 8 bytes, control.o(i.KeepBalance))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = KeepBalance &rArr; balance_UP &rArr; stop &rArr; speedcontrol &rArr; __aeabi_cdcmple
 </UL>
 <BR>[Calls]<UL><LI><a href="#[8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;speedcontrol
@@ -1404,7 +1404,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[12]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usmart_init
 </UL>
 
-<P><STRONG><a name="[cc]"></a>Tracking</STRONG> (Thumb, 196 bytes, Stack size 8 bytes, control.o(i.Tracking))
+<P><STRONG><a name="[cc]"></a>Tracking</STRONG> (Thumb, 320 bytes, Stack size 8 bytes, control.o(i.Tracking))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = Tracking &rArr; YL_70_Read_All
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;YL_70_Read_All
@@ -1587,9 +1587,9 @@ Global Symbols
 <P><STRONG><a name="[74]"></a>fputc</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, usart.o(i.fputc))
 <BR>[Address Reference Count : 1]<UL><LI> _printf_char_file.o(.text)
 </UL>
-<P><STRONG><a name="[90]"></a>main</STRONG> (Thumb, 324 bytes, Stack size 40 bytes, main.o(i.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 184 + Unknown Stack Size
-<LI>Call Chain = main &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
+<P><STRONG><a name="[90]"></a>main</STRONG> (Thumb, 328 bytes, Stack size 40 bytes, main.o(i.main))
+<BR><BR>[Stack]<UL><LI>Max Depth = 192 + Unknown Stack Size
+<LI>Call Chain = main &rArr; track_ctl &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart3_init
 <LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init
@@ -1604,6 +1604,7 @@ Global Symbols
 <LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Init
 <LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_TIM4_Init
 <LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_TIM2_Init
+<LI><a href="#[10]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;track_ctl
 <LI><a href="#[d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Turn_changePID
 <LI><a href="#[9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Speed_changePID
 <LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PID_Init
@@ -1669,6 +1670,8 @@ Global Symbols
 <LI>Call Chain = track_ctl &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+</UL>
+<BR>[Called By]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> usmart_config.o(.data)
 </UL>
