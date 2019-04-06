@@ -20,6 +20,11 @@ int main(void)
 	OV7725_Init();
 	
 
+<<<<<<< HEAD
   while(1){	
+=======
+  while(1){		
+		OLED_Show(0,0);
+>>>>>>> d2686ec1137ae2ee6a521778f33ee7ec28b2fe85
 		}
 }

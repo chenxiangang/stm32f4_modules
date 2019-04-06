@@ -24,30 +24,6 @@ void DCMI_IRQHandler(void)
 	{
 		DCMI->ICR = DCMI_IT_VSYNC; //clear flag
 
-		//		//图像采集完成，更换缓冲区
-		//		if(Image_raw == ImageBuff1)
-		//		{
-		//			Image_raw = ImageBuff2;
-		//		}
-		//		if(Image_raw == ImageBuff2)
-		//		{
-		//			Image_raw = ImageBuff1;
-		//		}
-		//
-		//		//如果图像处理完成，更换到图像采集的另一个缓冲区
-		//		if(ImgControl.ImgDealOk == true)
-		//		{
-		//			if(Image_raw == ImageBuff1)
-		//			{
-		//				Image = ImageBuff2;
-		//			}
-		//			if(Image_raw == ImageBuff2)
-		//			{
-		//				Image = ImageBuff1;
-		//			}
-		//
-		//			ImgControl.ImgDealOk = false;
-		//		}
 
 		ImgControl.lines = 0;
 
@@ -56,9 +32,6 @@ void DCMI_IRQHandler(void)
 		{
 			ImgControl.lines = 0; //清空行
 			ImgControl.ImgOk = false;
-
-			//ImgControl.Count++;
-			//64ms一次
 		}
 		frame++;
 		//64ms一次
@@ -82,13 +55,9 @@ void DCMI_IRQHandler(void)
 			}
 			else
 			{
-				//                //未进入
-				//                //RED_TURN;
 				ImgControl.ImgOk = true;
 				ImgControl.ImgDealOk = true;
 
-				//                //	taskrun_time.camera.task_time=sys_time.s*1000+sys_time.ms-taskrun_time.camera.s*1000+taskrun_time.camera.ms;
-				//                //DMA2_Stream1->CR  &= (uint32_t)~DMA_SxCR_EN;//DMA_Cmd(DMA2_Stream1, DISABLE);
 			}
 		}
 	}
@@ -124,7 +93,7 @@ void DCMI_DMA_Init(u32 DMA_Memory0BaseAddr, u16 DMA_BufferSize, u32 DMA_MemoryDa
 
 	/* 配置 DMA Stream */
 	DMA_InitStructure.DMA_Channel = DMA_Channel_1;							//通道1 DCMI通道
-	DMA_InitStructure.DMA_PeripheralBaseAddr = (u32)&DCMI->DR;				//外设地址为:DCMI->DR
+	DMA_InitStructure.DMA_PeripheralBaseAddr = 0x50050028;	//(u32)&DCMI->DR;				//外设地址为:DCMI->DR
 	DMA_InitStructure.DMA_Memory0BaseAddr = DMA_Memory0BaseAddr;			//DMA 存储器0地址
 	DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralToMemory;					//外设到存储器模式
 	DMA_InitStructure.DMA_BufferSize = DMA_BufferSize;						//数据传输量
