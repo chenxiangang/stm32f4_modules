@@ -42,81 +42,94 @@ void set_track_speed(int forward_speed, int turn_speed)
 void Tracking()
 {
     YL_70_Read_All(YL70);
+    //---------------------------------------------------------------
     //0是没检测到黑线，灯亮
-    //    if (last_YL3 == 0 && YL70[3] == 1) //由白到黑跳变,直角或者十字
-    //    {
-    //        corner_num++;
-    //        corner_flag = 1;
-    //			yaw0 = (int)yaw;
-    //
-    //    }
-    //
-    //		if(last_YL0 == 0 && YL70[0] == 1)  //十字
-    //		{
-    //				cross_num ++;
-    //		}
-    //
-    //		if(corner_flag)   //直角
-    //		{
-    //			if(corner_num == 1)//起点
-    //			{
-    //				forward(0,700);
-    //				corner_flag = 0;
-    //			}
-    //			turn(LEFT,2500);
-    //			forward(0,0);
-    //			if(((int)yaw-yaw0>=30 || (int)yaw-yaw0 <= -30) && (YL70[1] ||YL70[2]))   //转弯结束条件
-    //			{
-    //				corner_flag = 0;
-    //			}
-    //		}
-    //		else //非直角
-    //		{
-    //			if(!(YL70[0] | YL70[1] | YL70[2] | YL70[3])) //全部没检测到，直角转弯时也会出现，居中或者离开区域
-    //    {
-    //        forward(0, 700);
-    //        turn(0, 0);
-    //    } else if (YL70[2] && !(YL70[0] | YL70[1] | YL70[3])) //中间偏左检测到黑线 2
-    //    {
-    //        turn(LEFT, 500); //右转
-    //    } else if (YL70[1] && !(YL70[0] | YL70[2] | YL70[3])) //中间偏右检测到黑线 1
-    //    {
-    //        turn(RIGHT, 500); //左转
-    //    }
-    //		else if(YL70[1] && YL70[2])
-    //		{
-    //			 forward(0, 700);
-    //       turn(0, 0);
-    //		}
-    //	}
-    if (last_YL0 == 0 && YL70[0] == 1) { //进十字
-        cross_num++;
-    }
-    if (last_YL0 == 1 && YL70[0] == 0) { //出十字
-        cross_num++;
+//    if (last_YL0 == 0 && YL70[0] == 1) { //进十字
+//        cross_num++;
+//    }
+//    if (last_YL0 == 1 && YL70[0] == 0) { //出十字
+//        cross_num++;
+//    }
+
+    if (last_YL3 == 0 && YL70[3] == 1) //由白到黑跳变,直角或者十字
+    {
+        corner_flag = 1;
+        //corner_num++;
     }
 
     if (cross_num == 1) { //第一次十字,继续走
-        forward(0, 900);
+        forward(0, 550);
     } else if (cross_num == 4) { //第二次出十字，停
         forward_flag = 2;
         Speed_PID.SumError = 1500;
         turn_speed = 0;
         track_flag = 0;
-    } else {
-        if (YL70[2] == 1) { //中间黑线，直走
-            forward(0, 800);
-            turn(LEFT, 0);
-        } else if (YL70[1] == 1 && !YL70[3]) { //偏右，右转
-            turn(RIGHT, 800);
-        } else if (YL70[3] == 1 && !YL70[1]) { //偏左，左转
-            turn(LEFT, 800);
-        } else if (YL70[1] && YL70[3]) { //直角，左转
-            turn(LEFT, 800);
+    } else if (corner_flag) //直角
+    {
+        if (corner_num == 1) //起点,直走
+        {
+            forward(0, 550);
+            corner_flag = 0;
+        } else {
+            forward(1, 0);
+            turn(LEFT, 2500);
+        }
+        if (YL70[2]) //转弯结束条件
+        {
+            corner_flag = 0;
+            turn(RIGHT, 0);
+        }
+    } else //非直角
+    {
+        if (!(YL70[0] | YL70[1] | YL70[2] | YL70[3])) //全部没检测到，直角转弯时也会出现，居中或者离开区域
+        {
+            forward(0, 550);
+            turn(0, 0);
+        } else if (YL70[2] && !(YL70[0] | YL70[1] | YL70[3])) //中间偏左检测到黑线 2
+        {
+            turn(LEFT, 1000); //右转
+        } else if (YL70[1] && !(YL70[0] | YL70[2] | YL70[3])) //中间偏右检测到黑线 1
+        {
+            turn(RIGHT, 1000); //左转
+        } else if (YL70[1] && YL70[2]) {
+            forward(0, 550);
+            turn(0, 0);
         }
     }
-
     last_YL0 = YL70[0];
+    last_YL3 = YL70[3];
+    //----------------------------能跑完，但是比较蛇皮--------------------------------------
+    //    if (last_YL0 == 0 && YL70[0] == 1) { //进十字
+    //        cross_num++;
+    //    }
+    //    if (last_YL0 == 1 && YL70[0] == 0) { //出十字
+    //        cross_num++;
+    //    }
+
+    //    if (cross_num == 1) { //第一次十字,继续走
+    //        forward(0, 900);
+    //    } else if (cross_num == 4) { //第二次出十字，停
+    //        forward_flag = 2;
+    //        Speed_PID.SumError = 1500;
+    //        turn_speed = 0;
+    //        track_flag = 0;
+    //    } else {
+    //        if (YL70[2] == 1) { //中间黑线，直走
+    //            forward(0, 550);
+    //            turn(LEFT, 0);
+    //        } else if (YL70[1] == 1 && !YL70[3]) { //偏右，右转
+    //					forward(0,0);
+    //            turn(RIGHT, 1200);
+    //        } else if (YL70[3] == 1 && !YL70[1]) { //偏左，左转
+    //            turn(LEFT, 1200);
+    //					forward(0,0);
+    //        } else if (YL70[1] && YL70[3]) { //直角，左转
+    //            turn(LEFT, 1200);
+    //					forward(0,0);
+    //        }
+    //    }
+    //last_YL0 = YL70[0];
+    //---------------------------------------------------------------
 }
 
 void stop()
@@ -215,7 +228,7 @@ void KeepBalance()
         corner_num = 0;
         last_YL3 = 0;
         last_YL0 = 0;
-        cross_num = 0；
+        cross_num = 0;
     }
     //---------------运动控制，可以遥控或者循迹来控制
     turn_ctl(); //转向

@@ -11,18 +11,20 @@
 #include "OLED.h"
 #include "OV7725.h"
 
-
-
 int main(void)
 {
-	//uart_init(115200);
+	uart_init(115200);
 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
 	delay_init(168);
 	OLED_Init();
 	OV7725_Init();
 	
 
+<<<<<<< HEAD
+  while(1){	
+=======
   while(1){		
 		OLED_Show(0,0);
+>>>>>>> d2686ec1137ae2ee6a521778f33ee7ec28b2fe85
 		}
 }
