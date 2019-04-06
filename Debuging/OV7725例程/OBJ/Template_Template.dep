@@ -1,5 +1,5 @@
 Dependencies for Project 'Template', Target 'Template': (DO NOT MODIFY !)
-F (.\main.c)(0x5CA7610E)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\FWLIB\inc -I..\HARDWARE\OLED -I..\HARDWARE\OV7725-I F:\钱旭\武汉理工大学\电赛\stm32f4_modules\Debuging\OV7725例程\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
+F (.\main.c)(0x5CA84636)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\FWLIB\inc -I..\HARDWARE\OLED -I..\HARDWARE\OV7725-I F:\钱旭\武汉理工大学\电赛\stm32f4_modules\Debuging\OV7725例程\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
 I (stm32f4xx.h)(0x5CA75EB0)
 I (..\CORE\core_cm4.h)(0x5CA75EAD)
 I (F:\keil5\ARM\ARMCC\include\stdint.h)(0x5475F300)
@@ -39,7 +39,7 @@ I (..\SYSTEM\usart\usart.h)(0x5CA75EB0)
 I (F:\keil5\ARM\ARMCC\include\stdio.h)(0x5475F300)
 I (..\SYSTEM\sys\sys.h)(0x5CA75EB0)
 I (..\SYSTEM\delay\delay.h)(0x5CA75EB0)
-I (..\HARDWARE\OLED\OLED.h)(0x5CA75F8E)
+I (..\HARDWARE\OLED\OLED.h)(0x5CA83BCB)
 I (F:\keil5\ARM\ARMCC\include\stdlib.h)(0x5475F300)
 I (..\HARDWARE\OV7725\OV7725.h)(0x5CA760D4)
 I (F:\keil5\ARM\ARMCC\include\stdbool.h)(0x5475F300)
@@ -116,8 +116,8 @@ I (..\FWLIB\inc\stm32f4xx_can.h)(0x5CA75EAD)
 I (..\FWLIB\inc\stm32f4xx_dac.h)(0x5CA75EAD)
 I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x5CA75EAD)
 I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x5CA75EAD)
-F (..\HARDWARE\OLED\oled.c)(0x5CA75FB5)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\FWLIB\inc -I..\HARDWARE\OLED -I..\HARDWARE\OV7725-I F:\钱旭\武汉理工大学\电赛\stm32f4_modules\Debuging\OV7725例程\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\oled.o --omf_browse ..\obj\oled.crf --depend ..\obj\oled.d)
-I (..\HARDWARE\OLED\oled.h)(0x5CA75F8E)
+F (..\HARDWARE\OLED\oled.c)(0x5CA83C0E)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\FWLIB\inc -I..\HARDWARE\OLED -I..\HARDWARE\OV7725-I F:\钱旭\武汉理工大学\电赛\stm32f4_modules\Debuging\OV7725例程\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\oled.o --omf_browse ..\obj\oled.crf --depend ..\obj\oled.d)
+I (..\HARDWARE\OLED\oled.h)(0x5CA83BCB)
 I (..\SYSTEM\sys\sys.h)(0x5CA75EB0)
 I (..\USER\stm32f4xx.h)(0x5CA75EB0)
 I (..\CORE\core_cm4.h)(0x5CA75EAD)
@@ -156,7 +156,9 @@ I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x5CA75EAD)
 I (F:\keil5\ARM\ARMCC\include\stdlib.h)(0x5475F300)
 I (..\SYSTEM\delay\delay.h)(0x5CA75EB0)
 I (..\HARDWARE\OLED\oledfont.h)(0x5CA75EAE)
-F (..\HARDWARE\OV7725\dcmi.c)(0x5CA760EC)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\FWLIB\inc -I..\HARDWARE\OLED -I..\HARDWARE\OV7725-I F:\钱旭\武汉理工大学\电赛\stm32f4_modules\Debuging\OV7725例程\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\dcmi.o --omf_browse ..\obj\dcmi.crf --depend ..\obj\dcmi.d)
+I (..\HARDWARE\OV7725\OV7725.h)(0x5CA760D4)
+I (F:\keil5\ARM\ARMCC\include\stdbool.h)(0x5475F300)
+F (..\HARDWARE\OV7725\dcmi.c)(0x5CA84CB7)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\FWLIB\inc -I..\HARDWARE\OLED -I..\HARDWARE\OV7725-I F:\钱旭\武汉理工大学\电赛\stm32f4_modules\Debuging\OV7725例程\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\dcmi.o --omf_browse ..\obj\dcmi.crf --depend ..\obj\dcmi.d)
 I (..\SYSTEM\sys\sys.h)(0x5CA75EB0)
 I (..\USER\stm32f4xx.h)(0x5CA75EB0)
 I (..\CORE\core_cm4.h)(0x5CA75EAD)
@@ -195,7 +197,7 @@ I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x5CA75EAD)
 I (..\HARDWARE\OV7725\dcmi.h)(0x5CA75F0E)
 I (..\HARDWARE\OV7725\OV7725.h)(0x5CA760D4)
 I (F:\keil5\ARM\ARMCC\include\stdbool.h)(0x5475F300)
-F (..\HARDWARE\OV7725\OV7725.c)(0x5CA76196)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\FWLIB\inc -I..\HARDWARE\OLED -I..\HARDWARE\OV7725-I F:\钱旭\武汉理工大学\电赛\stm32f4_modules\Debuging\OV7725例程\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\ov7725.o --omf_browse ..\obj\ov7725.crf --depend ..\obj\ov7725.d)
+F (..\HARDWARE\OV7725\OV7725.c)(0x5CA844B7)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\FWLIB\inc -I..\HARDWARE\OLED -I..\HARDWARE\OV7725-I F:\钱旭\武汉理工大学\电赛\stm32f4_modules\Debuging\OV7725例程\USER\RTE-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I F:\keil5\ARM\CMSIS\Include-I F:\keil5\Keil\STM32F4xx_DFP\2.5.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\ov7725.o --omf_browse ..\obj\ov7725.crf --depend ..\obj\ov7725.d)
 I (..\HARDWARE\OV7725\OV7725.h)(0x5CA760D4)
 I (..\SYSTEM\sys\sys.h)(0x5CA75EB0)
 I (..\USER\stm32f4xx.h)(0x5CA75EB0)

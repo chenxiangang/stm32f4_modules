@@ -16,8 +16,8 @@
  * @param {type} 
  * @return: 
  */
-#define OV7725_EAGLE_W            80                                    //定义摄像头图像宽度
-#define OV7725_EAGLE_H            60                                    //定义摄像头图像高度
+#define OV7725_EAGLE_W            160                                    //定义摄像头图像宽度
+#define OV7725_EAGLE_H            240                                    //定义摄像头图像高度
 
 
 u8 Image[CAMERA_H][CAMERA_W] = {0};

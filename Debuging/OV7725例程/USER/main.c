@@ -23,5 +23,6 @@ int main(void)
 	
 
   while(1){		
+		OLED_Show(0,0);
 		}
 }
