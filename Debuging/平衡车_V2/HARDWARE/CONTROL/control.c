@@ -42,23 +42,24 @@ void set_track_speed(int forward_speed, int turn_speed)
 void Tracking()
 {
     YL_70_Read_All(YL70);
-    //---------------------------------------------------------------
+	
+    //-----------------------直角那里还是有问题，速度调慢点，还有最主要应该是对管的问题----------------------------------------
     //0是没检测到黑线，灯亮
-//    if (last_YL0 == 0 && YL70[0] == 1) { //进十字
-//        cross_num++;
-//    }
-//    if (last_YL0 == 1 && YL70[0] == 0) { //出十字
-//        cross_num++;
-//    }
+    if (last_YL0 == 0 && YL70[0] == 1) { //进十字
+        cross_num++;
+    }
+    if (last_YL0 == 1 && YL70[0] == 0) { //出十字
+        cross_num++;
+    }
 
     if (last_YL3 == 0 && YL70[3] == 1) //由白到黑跳变,直角或者十字
     {
         corner_flag = 1;
-        //corner_num++;
+        corner_num++;
     }
 
     if (cross_num == 1) { //第一次十字,继续走
-        forward(0, 550);
+        forward(0, 750);
     } else if (cross_num == 4) { //第二次出十字，停
         forward_flag = 2;
         Speed_PID.SumError = 1500;
@@ -68,7 +69,7 @@ void Tracking()
     {
         if (corner_num == 1) //起点,直走
         {
-            forward(0, 550);
+            forward(0, 750);
             corner_flag = 0;
         } else {
             forward(1, 0);
@@ -83,7 +84,7 @@ void Tracking()
     {
         if (!(YL70[0] | YL70[1] | YL70[2] | YL70[3])) //全部没检测到，直角转弯时也会出现，居中或者离开区域
         {
-            forward(0, 550);
+            forward(0, 750);
             turn(0, 0);
         } else if (YL70[2] && !(YL70[0] | YL70[1] | YL70[3])) //中间偏左检测到黑线 2
         {
@@ -92,12 +93,14 @@ void Tracking()
         {
             turn(RIGHT, 1000); //左转
         } else if (YL70[1] && YL70[2]) {
-            forward(0, 550);
+            forward(0, 750);
             turn(0, 0);
         }
     }
     last_YL0 = YL70[0];
     last_YL3 = YL70[3];
+		//-------------------------------------------------------------------------------------
+		
     //----------------------------能跑完，但是比较蛇皮--------------------------------------
     //    if (last_YL0 == 0 && YL70[0] == 1) { //进十字
     //        cross_num++;
