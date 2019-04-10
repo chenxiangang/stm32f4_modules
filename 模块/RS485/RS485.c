@@ -28,7 +28,7 @@ void rs485_init(int bound)
 	
 	//USART2
 	//GPIOA2与GPIOA3
-  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2 | GPIO_Pin_2; 
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2 | GPIO_Pin_3; 
 	//复用功能
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
 	//速度100MHz
