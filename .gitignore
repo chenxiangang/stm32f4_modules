@@ -55,28 +55,28 @@ dkms.conf
 
 
 # OBJ files
- *.bak /s
- *.ddk /s
- *.edk /s
- *.lst /s
- *.lnp /s
- *.mpf /s
- *.mpj /s
- *.obj /s
- *.omf /s
- *.plg /s
- *.rpt /s
- *.tmp /s
- *.__i /s
- *.crf /s
- *.o /s
- *.d /s
- *.axf /s
- *.tra /s
- *.dep /s           
- JLinkLog.txt /s
+ *.bak 
+ *.ddk 
+ *.edk 
+ *.lst 
+ *.lnp 
+ *.mpf 
+ *.mpj 
+ *.obj 
+ *.omf 
+ *.plg 
+ *.rpt 
+ *.tmp 
+ *.__i 
+ *.crf 
+ *.o 
+ *.d 
+ *.axf 
+ *.tra 
+ *.dep           
+ JLinkLog.txt 
 
- *.iex /s
- *.htm /s
- *.sct /s
- *.map /s
+ *.iex 
+ *.htm 
+ *.sct 
+ *.map 
