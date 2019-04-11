@@ -369,7 +369,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F40_41xxx,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\CORE;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\USER;..\FWLIB\inc;..\HARDWARE\NRF</IncludePath>
+              <IncludePath>..\CORE;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\USER;..\FWLIB\inc;..\HARDWARE\NRF;..\HARDWARE\CAMERA</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -436,6 +436,26 @@
               <FileName>nrf.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\NRF\nrf.c</FilePath>
+            </File>
+            <File>
+              <FileName>OV7620.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\CAMERA\OV7620.c</FilePath>
+            </File>
+            <File>
+              <FileName>camera_deal.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\CAMERA\camera_deal.c</FilePath>
+            </File>
+            <File>
+              <FileName>dcmi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\CAMERA\dcmi.c</FilePath>
+            </File>
+            <File>
+              <FileName>sccb.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\CAMERA\sccb.c</FilePath>
             </File>
           </Files>
         </Group>

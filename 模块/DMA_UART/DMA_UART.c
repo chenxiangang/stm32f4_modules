@@ -107,6 +107,20 @@ void USendOneChar(u8 ch)
     while (USART_GetFlagStatus(USART2, USART_FLAG_TC) != SET)
         ; //μè′y·￠?ííê
 }
+//开启一次DMA
+//DMA_Streamx:DMA数据流,DMA1_Stream0~7/DMA2_Stream0~7 
+//ndtr:数据传输量 
+void MYDMA_Enable(DMA_Stream_TypeDef *DMA_Streamx,u16 ndtr)
+{
+ 
+	DMA_Cmd(DMA_Streamx, DISABLE);                      //¹Ø±ÕDMA´«Êä 
+	
+	while (DMA_GetCmdStatus(DMA_Streamx) != DISABLE){}	//È·±£DMA¿ÉÒÔ±»ÉèÖÃ  
+		
+	DMA_SetCurrDataCounter(DMA_Streamx,ndtr);          //Êý¾Ý´«ÊäÁ¿  
+ 
+	DMA_Cmd(DMA_Streamx, ENABLE);                      //¿ªÆôDMA´«Êä 
+}	  
 
 u8 UART2_DMA_Init(u8** argv, int size, u8 mode)
 {
@@ -135,9 +149,9 @@ u8 UART2_DMA_Init(u8** argv, int size, u8 mode)
     USART_DMACmd(USART2, USART_DMAReq_Tx, ENABLE); //开启传输DMA
     MYDMA_Enable(DMA1_Stream6, size); //使能DMA
     while (1) {
-        if (DMA_GetFlagStatus(DMA1_Stream6, DMA_FLAG_TCIF7) != RESET) //中断
+        if (DMA_GetFlagStatus(DMA1_Stream6, DMA_FLAG_TCIF6) != RESET) //中断
         {
-            DMA_ClearFlag(DMA1_Stream6, DMA_FLAG_TCIF7); //清除中断
+            DMA_ClearFlag(DMA1_Stream6, DMA_FLAG_TCIF6); //清除中断
             break;
         }
     }
